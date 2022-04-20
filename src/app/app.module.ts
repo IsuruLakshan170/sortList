@@ -4,7 +4,7 @@ import {PickListModule} from 'primeng/picklist';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PickListComponent } from './pick-list/pick-list.component';
-
+import {ButtonModule} from 'primeng/button';
 @NgModule({
   declarations: [
     AppComponent,
@@ -13,7 +13,8 @@ import { PickListComponent } from './pick-list/pick-list.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    PickListModule
+    PickListModule,
+    ButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

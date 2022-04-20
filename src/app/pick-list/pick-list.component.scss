@@ -1,4 +1,12 @@
 
+.card{
+    margin-top: 2rem;
+    padding: 2rem;
+    border:  1px solid rgb(211, 210, 210) ;
+    background-color: #f0f1f3;
+    width: 1000px;
+}
+
 :host ::ng-deep .p-button{
     
     color: #ffffff;
@@ -16,6 +24,7 @@ margin-left: -66px;
 margin-top: 20px;
 }
 :host ::ng-deep  .p-picklist-header{
+    font-size: 22px;
         background-color: rgba(196, 189, 189, 0.329);
         color: black;
         text-align: center;
@@ -37,12 +46,20 @@ color: black;
     color: black;
 }
 
-:host ::ng-deep .p-picklist .p-picklist-list .p-picklist-item{
+
+:host ::ng-deep .p-picklist .p-picklist-list .p-picklist-item {
     margin-top: 5px;
     margin-bottom: 5px;
     margin-right: 54px;
     color: black;
-    //background-color: rgb(131, 127, 127);
+    font-size: 17px;
+  //  background-color: rgb(131, 127, 127);
+}
+
+
+:host ::ng-deep .p-picklist .p-picklist-list .p-picklist-item :hover{
+    
+   // background-color: rgb(131, 127, 127);
 }
 :host ::ng-deep .pi-search{
    color: black;
@@ -60,3 +77,17 @@ color: black;
    color: rgb(0, 0, 0);
   
 }
+
+.savebtn{
+    padding: 1rem;
+    background-color: beige;
+    width: 1000px;
+}
+.btnsavelist{
+    margin-left: 2rem;
+}
+
+:host ::ng-deep .p-picklist .p-picklist-list:not(.cdk-drop-list-dragging) .p-picklist-item:not(.p-highlight):hover {
+    background: rgba(243, 243, 243, 0.993);
+    color: rgba(0, 0, 0, 0.993);
+  }
