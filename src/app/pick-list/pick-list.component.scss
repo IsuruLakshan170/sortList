@@ -1,0 +1,62 @@
+
+:host ::ng-deep .p-button{
+    
+    color: #ffffff;
+    background: #4f98d3;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+    border-radius: 3px;
+
+}
+
+:host ::ng-deep .p-picklist-target-controls{
+
+margin-left: -66px;
+margin-top: 20px;
+}
+:host ::ng-deep  .p-picklist-header{
+        background-color: rgba(196, 189, 189, 0.329);
+        color: black;
+        text-align: center;
+}
+:host ::ng-deep .p-picklist-filter-container{
+background-color: rgb(255, 255, 255);
+color: black;
+}
+
+
+:host ::ng-deep .p-inputtext{
+background-color: rgb(255, 255, 255);
+color: black;
+}
+
+
+:host ::ng-deep .p-picklist-list{
+    background-color: rgb(255, 255, 255);
+    color: black;
+}
+
+:host ::ng-deep .p-picklist .p-picklist-list .p-picklist-item{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 54px;
+    color: black;
+    //background-color: rgb(131, 127, 127);
+}
+:host ::ng-deep .pi-search{
+   color: black;
+}
+
+:host ::ng-deep .p-picklist-source-controls{
+   visibility: hidden;
+}
+
+:host ::ng-deep .p-picklist-transfer-buttons .p-button{
+    height: 5rem;
+   
+}
+:host ::ng-deep .p-picklist .p-picklist-filter-container .p-picklist-filter-icon{
+   color: rgb(0, 0, 0);
+  
+}
