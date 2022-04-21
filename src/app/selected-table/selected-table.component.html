@@ -1,65 +1,11 @@
-<div class="grid">
-    <div class="flex-container">
-<div>
-   
-    <p-table [value]="LevelName">
-        <ng-template pTemplate="header">
-            <tr class="tRow">
-                <th><h3> Levels  </h3></th>
-            </tr>
-        </ng-template>
-        <ng-template pTemplate="body" let-product>
-            <tr>
-                    <td>
-                        <div class="product-item1" pDraggable="products" (click)="onClickRightCell(product)" (onDragStart)="dragStart(product)" (onDragEnd)="dragEnd()">
-                        {{product.text}}
-                        </div>
-                    </td>     
-                   
-                </tr>
-            </ng-template>
-        </p-table>
-</div>
-    <div class="col-6 md:col-6 drop-column" pDroppable="products" (onDrop)="drop()">
-    <p-table [value]="SelectedLevelName" [reorderableColumns]="true" responsiveLayout="scroll">
-        
-        <ng-template pTemplate="header">
-            <tr class="tRow">  
-             <th><h3>Order</h3></th>
-                <th><h3>Selected Levels </h3></th>
-            </tr>
-        </ng-template>
-        <ng-template pTemplate="body" let-product >
-          
-            <tr>
-                    <td>{{product.id}}</td>
-                    <td>   
-                        {{product.text}}
-                    </td>
-                   
-                   
-                </tr>
-            </ng-template>
-        </p-table>
-    </div>
-</div>
-</div>
-
-
-
-
-
-
-
-
 
 
 <div class="flex-container">
     <div >
-        <table  class="table table-dark">
-            <thead>
+        <table  class="table table-hover table-dark selection-table">
+            <thead >
               <tr >
-                  <th><h4> Levels  </h4></th>
+                  <th><h4  class="selectionHeader"> Levels  </h4></th>
               </tr>
             </thead>
                  
@@ -89,20 +35,17 @@
     <button type="button" class="btn btn-primary" [disabled]="LeftButtonDisable" (click)="LeftPushOne()"  ><</button>
     <button type="button" class="btn btn-primary" (click)="LeftPushAll()" ><<</button>
 </div>
-
     <div class="col-6 md:col-6 drop-column" pDroppable="products"  (onDrop)="drop()">
-        <table class="table table-dark">
+        <table class="table table-dark selected-table">
             <thead>
                  <tr>
               <th colspan="2"><h5 class="header">Level Name</h5> </th>
-            
             </tr>
-          
             </thead>
             <tbody>
                 <tr>
           <td>  
-             <p-orderList [value]="SelectedLevelName" [listStyle]="{'max-height':'30rem'}" header="Order"  [dragdrop]="true">
+             <p-orderList  [value]="SelectedLevelName" [listStyle]="{'max-height':'40rem'}" header="Order"  [dragdrop]="true">
                     <ng-template let-product pTemplate="item" let-i="index" >
                          <div>
                            <div>{{i+1}}</div>
@@ -111,10 +54,10 @@
                 </p-orderList>
           </td>
           <td>  
-            <p-orderList [value]="SelectedLevelName" [listStyle]="{'max-height':'30rem'}" header="Selected Levels"  [dragdrop]="true">
+            <p-orderList [value]="SelectedLevelName" [listStyle]="{'max-height':'40rem'}" header="Selected Levels"  [dragdrop]="true">
                    <ng-template let-product pTemplate="item" let-i="index">
                         <div>
-                          <div (click)="onClickLeftCell(product)" > {{i+1}} {{product.text}}</div>
+                          <div (click)="onClickLeftCell(product)" >  {{product.text}}</div>
                          </div>
                    </ng-template>
                </p-orderList>
@@ -133,17 +76,3 @@
 
 
 
-
-<p-orderList [value]="LevelName" [listStyle]="{'max-height':'30rem'}" header="List of Products"  [dragdrop]="true">
-    <ng-template let-product pTemplate="item">
-        <div>
-            <div>{{product.text}}</div>
-        </div>
-    </ng-template>
-</p-orderList>
-
-
-
-
-
-<button type="button" class="btn btn-primary">Primary</button>

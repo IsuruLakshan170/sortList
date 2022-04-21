@@ -66,10 +66,12 @@
     display: none;
 }
 .arrowbtn{
-    margin-top: 200px;
+    margin-top: 500px;
     margin-left: 50px;
     width: 80px;
 }
+
+
 
 :host ::ng-deep .p-orderlist .p-orderlist-list{
     background: transparent;
@@ -77,7 +79,10 @@
 .ptableheight{
     height: 1000px;
 }
+.selectionHeader{
+    text-align: center;
 
+}
 .header{
     text-align: center;
 }
@@ -87,9 +92,28 @@
 .bg{
     background: red;
 }
+.selected-table{
+    width: 350px;
+    min-height: 350px;
+}
+.selection-table{
+    width: 250px;
+    height: 350px;
+    min-height: 350px;
+    background-color: #212529;
+}
+td, th {
+   // width:200px !important;
+    height:20px !important;
+  //  max-width:150px !important;
+    max-height:70px !important;
+   // min-width:150px !important;
+    min-height:70px !important;
+  }
 
 .product-item1{
     font-size: 20px;
+    padding: 3px;
 }
 @media screen and (max-width: 576px) {
     .product-item {
