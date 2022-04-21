@@ -1,6 +1,6 @@
 
 
-<div class="flex-container">
+<div class="flex-container card-boder">
     <div >
         <table  class="table table-hover table-dark selection-table">
             <thead >
@@ -27,48 +27,47 @@
       
     
     </div>
-   
-
-<div class="arrowbtn">
-    <button type="button" class="btn btn-primary" [disabled]="RightButtonDisable" (click)="RightPushOne()" >></button>
-    <button type="button" class="btn btn-primary"  (click)="RightPushAll()" >>></button>
-    <button type="button" class="btn btn-primary" [disabled]="LeftButtonDisable" (click)="LeftPushOne()"  ><</button>
-    <button type="button" class="btn btn-primary" (click)="LeftPushAll()" ><<</button>
-</div>
-    <div class="col-6 md:col-6 drop-column" pDroppable="products"  (onDrop)="drop()">
-        <table class="table table-dark selected-table">
-            <thead>
-                 <tr>
-              <th colspan="2"><h5 class="header">Level Name</h5> </th>
-            </tr>
-            </thead>
-            <tbody>
-                <tr>
-          <td>  
-             <p-orderList  [value]="SelectedLevelName" [listStyle]="{'max-height':'40rem'}" header="Order"  [dragdrop]="true">
-                    <ng-template let-product pTemplate="item" let-i="index" >
-                         <div>
-                           <div>{{i+1}}</div>
-                          </div>
+    <div class="arrowbtn">
+        <button type="button" class="btn btn-primary btn-width" [disabled]="RightButtonDisable" (click)="RightPushOne()" >></button>
+        <button type="button" class="btn btn-primary btn-width"  (click)="RightPushAll()" >>></button>
+        <button type="button" class="btn btn-primary btn-width" [disabled]="LeftButtonDisable" (click)="LeftPushOne()"  ><</button>
+        <button type="button" class="btn btn-primary btn-width" (click)="LeftPushAll()" ><<</button>
+    </div>
+        <div class="col-6 md:col-6 drop-column" pDroppable="products"  (onDrop)="drop()">
+            <table class="table table-dark selected-table">
+                <thead>
+                    <tr>
+                <th colspan="2"><h5 class="header">Level Name</h5> </th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr>
+            <td>  
+                <p-orderList  [value]="SelectedLevelName" [listStyle]="{'max-height':'40rem'}" header="Order"  [dragdrop]="true">
+                        <ng-template let-product pTemplate="item" let-i="index" >
+                            <div>
+                            <div>{{i+1}}</div>
+                            </div>
+                        </ng-template>
+                    </p-orderList>
+            </td>
+            <td>  
+                <p-orderList [value]="SelectedLevelName" [listStyle]="{'max-height':'40rem'}" header="Selected Levels"  [dragdrop]="true">
+                    <ng-template let-product pTemplate="item" let-i="index">
+                            <div>
+                            <div (click)="onClickLeftCell(product)" >  {{product.text}}</div>
+                            </div>
                     </ng-template>
                 </p-orderList>
-          </td>
-          <td>  
-            <p-orderList [value]="SelectedLevelName" [listStyle]="{'max-height':'40rem'}" header="Selected Levels"  [dragdrop]="true">
-                   <ng-template let-product pTemplate="item" let-i="index">
-                        <div>
-                          <div (click)="onClickLeftCell(product)" >  {{product.text}}</div>
-                         </div>
-                   </ng-template>
-               </p-orderList>
-                 </td>
-            </tr>
-        </tbody>
-        </table>
- 
-</div>
+                    </td>
+                </tr>
+            </tbody>
+            </table>
+    
+    </div>
     
 </div>
+
 
 
 
