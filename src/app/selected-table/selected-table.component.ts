@@ -20,6 +20,8 @@ export class SelectedTableComponent implements OnInit {
     {id: 5, text: 'Component'},
 ];
   public SelectedLevelName :type[]=[];
+ 
+  public InitLevelComponets :type[]=[];
 
   draggedProduct?: any;
 
@@ -28,16 +30,41 @@ export class SelectedTableComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.InitLevelComponets =this.LevelName;
   }
+
+  onClickRight(product: type){
+    console.log("cell click");
+    this.dragStart(product);
+    this.drop();
+
+  }
+  onClickLeft(product: type){
+    console.log("cell click");
+    this.dragStart(product);
+    this.dropLeft();
+
+  }
+
+  
 
   dragStart(product: type) {
     this.draggedProduct = product;
+    console.log("RightPushOne");
 }
 drop() {
   if (this.draggedProduct) {
       let draggedProductIndex = this.findIndex(this.draggedProduct);
       this.SelectedLevelName = [...this.SelectedLevelName, this.draggedProduct];
       this.LevelName = this.LevelName.filter((val,i) => i!=draggedProductIndex);
+      this.draggedProduct = 'null';
+  }
+}
+dropLeft() {
+  if (this.draggedProduct) {
+      let draggedProductIndex = this.findIndex(this.draggedProduct);
+      this.LevelName = [...this.LevelName, this.draggedProduct];
+      this.SelectedLevelName = this.SelectedLevelName.filter((val,i) => i!=draggedProductIndex);
       this.draggedProduct = 'null';
   }
 }
@@ -58,6 +85,29 @@ findIndex(product: type) {
 moveToRight(){
     this.SelectedLevelName =this.LevelName;
 }
+RightPushOne(){
+  console.log("RightPushOne");
+  this.drop();
 
+}
+
+RightPushAll(){
+  console.log("RightPushAll");
+  this.SelectedLevelName =this.LevelName;
+  this.LevelName =[];
+}
+
+
+
+LeftPushOne(){
+  console.log("LeftPushOne");
+
+}
+
+LeftPushAll(){
+  console.log("LeftPushAll");
+  this.LevelName =this.InitLevelComponets;
+  this.SelectedLevelName =[];
+}
 
 }

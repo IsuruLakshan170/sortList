@@ -10,9 +10,6 @@
     padding: 20px;
     font-size: 30px;
   }
-.tRow{
-    width: 400px;
-}
 
 :host ::ng-deep .drag-column {
     padding-right: .5em;
@@ -84,8 +81,16 @@
 .header{
     text-align: center;
 }
+:host ::ng-deep .flex-container[_ngcontent-mre-c108]    > div[_ngcontent-mre-c108]{
+        background-color: blue;
+}
+.bg{
+    background: red;
+}
 
-
+.product-item1{
+    font-size: 20px;
+}
 @media screen and (max-width: 576px) {
     .product-item {
         flex-wrap: wrap;
