@@ -4,7 +4,8 @@
     padding: 2rem;
     border:  1px solid rgb(211, 210, 210) ;
     background-color: #f0f1f3;
-    width: 1000px;
+    width: 800px;
+  
 }
 
 :host ::ng-deep .p-button{
@@ -90,4 +91,11 @@ color: black;
 :host ::ng-deep .p-picklist .p-picklist-list:not(.cdk-drop-list-dragging) .p-picklist-item:not(.p-highlight):hover {
     background: rgba(243, 243, 243, 0.993);
     color: rgba(0, 0, 0, 0.993);
+  }
+
+  .flex-container > div {
+    background-color: #f1f1f1;
+    margin: 10px;
+    padding: 20px;
+    font-size: 30px;
   }
