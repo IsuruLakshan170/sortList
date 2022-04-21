@@ -7,7 +7,9 @@ import { PickListComponent } from './pick-list/pick-list.component';
 import {ButtonModule} from 'primeng/button';
 import {TableModule} from 'primeng/table';
 import { SelectedTableComponent } from './selected-table/selected-table.component';
-import {DragDropModule} from 'primeng/dragdrop'
+import {DragDropModule} from 'primeng/dragdrop';
+import {OrderListModule} from 'primeng/orderlist';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +22,9 @@ import {DragDropModule} from 'primeng/dragdrop'
     PickListModule,
     ButtonModule,
     TableModule,
-    DragDropModule
+    DragDropModule,
+    OrderListModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

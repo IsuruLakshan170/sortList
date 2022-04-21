@@ -4,7 +4,7 @@
    
 <p-table [value]="LevelName">
     <ng-template pTemplate="header">
-        <tr class="tRow">
+        <tr >
             <th><h3> Levels  </h3></th>
         </tr>
     </ng-template>
@@ -23,21 +23,20 @@
 
 </div>
     <div class="col-6 md:col-6 drop-column" pDroppable="products" (onDrop)="drop()">
-    <p-table [value]="SelectedLevelName">
+    <p-table [value]="SelectedLevelName" [reorderableColumns]="true" responsiveLayout="scroll">
+        
         <ng-template pTemplate="header">
-            <tr class="tRow">
-                <th><h3>Selected Levels  </h3></th>
-                <th><h3>Order</h3></th>
+            <tr class="tRow">  
+             <th><h3>Order</h3></th>
+                <th><h3>Selected Levels </h3></th>
             </tr>
         </ng-template>
         <ng-template pTemplate="body" let-product >
           
             <tr>
                     <td>{{product.id}}</td>
-                    <td>
-                       
+                    <td>   
                         {{product.text}}
-                    
                     </td>
                    
                    
@@ -48,3 +47,93 @@
 </div>
 </div>
 
+
+
+
+
+
+
+
+
+
+<div class="flex-container">
+    <div>
+        <p-table [value]="LevelName">
+            <ng-template pTemplate="header">
+                <tr class="tRow">
+                    <th><h3> Levels  </h3></th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-product>
+                <tr>
+                        <td>
+                            <div class="product-item1" pDraggable="products" (onDragStart)="dragStart(product)" (onDragEnd)="dragEnd()">
+                            {{product.text}}
+                            </div>
+                        </td>
+                       
+                       
+                    </tr>
+                </ng-template>
+            </p-table>
+    
+    </div>
+   
+    <div class="col-6 md:col-6 drop-column" pDroppable="products" (onDrop)="drop()">
+        <table class="table table-dark">
+            <thead>
+                 <tr>
+              <th><h5>Level</h5> </th>
+              <th><h5>Name</h5> </th>
+            
+            </tr>
+          
+            </thead>
+            <tbody>
+                <tr>
+          <td>  
+             <p-orderList [value]="SelectedLevelName" [listStyle]="{'max-height':'30rem'}" header="Order"  [dragdrop]="true">
+                    <ng-template let-product pTemplate="item">
+                         <div>
+                           <div>{{product.id}}</div>
+                          </div>
+                    </ng-template>
+                </p-orderList>
+          </td>
+          <td>  
+            <p-orderList [value]="SelectedLevelName" [listStyle]="{'max-height':'30rem'}" header="Selected Levels"  [dragdrop]="true">
+                   <ng-template let-product pTemplate="item">
+                        <div>
+                          <div>{{product.text}}</div>
+                         </div>
+                   </ng-template>
+               </p-orderList>
+                 </td>
+            </tr>
+        </tbody>
+        </table>
+ 
+</div>
+    
+</div>
+
+
+
+
+
+
+
+
+<p-orderList [value]="LevelName" [listStyle]="{'max-height':'30rem'}" header="List of Products"  [dragdrop]="true">
+    <ng-template let-product pTemplate="item">
+        <div>
+            <div>{{product.text}}</div>
+        </div>
+    </ng-template>
+</p-orderList>
+
+
+
+
+
+<button type="button" class="btn btn-primary">Primary</button>

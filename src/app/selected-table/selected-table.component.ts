@@ -21,6 +21,8 @@ export class SelectedTableComponent implements OnInit {
 
   draggedProduct?: any;
 
+
+  
   constructor() { }
 
   ngOnInit(): void {
