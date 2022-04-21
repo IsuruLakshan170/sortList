@@ -68,11 +68,18 @@
 :host ::ng-deep .p-orderlist .p-orderlist-controls{
     display: none;
 }
+.arrowbtn{
+    margin-top: 200px;
+    margin-left: 50px;
+    width: 80px;
+}
 
 :host ::ng-deep .p-orderlist .p-orderlist-list{
     background: transparent;
 }
-
+.ptableheight{
+    height: 1000px;
+}
 
 .header{
     text-align: center;

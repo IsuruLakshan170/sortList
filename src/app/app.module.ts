@@ -10,6 +10,7 @@ import { SelectedTableComponent } from './selected-table/selected-table.componen
 import {DragDropModule} from 'primeng/dragdrop';
 import {OrderListModule} from 'primeng/orderlist';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
