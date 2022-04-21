@@ -94,16 +94,17 @@
              <p-orderList [value]="SelectedLevelName" [listStyle]="{'max-height':'30rem'}" header="Order"  [dragdrop]="true">
                     <ng-template let-product pTemplate="item" let-i="index" >
                          <div>
-                           <div>{{i +1}}</div>
+                           <div>{{i+1}}</div>
                           </div>
                     </ng-template>
                 </p-orderList>
           </td>
           <td>  
             <p-orderList [value]="SelectedLevelName" [listStyle]="{'max-height':'30rem'}" header="Selected Levels"  [dragdrop]="true">
-                   <ng-template let-product pTemplate="item">
+                   <ng-template let-product pTemplate="item" let-i="index">
                         <div>
                           <div>{{product.text}}</div>
+                          <div>{{i+1}}</div>
                          </div>
                    </ng-template>
                </p-orderList>
