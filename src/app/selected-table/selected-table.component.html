@@ -58,6 +58,8 @@
 
 <div class="flex-container">
     <div>
+
+        
         <p-table [value]="LevelName">
             <ng-template pTemplate="header">
                 <tr class="tRow">
@@ -70,8 +72,7 @@
                             <div class="product-item1" pDraggable="products" (onDragStart)="dragStart(product)" (onDragEnd)="dragEnd()">
                             {{product.text}}
                             </div>
-                        </td>
-                       
+                        </td>     
                        
                     </tr>
                 </ng-template>
@@ -81,13 +82,15 @@
    
 
 <div class="arrowbtn">
-    <button type="button" class="btn btn-primary">Primary</button>
-    <button type="button" class="btn btn-primary">Primary</button>
-    <button type="button" class="btn btn-primary">Primary</button>
-    <button type="button" class="btn btn-primary">Primary</button>
+
+    
+    <button type="button" class="btn btn-primary">></button>
+    <button type="button" class="btn btn-primary"  onclick="moveToRight">>></button>
+    <button type="button" class="btn btn-primary"><</button>
+    <button type="button" class="btn btn-primary"><<</button>
 </div>
 
-    <div class="col-6 md:col-6 drop-column" pDroppable="products" (onDrop)="drop()">
+    <div class="col-6 md:col-6 drop-column" pDroppable="products"  (onDrop)="drop()">
         <table class="table table-dark">
             <thead>
                  <tr>

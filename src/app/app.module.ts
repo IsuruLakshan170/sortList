@@ -25,7 +25,8 @@ import { FormsModule } from '@angular/forms';
     TableModule,
     DragDropModule,
     OrderListModule,
-    NgbModule
+    NgbModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

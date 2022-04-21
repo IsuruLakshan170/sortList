@@ -10,6 +10,8 @@ export interface type{
 })
 export class SelectedTableComponent implements OnInit {
 
+  orderNo?: string ;
+
   public LevelName:type[] = [
     {id: 1, text: 'Floor'},
     {id: 2, text: 'Room'},
@@ -51,6 +53,10 @@ findIndex(product: type) {
       }
   }
   return index;
+}
+
+moveToRight(){
+    this.SelectedLevelName =this.LevelName;
 }
 
 
