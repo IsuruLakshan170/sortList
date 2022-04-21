@@ -10,6 +10,7 @@ export interface type{
 })
 export class SelectedTableComponent implements OnInit {
 
+  
   orderNo?: string ;
 
   public LevelName:type[] = [
@@ -24,25 +25,28 @@ export class SelectedTableComponent implements OnInit {
   public InitLevelComponets :type[]=[];
 
   draggedProduct?: any;
-
-
-  
+  RightClickCellData?: any;
+  RightButtonDisable =true;
+  LeftButtonDisable =true;
+  leftenable? :boolean;
   constructor() { }
 
   ngOnInit(): void {
     this.InitLevelComponets =this.LevelName;
   }
 
-  onClickRight(product: type){
-    console.log("cell click");
-    this.dragStart(product);
-    this.drop();
-
+  onClickRightCell(product: type){
+    this.RightButtonDisable =false;
+    this.draggedProduct =product;
+    console.log("Right cell click");
+     //this.LeftButtonDisable =false;
   }
-  onClickLeft(product: type){
-    console.log("cell click");
-    this.dragStart(product);
-    this.dropLeft();
+  onClickLeftCell(product: type){
+    console.log("left cell click");
+    this.LeftButtonDisable =false;
+    this.draggedProduct =product;
+
+    
 
   }
 
@@ -62,7 +66,7 @@ drop() {
 }
 dropLeft() {
   if (this.draggedProduct) {
-      let draggedProductIndex = this.findIndex(this.draggedProduct);
+      let draggedProductIndex = this.findIndexSelectedLevel(this.draggedProduct);
       this.LevelName = [...this.LevelName, this.draggedProduct];
       this.SelectedLevelName = this.SelectedLevelName.filter((val,i) => i!=draggedProductIndex);
       this.draggedProduct = 'null';
@@ -79,15 +83,29 @@ findIndex(product: type) {
           break;
       }
   }
+
+  
+  return index;
+}
+findIndexSelectedLevel(product: type) {
+  let index = -1;
+  for(let i = 0; i < this.SelectedLevelName.length; i++) {
+      if (product.id === this.SelectedLevelName[i].id) {
+          index = i;
+          break;
+      }
+  }
+
+  
   return index;
 }
 
-moveToRight(){
-    this.SelectedLevelName =this.LevelName;
-}
+
 RightPushOne(){
-  console.log("RightPushOne");
-  this.drop();
+  
+    console.log("RightPushOne");
+    this.drop();
+    this.RightButtonDisable =true;
 
 }
 
@@ -101,7 +119,8 @@ RightPushAll(){
 
 LeftPushOne(){
   console.log("LeftPushOne");
-
+  this.dropLeft();
+  this.LeftButtonDisable =true;
 }
 
 LeftPushAll(){

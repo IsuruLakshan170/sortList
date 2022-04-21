@@ -11,7 +11,7 @@
         <ng-template pTemplate="body" let-product>
             <tr>
                     <td>
-                        <div class="product-item1" pDraggable="products" (click)="onClickRight(product)" (onDragStart)="dragStart(product)" (onDragEnd)="dragEnd()">
+                        <div class="product-item1" pDraggable="products" (click)="onClickRightCell(product)" (onDragStart)="dragStart(product)" (onDragEnd)="dragEnd()">
                         {{product.text}}
                         </div>
                     </td>     
@@ -67,7 +67,7 @@
                   <ng-container *ngFor="let product of LevelName">
                       <tr>
                          <td>
-                               <div class="product-item1" pDraggable="products" (onDragStart)="dragStart(product)" (onDragEnd)="dragEnd()">
+                               <div class="product-item1" (click)="onClickRightCell(product)" pDraggable="products" (onDragStart)="dragStart(product)" (onDragEnd)="dragEnd()">
                                   {{product.text}}
                                   </div>
                               </td>  
@@ -84,9 +84,9 @@
    
 
 <div class="arrowbtn">
-    <button type="button" class="btn btn-primary" (click)="RightPushOne()" >></button>
+    <button type="button" class="btn btn-primary" [disabled]="RightButtonDisable" (click)="RightPushOne()" >></button>
     <button type="button" class="btn btn-primary"  (click)="RightPushAll()" >>></button>
-    <button type="button" class="btn btn-primary" (click)="LeftPushOne()"  ><</button>
+    <button type="button" class="btn btn-primary" [disabled]="LeftButtonDisable" (click)="LeftPushOne()"  ><</button>
     <button type="button" class="btn btn-primary" (click)="LeftPushAll()" ><<</button>
 </div>
 
@@ -114,7 +114,7 @@
             <p-orderList [value]="SelectedLevelName" [listStyle]="{'max-height':'30rem'}" header="Selected Levels"  [dragdrop]="true">
                    <ng-template let-product pTemplate="item" let-i="index">
                         <div>
-                          <div (click)="onClickLeft(product)" > {{i+1}} {{product.text}}</div>
+                          <div (click)="onClickLeftCell(product)" > {{i+1}} {{product.text}}</div>
                          </div>
                    </ng-template>
                </p-orderList>
