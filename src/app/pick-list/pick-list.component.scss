@@ -1,101 +1,145 @@
 
-.card{
-    margin-top: 2rem;
-    padding: 2rem;
-    border:  1px solid rgb(211, 210, 210) ;
-    background-color: #f0f1f3;
-    width: 800px;
-  
-}
-
-:host ::ng-deep .p-button{
-    
-    color: #ffffff;
-    background: #4f98d3;
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
-    transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
-    border-radius: 3px;
-
-}
-
-:host ::ng-deep .p-picklist-target-controls{
-
-margin-left: -66px;
-margin-top: 20px;
-}
-:host ::ng-deep  .p-picklist-header{
-    font-size: 22px;
-        background-color: rgba(196, 189, 189, 0.329);
-        color: black;
-        text-align: center;
-}
-:host ::ng-deep .p-picklist-filter-container{
-background-color: rgb(255, 255, 255);
-color: black;
-}
-
-
-:host ::ng-deep .p-inputtext{
-background-color: rgb(255, 255, 255);
-color: black;
-}
-
-
-:host ::ng-deep .p-picklist-list{
-    background-color: rgb(255, 255, 255);
-    color: black;
-}
-
-
-:host ::ng-deep .p-picklist .p-picklist-list .p-picklist-item {
-    margin-top: 5px;
-    margin-bottom: 5px;
-    margin-right: 54px;
-    color: black;
-    font-size: 17px;
-  //  background-color: rgb(131, 127, 127);
-}
-
-
-:host ::ng-deep .p-picklist .p-picklist-list .p-picklist-item :hover{
-    
-   // background-color: rgb(131, 127, 127);
-}
-:host ::ng-deep .pi-search{
-   color: black;
-}
-
-:host ::ng-deep .p-picklist-source-controls{
-   visibility: hidden;
-}
-
-:host ::ng-deep .p-picklist-transfer-buttons .p-button{
-    height: 5rem;
-   
-}
-:host ::ng-deep .p-picklist .p-picklist-filter-container .p-picklist-filter-icon{
-   color: rgb(0, 0, 0);
-  
-}
-
-.savebtn{
-    padding: 1rem;
-    background-color: beige;
-    width: 1000px;
-}
-.btnsavelist{
-    margin-left: 2rem;
-}
-
-:host ::ng-deep .p-picklist .p-picklist-list:not(.cdk-drop-list-dragging) .p-picklist-item:not(.p-highlight):hover {
-    background: rgba(243, 243, 243, 0.993);
-    color: rgba(0, 0, 0, 0.993);
+.flex-container {
+    display: flex;
+    background-color: rgb(248, 248, 248);
   }
-
+  
   .flex-container > div {
     background-color: #f1f1f1;
     margin: 10px;
     padding: 20px;
     font-size: 30px;
   }
+
+:host ::ng-deep .drag-column {
+    padding-right: .5em;
+}
+
+.drop-column {
+    border: 1px solid transparent;
+    transition: border-color .2s;
+
+    &.p-draggable-enter {
+        border-color: var(--primary-color); 
+    }
+}
+
+.product-item {
+	display: flex;
+	align-items: center;
+	padding: 1rem;
+    width: 100%;
+    border-bottom: 1px solid var(--surface-d);
+
+	img {
+		width: 75px;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+        margin-right: 1rem;
+	}
+
+	.product-list-detail {
+		flex: 1 1 0;
+	}
+
+	.product-list-action {
+		display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
+    .product-category-icon {
+        vertical-align: middle;
+        margin-right: .5rem;
+    }
+
+    .product-category {
+        vertical-align: middle;
+        line-height: 1;
+    }
+}
+
+[pDraggable] {
+    cursor: move;
+}
+
+:host ::ng-deep .p-orderlist .p-orderlist-controls{
+    display: none;
+}
+.arrowbtn{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+ 
+}
+.card-boder{
+    margin: 5rem;
+    width: 48%;
+    border: 1px solid rgb(4, 4, 5);
+
+}
+.btn-width{
+    width: 3rem;
+    margin-top: 10px;
+}
+.gridview .selected, .gridview tbody .selected {
+    background-color: #6ccbfb;
+    color: #fff;
+}
+
+:host ::ng-deep .p-orderlist .p-orderlist-list{
+    background: transparent;
+}
+.ptableheight{
+    height: 1000px;
+}
+.selectionHeader{
+    text-align: center;
+
+}
+.header{
+    text-align: center;
+}
+:host ::ng-deep .flex-container[_ngcontent-mre-c108]    > div[_ngcontent-mre-c108]{
+        background-color: blue;
+}
+.bg{
+    background: red;
+}
+.selected-table{
+    width: 350px;
+    min-height: 350px;
+}
+.selection-table{
+    width: 250px;
+    height: 350px;
+    min-height: 350px;
+    background-color: #212529;
+}
+td, th {
+   // width:200px !important;
+    height:20px !important;
+  //  max-width:150px !important;
+    max-height:70px !important;
+   // min-width:150px !important;
+    min-height:70px !important;
+  }
+
+.product-item1{
+    font-size: 16px;
+    padding: 3px;
+}
+@media screen and (max-width: 576px) {
+    .product-item {
+        flex-wrap: wrap;
+
+        .image-container {
+            width: 100%;
+            text-align: center;
+        }
+
+        img {
+            margin: 0 0 1rem 0;
+            width: 100px;
+        }
+    }
+}

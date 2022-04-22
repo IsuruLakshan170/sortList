@@ -2,19 +2,34 @@
     <div >
         <table  class="table table-hover table-dark selection-table">
             <thead >
+
               <tr >
+                  <th><h4  class="selectionHeader"> ID  </h4></th>
                   <th><h4  class="selectionHeader"> Levels  </h4></th>
+                  <th><h4  class="selectionHeader"> Position  </h4></th>
               </tr>
-            </thead>
-                 
+
+            </thead>      
               <tbody>
                   <ng-container *ngFor="let product of LevelName">
                       <tr>
+
+                        <td>
+                            <div class="product-item1" (click)="onClickRightCell(product)" pDraggable="products" (onDragStart)="dragStart(product)" (onDragEnd)="dragEnd()">
+                                 {{product.id}}
+                            </div>
+                         </td> 
                          <td>
-                               <div class="product-item1" (click)="onClickRightCell(product)" pDraggable="products" (onDragStart)="dragStart(product)" (onDragEnd)="dragEnd()">
-                                  {{product.text}}
-                                  </div>
-                              </td>  
+                            <div class="product-item1" (click)="onClickRightCell(product)" pDraggable="products" (onDragStart)="dragStart(product)" (onDragEnd)="dragEnd()">
+                                 {{product.text}}
+                            </div>
+                         </td>         
+                         <td>
+                            <div class="product-item1" (click)="onClickRightCell(product)" pDraggable="products" (onDragStart)="dragStart(product)" (onDragEnd)="dragEnd()">
+                               {{product.position}}
+                               </div>
+                           </td> 
+
                           </tr>
                       </ng-container>
               </tbody>
@@ -30,7 +45,9 @@
             <table class="table table-dark selected-table">
                 <thead>
                     <tr>
-                <th colspan="2"><h5 class="header">Level Name</h5> </th>
+
+                <th colspan="3"><h5 class="header">Level Name</h5> </th>
+
                 </tr>
                 </thead>
                 <tbody>
@@ -39,10 +56,10 @@
                 <p-orderList  [value]="SelectedLevelName" [listStyle]="{'max-height':'40rem'}" header="Order"  [dragdrop]="true">
                         <ng-template let-product pTemplate="item" let-i="index" >
                             <div>
-                            <div>{{i+1}}</div>
+                                 <div>{{i+1}}</div>
                             </div>
                         </ng-template>
-                    </p-orderList>
+                 </p-orderList>
             </td>
             <td>  
                 <p-orderList [value]="SelectedLevelName" [listStyle]="{'max-height':'40rem'}" header="Selected Levels"  [dragdrop]="true">
@@ -52,7 +69,17 @@
                             </div>
                     </ng-template>
                 </p-orderList>
-                    </td>
+            </td>
+            <td>  
+                <p-orderList [value]="SelectedLevelName" [listStyle]="{'max-height':'40rem'}" header="Position"  [dragdrop]="true">
+                    <ng-template let-product pTemplate="item" let-i="index">
+                            <div>
+                            <div (click)="onClickLeftCell(product)" >  {{product.position}}</div>
+                            </div>
+                    </ng-template>
+                </p-orderList>
+            </td>
+                    
                 </tr>
             </tbody>
             </table>

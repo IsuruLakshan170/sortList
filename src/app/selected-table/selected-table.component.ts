@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 export interface type{
   id:number;
   text:string;
+  position:string;
+
 }
 @Component({
   selector: 'app-selected-table',
@@ -14,11 +16,11 @@ export class SelectedTableComponent implements OnInit {
   orderNo?: string ;
 
   public LevelName:type[] = [
-    {id: 1, text: 'Floor'},
-    {id: 2, text: 'Room'},
-    {id: 3, text: 'Componenet Group'},
-    {id: 4, text: 'Component Type'},
-    {id: 5, text: 'Component'},
+    {id: 1, text: 'Floor',position:'1one'},
+    {id: 2, text: 'Room',position:'2one'},
+    {id: 3, text: 'Componenet Group',position:'3one'},
+    {id: 4, text: 'Component Type',position:'4one'},
+    {id: 5, text: 'Component',position:'5one'},
 ];
   public SelectedLevelName :type[]=[];
  

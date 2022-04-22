@@ -11,7 +11,7 @@ import {DragDropModule} from 'primeng/dragdrop';
 import {OrderListModule} from 'primeng/orderlist';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
-@NgModule({
+ @NgModule({
   declarations: [
     AppComponent,
     PickListComponent,
@@ -26,7 +26,8 @@ import { FormsModule } from '@angular/forms';
     DragDropModule,
     OrderListModule,
     NgbModule,
-    FormsModule
+    FormsModule,
+   
   ],
   providers: [],
   bootstrap: [AppComponent]
