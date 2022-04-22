@@ -111,8 +111,10 @@ RightPushOne(){
 
 RightPushAll(){
   console.log("RightPushAll");
-  this.SelectedLevelName =this.LevelName;
+  this.SelectedLevelName =this.InitLevelComponets;
   this.LevelName =[];
+  this.LeftButtonDisable =true;
+  this.RightButtonDisable =true;
 }
 
 
@@ -127,6 +129,9 @@ LeftPushAll(){
   console.log("LeftPushAll");
   this.LevelName =this.InitLevelComponets;
   this.SelectedLevelName =[];
+  this.LeftButtonDisable =true;
+  this.RightButtonDisable =true;
+
 }
 
 }
