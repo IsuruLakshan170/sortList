@@ -35,6 +35,7 @@ export class SelectedTableComponent implements OnInit {
     this.InitLevelComponets =this.LevelName;
   }
 
+  
   onClickRightCell(product: type){
     this.RightButtonDisable =false;
     this.draggedProduct =product;

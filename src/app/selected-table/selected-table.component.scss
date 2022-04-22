@@ -81,7 +81,10 @@
     width: 3rem;
     margin-top: 10px;
 }
-
+.gridview .selected, .gridview tbody .selected {
+    background-color: #6ccbfb;
+    color: #fff;
+}
 
 :host ::ng-deep .p-orderlist .p-orderlist-list{
     background: transparent;
