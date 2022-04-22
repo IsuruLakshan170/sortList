@@ -56,10 +56,13 @@ export class SelectedTableComponent implements OnInit {
   
 
   dragStart(product: type) {
+    console.log(product);
     this.draggedProduct = product;
     console.log("RightPushOne");
 }
 drop() {
+  console.log("drop on");
+
   if (this.draggedProduct) {
       let draggedProductIndex = this.findIndex(this.draggedProduct);
       this.SelectedLevelName = [...this.SelectedLevelName, this.draggedProduct];
@@ -76,6 +79,7 @@ dropLeft() {
   }
 }
 dragEnd() {
+  console.log('drag end');
   this.draggedProduct = null;
 }
 findIndex(product: type) {

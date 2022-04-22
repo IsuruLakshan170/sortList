@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 export interface Product{
- 
+  id:number;
   code:string;
   name:string;
   category:string;
@@ -20,12 +20,16 @@ export class PickListComponent implements OnInit {
 
     cols: any[]=[];
   orderNo?: string ;
-
+  availableProducts: Product[]=[];
+    
+  selectedProducts: Product[]=[];
+  
+  draggedProduct?: any;
 
 public products:Product[] = [
-  {code: '1', name: 'Floor',category:'1one',quantity:'new'},
-  {code: '2', name: 'Floor',category:'1one',quantity:'new'},
-  {code: '3', name: 'Floor',category:'1one',quantity:'new'},
+  {id:1, code: '1', name: 'Floor',category:'1one',quantity:'new'},
+  {id:2, code: '2', name: 'Floor',category:'1one',quantity:'new'},
+  {id:3, code: '3', name: 'Floor',category:'1one',quantity:'new'},
 
 ];
 
@@ -40,7 +44,7 @@ public LevelName:type[] = [
  
   public InitLevelComponets :type[]=[];
 
-  draggedProduct?: any;
+ 
   RightClickCellData?: any;
   RightButtonDisable =true;
   LeftButtonDisable =true;
@@ -60,5 +64,41 @@ public LevelName:type[] = [
 
   }
 
-  
+  onClick(){
+    console.log("click");
+
+  }
+
+  dragStart(col:Product) {
+    console.log(col);
+    console.log("on drag");
+}
+
+drop() {
+  console.log("drop on");
+
+    if (this.draggedProduct) {
+        let draggedProductIndex = this.findIndex(this.draggedProduct);
+        this.selectedProducts = [...this.selectedProducts, this.draggedProduct];
+        this.availableProducts = this.availableProducts.filter((val,i) => i!=draggedProductIndex);
+        this.draggedProduct = null;
+    }
+}
+
+dragEnd() {
+  console.log("drop end");
+    this.draggedProduct = null;
+}
+
+findIndex(product: Product) {
+    let index = -1;
+    for(let i = 0; i < this.availableProducts.length; i++) {
+        if (product.id === this.availableProducts[i].id) {
+            index = i;
+            break;
+        }
+    }
+    return index;
+}
+
 }
