@@ -27,11 +27,14 @@
               </tbody>
               </table>
     </div>
-    <button type="button" class="btn btn-primary btn-width" [disabled]="RightButtonDisable" (click)="RightPushOne()" >></button>
-    <button type="button" class="btn btn-primary btn-width"  (click)="RightPushAll()" >>></button>
-    <button type="button" class="btn btn-primary btn-width" [disabled]="LeftButtonDisable" (click)="LeftPushOne()"  ><</button>
-    <button type="button" class="btn btn-primary btn-width" (click)="LeftPushAll()" ><<</button>
-        
+    <div class="arrowbtn">
+        <button type="button" class="btn btn-primary btn-width" [disabled]="RightButtonDisable" (click)="RightPushOne()" >></button>
+        <button type="button" class="btn btn-primary btn-width"  (click)="RightPushAll()" >>></button>
+        <button type="button" class="btn btn-primary btn-width" [disabled]="LeftButtonDisable" (click)="LeftPushOne()"  ><</button>
+        <button type="button" class="btn btn-primary btn-width" (click)="LeftPushAll()" ><<</button>
+            
+    </div>
+ 
       <div  pDroppable="items" (onDrop)="drop()">
         <p-table [value]="selectedProducts" [columns]="cols"  [(selection)]="selectedProduct1" dataKey="code" [reorderableColumns]="true" responsiveLayout="scroll">
           
