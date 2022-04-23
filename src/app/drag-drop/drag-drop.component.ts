@@ -14,7 +14,7 @@ export interface Product{
 })
 export class DragDropComponent implements OnInit {
 
-
+ 
   cols: any[]=[];
   selectedProduct1?: Product;
   availableProducts: Product[]=[];
@@ -32,7 +32,9 @@ export class DragDropComponent implements OnInit {
     {id:3, code: '6', name: '6Floor',category:'6one',quantity:'6new'},
   
   ];
-  
+ public headers:any[] = [
+    "id", "code", "name", "category", "quantity"
+  ];
 
   constructor() { }
 
@@ -42,15 +44,18 @@ export class DragDropComponent implements OnInit {
       { field: 'id', header: 'Id' },
       { field: 'code', header: 'Code' },
       { field: 'name', header: 'Name' },
-      { field: 'category', header: 'Category' }
+      { field: 'category', header: 'Category' },
+      { field: 'quantity', header: 'quantity' }
   ];
   }
 
   dragStart(product: Product) {
+    console.log("drag start");
     this.draggedProduct = product;
 }
 
 drop() {
+  console.log("drag drop");
     if (this.draggedProduct) {
         let draggedProductIndex = this.findIndex(this.draggedProduct);
         this.selectedProducts = [...this.selectedProducts, this.draggedProduct];
@@ -60,6 +65,7 @@ drop() {
 }
 
 dragEnd() {
+    console.log("drag stop");
     this.draggedProduct = null;
 }
 

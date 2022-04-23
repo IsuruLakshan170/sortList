@@ -7,30 +7,21 @@
             <thead >
 
               <tr >
-                  <th><h4  class="selectionHeader"> ID  </h4></th>
-                  <th><h4  class="selectionHeader"> Name  </h4></th>
-                  <th><h4  class="selectionHeader"> category  </h4></th>
+                  <th *ngFor ="let column of cols" ><h4> {{column.header}}</h4></th>
               </tr>
 
             </thead>      
               <tbody>
-                  <ng-container *ngFor="let product of products">
-                      <tr>
-                        <td>
-                            <div class="product-item1" pDraggable="items" (onDragStart)="dragStart(product)" (onDragEnd)="dragEnd()">
-                                 {{product.id}}
-                            </div>
-                         </td> 
-                         <td>
+                 
+                  <ng-container >
+                      <tr  *ngFor="let product of products">
+                       
+                        <td *ngFor="let column of cols">
                             <div class="product-item1" pDraggable="items" (onDragStart)="dragStart(product)" (onDragEnd)="dragEnd()">
                                  {{product.name}}
                             </div>
                          </td> 
-                         <td>
-                            <div class="product-item1" pDraggable="items" (onDragStart)="dragStart(product)" (onDragEnd)="dragEnd()">
-                                 {{product.category}}
-                            </div>
-                         </td> 
+                      
 
                           </tr>
                       </ng-container>
