@@ -8,60 +8,49 @@ export interface Product{
 }
 
 @Component({
-  selector: 'app-pick-list',
-  templateUrl: './pick-list.component.html',
-  styleUrls: ['./pick-list.component.scss']
+  selector: 'app-drag-drop',
+  templateUrl: './drag-drop.component.html',
+  styleUrls: ['./drag-drop.component.scss']
 })
-export class PickListComponent implements OnInit {
+export class DragDropComponent implements OnInit {
 
-    cols: any[]=[];
-  orderNo?: string ;
+
+  cols: any[]=[];
+  selectedProduct1?: Product;
   availableProducts: Product[]=[];
     
   selectedProducts: Product[]=[];
-  
+  selectedProducts1: Product[]=[];
   draggedProduct?: any;
 
-public products:Product[] = [
-  {id:1, code: '1', name: '1Floor',category:'1one',quantity:'1new'},
-  {id:2, code: '2', name: '2Floor',category:'2one',quantity:'2new'},
-  {id:3, code: '3', name: '3Floor',category:'3one',quantity:'3new'},
+  public products:Product[] = [
+    {id:1, code: '1', name: '1Floor',category:'1one',quantity:'1new'},
+    {id:2, code: '2', name: '2Floor',category:'2one',quantity:'2new'},
+    {id:3, code: '3', name: '3Floor',category:'3one',quantity:'3new'},
+    {id:1, code: '4', name: '4Floor',category:'4one',quantity:'4new'},
+    {id:2, code: '5', name: '5Floor',category:'5one',quantity:'5new'},
+    {id:3, code: '6', name: '6Floor',category:'6one',quantity:'6new'},
+  
+  ];
+  
 
-];
-
-
-  RightClickCellData?: any;
-  RightButtonDisable =true;
-  LeftButtonDisable =true;
-  leftenable? :boolean;
   constructor() { }
 
   ngOnInit(): void {
 
-    
-    
     this.cols = [
+      { field: 'id', header: 'Id' },
       { field: 'code', header: 'Code' },
       { field: 'name', header: 'Name' },
-      { field: 'category', header: 'Category' },
-      { field: 'quantity', header: 'Quantity' }
+      { field: 'category', header: 'Category' }
   ];
-
   }
 
-  onClick(){
-    console.log("click");
-
-  }
-
-  dragStart(col:Product) {
-    console.log(col);
-    console.log("on drag");
+  dragStart(product: Product) {
+    this.draggedProduct = product;
 }
 
 drop() {
-  console.log("drop on");
-
     if (this.draggedProduct) {
         let draggedProductIndex = this.findIndex(this.draggedProduct);
         this.selectedProducts = [...this.selectedProducts, this.draggedProduct];
@@ -71,7 +60,6 @@ drop() {
 }
 
 dragEnd() {
-  console.log("drop end");
     this.draggedProduct = null;
 }
 
@@ -85,5 +73,6 @@ findIndex(product: Product) {
     }
     return index;
 }
+
 
 }

@@ -1,0 +1,78 @@
+<p>drag-drop works!</p>
+
+<div class="flex-container">
+
+    <div>
+        <table  class="table table-hover table-dark selection-table">
+            <thead >
+
+              <tr >
+                  <th><h4  class="selectionHeader"> ID  </h4></th>
+                  <th><h4  class="selectionHeader"> Name  </h4></th>
+                  <th><h4  class="selectionHeader"> category  </h4></th>
+              </tr>
+
+            </thead>      
+              <tbody>
+                  <ng-container *ngFor="let product of products">
+                      <tr>
+                        <td>
+                            <div class="product-item1" pDraggable="items" (onDragStart)="dragStart(product)" (onDragEnd)="dragEnd()">
+                                 {{product.id}}
+                            </div>
+                         </td> 
+                         <td>
+                            <div class="product-item1" pDraggable="items" (onDragStart)="dragStart(product)" (onDragEnd)="dragEnd()">
+                                 {{product.name}}
+                            </div>
+                         </td> 
+                         <td>
+                            <div class="product-item1" pDraggable="items" (onDragStart)="dragStart(product)" (onDragEnd)="dragEnd()">
+                                 {{product.category}}
+                            </div>
+                         </td> 
+
+                          </tr>
+                      </ng-container>
+              </tbody>
+              </table>
+    </div>
+    <div class="arrowbtn">
+        <button type="button" class="btn btn-primary btn-width" >></button>
+        <button type="button" class="btn btn-primary btn-width" >>></button>
+        <button type="button" class="btn btn-primary btn-width" ><</button>
+        <button type="button" class="btn btn-primary btn-width" ><<</button>
+    </div>
+        
+      <div  pDroppable="items" (onDrop)="drop()">
+        <p-table [value]="selectedProducts" [columns]="cols"  [(selection)]="selectedProduct1" dataKey="code" [reorderableColumns]="true" responsiveLayout="scroll">
+          
+            <ng-template pTemplate="caption">
+                         <h3 class="selectedTbleHead">Selected List</h3>   
+            </ng-template>
+            <ng-template pTemplate="header" let-columns>
+                <tr>
+                    <th style="width:3rem"></th>
+                    <th>Order</th>
+                    <th *ngFor="let col of columns" pReorderableColumn>
+                        {{col.header}}
+                    </th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-rowData let-columns="columns" let-index="rowIndex">
+                <tr  [pReorderableRow]="index">
+                        <td>
+                            <span class="pi pi-bars" [pReorderableRowHandle]="index"></span>
+                        </td>
+                        <td>
+                            {{index+1}}
+                        </td>
+                        <td *ngFor="let col of columns">
+                            {{rowData[col.field]}}
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+
+</div>
