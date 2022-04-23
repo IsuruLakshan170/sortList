@@ -12,12 +12,6 @@ export class DragDropComponent implements OnInit {
   @Input() SourceHeaders: Array<any>=[];//get source table headers
   @Input() SortedTableHeader?:string;//get sort table header
   
-
- 
-
-  //DesArry1: any[]=[];
-
-
   //source array
   SrcArry: any[]=[];
   //destination array
@@ -28,9 +22,6 @@ export class DragDropComponent implements OnInit {
   SrcArryCpy: any[]=[];
   //sort out table header
   SortTableHeader?:string;
-
-  //RightClickCellData?: any;
-
   //right single arrow button disable true default
    RightButtonDisable =true;
    //left single arrow button disable true default
@@ -42,109 +33,108 @@ export class DragDropComponent implements OnInit {
   //leftenable? :boolean;
   constructor() { }
 
+  //initialization
   ngOnInit(): void {
     this.SortTableHeader =this.SortedTableHeader;
     this.SrcArry = this.SourceArray;
     this.SrcHeaders = this.SourceHeaders;
     this.SrcArryCpy =this.SrcArry;
   }
-
-  dragStart(product: any) {
-    console.log("drag start");
-    this.DragItem = product;
-}
-
-drop() {
-  console.log("drag drop");
-    if (this.DragItem) {
-        let draggedProductIndex = this.findIndex(this.DragItem);
-        this.DesArry = [...this.DesArry, this.DragItem];
-        this.SrcArry = this.SrcArry.filter((val,i) => i!=draggedProductIndex);
-        this.DragItem = null;
-    }
-}
-dropLeft() {
-  if (this.DragItem) {
-      let draggedProductIndex = this.findIndexLeft(this.DragItem);
-      this.SrcArry = [...this.SrcArry, this.DragItem];
-      this.DesArry = this.DesArry.filter((val,i) => i!=draggedProductIndex);
-      this.DragItem = 'null';
+  //start drag
+    dragStart(product: any) {
+      console.log("drag start");
+      this.DragItem = product;
   }
-}
-dragEnd() {
-    console.log("drag stop");
-    this.DragItem = null;
-}
-
-findIndex(product: any) {
+  // send to right
+  dropRight() {
+    console.log("drag drop");
+      if (this.DragItem) {
+          let draggedProductIndex = this.findIndexRight(this.DragItem);
+          this.DesArry = [...this.DesArry, this.DragItem];
+          this.SrcArry = this.SrcArry.filter((val,i) => i!=draggedProductIndex);
+          this.DragItem = null;
+      }
+  }
+  //send to left 
+  dropLeft() {
+    if (this.DragItem) {
+        let draggedProductIndex = this.findIndexLeft(this.DragItem);
+        this.SrcArry = [...this.SrcArry, this.DragItem];
+        this.DesArry = this.DesArry.filter((val,i) => i!=draggedProductIndex);
+        this.DragItem = 'null';
+    }
+  }
+  //stop drag
+  dragEnd() {
+      console.log("drag stop");
+      this.DragItem = null;
+  }
+  //find right side table selected row index
+  findIndexRight(product: any) {
+      let index = -1;
+      for(let i = 0; i < this.SrcArry.length; i++) {
+          if (product.id === this.SrcArry[i].id) {
+              index = i;
+              break;
+          }
+      }
+      return index;
+  }
+  //find left side table selected row index
+  findIndexLeft(product: any) {
     let index = -1;
-    for(let i = 0; i < this.SrcArry.length; i++) {
-        if (product.id === this.SrcArry[i].id) {
+    for(let i = 0; i < this.DesArry.length; i++) {
+        if (product.id === this.DesArry[i].id) {
             index = i;
             break;
         }
     }
     return index;
-}
-findIndexLeft(product: any) {
-  let index = -1;
-  for(let i = 0; i < this.DesArry.length; i++) {
-      if (product.id === this.DesArry[i].id) {
-          index = i;
-          break;
-      }
   }
-  return index;
-}
+  //one item push to right table
+  RightPushOne(){
+    
+    console.log("RightPushOne");
+    this.dropRight();
+    this.RightButtonDisable =true;
 
-RightPushOne(){
-  
-  console.log("RightPushOne");
-  this.drop();
-  this.RightButtonDisable =true;
+  }
+  //all items push to right table
+  RightPushAll(){
+    console.log("RightPushAll");
+    this.DesArry =this.SrcArryCpy;
+    this.SrcArry =[];
+    this.LeftButtonDisable =true;
+    this.RightButtonDisable =true;
+  }
+  //one item push to left table
+  LeftPushOne(){
+    console.log("LeftPushOne");
+    this.dropLeft();
+    this.LeftButtonDisable =true;
+  }
+  //all items push to right table
+  LeftPushAll(){
+    console.log("LeftPushAll");
+    this.SrcArry =this.SrcArryCpy;
+    this.DesArry =[];
+    this.LeftButtonDisable =true;
+    this.RightButtonDisable =true;
 
-}
+  }
+  //when click right table row single left side arrow button enable
+  onClickRightCell(product: any){
+    this.RightButtonDisable =false;
+    this.DragItem =product;
+    console.log("Right cell click");
+    //this.LeftButtonDisable =false;
+  }
+  //when click left table row single right side arrow button enable
+  onClickLeftCell(product: any){
+    this.LeftButtonDisable =false;
+    this.DragItem =product;
+    console.log("left cell click");
 
-RightPushAll(){
-  console.log("RightPushAll");
-  this.DesArry =this.SrcArryCpy;
-  this.SrcArry =[];
-  this.LeftButtonDisable =true;
-  this.RightButtonDisable =true;
-}
-
-
-
-LeftPushOne(){
-  console.log("LeftPushOne");
-  this.dropLeft();
-  this.LeftButtonDisable =true;
-}
-
-LeftPushAll(){
-  console.log("LeftPushAll");
-  this.SrcArry =this.SrcArryCpy;
-  this.DesArry =[];
-  this.LeftButtonDisable =true;
-  this.RightButtonDisable =true;
-
-}
-
-onClickRightCell(product: any){
-  this.RightButtonDisable =false;
-  this.DragItem =product;
-  console.log("Right cell click");
-   //this.LeftButtonDisable =false;
-}
-
-onClickLeftCell(product: any){
-  this.LeftButtonDisable =false;
-  this.DragItem =product;
-  console.log("left cell click");
-
-}
-onClickSelectedTableCell(){
-  console.log("cell click");
-}
+  }
 
 }

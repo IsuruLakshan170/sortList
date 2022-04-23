@@ -71,6 +71,10 @@
     justify-content: center;
  
 }
+.src-header{
+    color: rgb(207, 203, 203);
+    font-size: 20px;
+}
 .card-boder{
     margin: 5rem;
     width: 48%;
@@ -123,8 +127,15 @@ td, th {
    // min-width:150px !important;
     min-height:70px !important;
   }
-.selectedTbleHead{
+.des-main-header{
     text-align: center;
+    font-size: 20px;
+    color:rgb(207, 203, 203);
+}
+.des-header{
+    text-align: center;
+    font-size: 20px;
+    color:rgb(207, 203, 203);
 }
 .product-item1{
     font-size: 16px;
