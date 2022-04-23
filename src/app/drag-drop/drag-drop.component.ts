@@ -16,10 +16,11 @@ export class DragDropComponent implements OnInit {
 
  
   cols: any[]=[];
+  
+  InitLevelComponets: Product[]=[];
+
   selectedProduct1?: Product;
-  availableProducts: Product[]=[];
-    
-  selectedProducts: Product[]=[];
+   selectedProducts: Product[]=[];
   selectedProducts1: Product[]=[];
   draggedProduct?: any;
 
@@ -36,9 +37,14 @@ export class DragDropComponent implements OnInit {
     "id", "code", "name", "category", "quantity"
   ];
 
+  RightClickCellData?: any;
+  RightButtonDisable =true;
+  LeftButtonDisable =true;
+  leftenable? :boolean;
   constructor() { }
 
   ngOnInit(): void {
+    this.InitLevelComponets =this.products;
 
     this.cols = [
       { field: 'id', header: 'Id' },
@@ -59,11 +65,18 @@ drop() {
     if (this.draggedProduct) {
         let draggedProductIndex = this.findIndex(this.draggedProduct);
         this.selectedProducts = [...this.selectedProducts, this.draggedProduct];
-        this.availableProducts = this.availableProducts.filter((val,i) => i!=draggedProductIndex);
+        this.products = this.products.filter((val,i) => i!=draggedProductIndex);
         this.draggedProduct = null;
     }
 }
-
+dropLeft() {
+  if (this.draggedProduct) {
+      let draggedProductIndex = this.findIndexLeft(this.draggedProduct);
+      this.products = [...this.products, this.draggedProduct];
+      this.selectedProducts = this.selectedProducts.filter((val,i) => i!=draggedProductIndex);
+      this.draggedProduct = 'null';
+  }
+}
 dragEnd() {
     console.log("drag stop");
     this.draggedProduct = null;
@@ -71,14 +84,73 @@ dragEnd() {
 
 findIndex(product: Product) {
     let index = -1;
-    for(let i = 0; i < this.availableProducts.length; i++) {
-        if (product.id === this.availableProducts[i].id) {
+    for(let i = 0; i < this.products.length; i++) {
+        if (product.id === this.products[i].id) {
             index = i;
             break;
         }
     }
     return index;
 }
+findIndexLeft(product: Product) {
+  let index = -1;
+  for(let i = 0; i < this.selectedProducts.length; i++) {
+      if (product.id === this.selectedProducts[i].id) {
+          index = i;
+          break;
+      }
+  }
+  return index;
+}
 
+RightPushOne(){
+  
+  console.log("RightPushOne");
+  this.drop();
+  this.RightButtonDisable =true;
+
+}
+
+RightPushAll(){
+  console.log("RightPushAll");
+  this.selectedProducts =this.InitLevelComponets;
+  this.products =[];
+  this.LeftButtonDisable =true;
+  this.RightButtonDisable =true;
+}
+
+
+
+LeftPushOne(){
+  console.log("LeftPushOne");
+  this.dropLeft();
+  this.LeftButtonDisable =true;
+}
+
+LeftPushAll(){
+  console.log("LeftPushAll");
+  this.products =this.InitLevelComponets;
+  this.selectedProducts =[];
+  this.LeftButtonDisable =true;
+  this.RightButtonDisable =true;
+
+}
+
+onClickRightCell(product: Product){
+  this.RightButtonDisable =false;
+  this.draggedProduct =product;
+  console.log("Right cell click");
+   //this.LeftButtonDisable =false;
+}
+
+onClickLeftCell(product: Product){
+  this.LeftButtonDisable =false;
+  this.draggedProduct =product;
+  console.log("left cell click");
+
+}
+onClickSelectedTableCell(){
+  console.log("cell click");
+}
 
 }

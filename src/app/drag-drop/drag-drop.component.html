@@ -14,10 +14,9 @@
               <tbody>
                  
                   <ng-container >
-                      <tr  *ngFor="let product of products">
-                       
-                        <td *ngFor="let column of cols">
-                            <div class="product-item1" pDraggable="items" (onDragStart)="dragStart(product)" (onDragEnd)="dragEnd()">
+                      <tr  *ngFor="let product of products">   
+                        <td *ngFor="let headerItem of headers">
+                            <div class="product-item1" (click)="onClickRightCell(product)" pDraggable="items" (onDragStart)="dragStart(product)" (onDragEnd)="dragEnd()">
                                  {{product.name}}
                             </div>
                          </td> 
@@ -28,12 +27,10 @@
               </tbody>
               </table>
     </div>
-    <div class="arrowbtn">
-        <button type="button" class="btn btn-primary btn-width" >></button>
-        <button type="button" class="btn btn-primary btn-width" >>></button>
-        <button type="button" class="btn btn-primary btn-width" ><</button>
-        <button type="button" class="btn btn-primary btn-width" ><<</button>
-    </div>
+    <button type="button" class="btn btn-primary btn-width" [disabled]="RightButtonDisable" (click)="RightPushOne()" >></button>
+    <button type="button" class="btn btn-primary btn-width"  (click)="RightPushAll()" >>></button>
+    <button type="button" class="btn btn-primary btn-width" [disabled]="LeftButtonDisable" (click)="LeftPushOne()"  ><</button>
+    <button type="button" class="btn btn-primary btn-width" (click)="LeftPushAll()" ><<</button>
         
       <div  pDroppable="items" (onDrop)="drop()">
         <p-table [value]="selectedProducts" [columns]="cols"  [(selection)]="selectedProduct1" dataKey="code" [reorderableColumns]="true" responsiveLayout="scroll">
@@ -51,17 +48,21 @@
                 </tr>
             </ng-template>
             <ng-template pTemplate="body" let-rowData let-columns="columns" let-index="rowIndex">
-                <tr  [pReorderableRow]="index">
+           
+                    <tr  [pReorderableRow]="index"  >
                         <td>
-                            <span class="pi pi-bars" [pReorderableRowHandle]="index"></span>
-                        </td>
+                            <div (click)="onClickLeftCell(rowData)">    
+                                 <span class="pi pi-bars" [pReorderableRowHandle]="index"></span>
+                            </div>    </td>
                         <td>
                             {{index+1}}
                         </td>
                         <td *ngFor="let col of columns">
-                            {{rowData[col.field]}}
+                           <div (click)="onClickRightCell(rowData)"> {{rowData[col.field]}} </div>  
                         </td>
                     </tr>
+         
+           
                 </ng-template>
             </p-table>
         </div>
