@@ -22,9 +22,6 @@ export class DragDropComponent implements OnInit {
   products: any[]=[];
 
 
- public headers:any[] = [
-    "id", "code", "name", "category", "quantity"
-  ];
 
   RightClickCellData?: any;
   RightButtonDisable =true;

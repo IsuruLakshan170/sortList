@@ -7,6 +7,12 @@ export interface Product{
   category:string;
   quantity:string;
 }
+export interface Car{
+  id:number;
+  seet:string;
+  price:string;
+  color:string;
+}
 
 @Component({
   selector: 'app-main-window',
@@ -14,7 +20,8 @@ export interface Product{
   styleUrls: ['./main-window.component.scss']
 })
 export class MainWindowComponent implements OnInit {
-  cols: any[]=[];
+  colsProduct: any[]=[];
+  colsCar: any[]=[];
   public products:Product[] = [
   
     {id:2, code: '2', name: '2Floor',category:'2one',quantity:'2new'},
@@ -24,17 +31,32 @@ export class MainWindowComponent implements OnInit {
     {id:3, code: '6', name: '6Floor',category:'6one',quantity:'6new'},
   
   ];
+  public cars:Car[] = [
+  
+    {id:1,  seet: 'seet',price:'1000',color:'red'},
+    {id:2,  seet: 'ceel',price:'5533',color:'blue'},
+    {id:3,  seet: 'seeccc',price:'33355',color:'green'},
+    {id:4,  seet: 'exxx',price:'72220',color:'light'},
+  
+  ];
   constructor() { }
 
   ngOnInit(): void {
     
-    this.cols = [
+    this.colsProduct = [
       { field: 'id', header: 'Id' },
       { field: 'code', header: 'Code' },
       { field: 'name', header: 'Name' },
       { field: 'category', header: 'Category' },
-   
   ];
+  this.colsCar = [
+    { field: 'id', header: 'Id' },
+    { field: 'seet', header: 'Seet' },
+    { field: 'price', header: 'Price' },
+    { field: 'color', header: 'Color' },
+];
+
+
   }
 
 }
