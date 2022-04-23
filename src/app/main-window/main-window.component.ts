@@ -21,6 +21,10 @@ export interface Car{
 })
 export class MainWindowComponent implements OnInit {
  
+    ProductHeader?:string="Sorted Products";
+    CarHeader?:string="Sorted Cars";
+
+
   public products:Product[] = [
     {id:2, code: '2', name: '2Floor',category:'2one',quantity:'2new'},
     {id:3, code: '3', name: '3Floor',category:'3one',quantity:'3new'},

@@ -10,11 +10,11 @@ export class DragDropComponent implements OnInit {
 
   @Input() tableList: Array<any>=[];
   @Input() tablecol: Array<any>=[];
- 
+  @Input() SortedTableHeader?:string;
   cols: any[]=[];
   
   InitLevelComponets: any[]=[];
-
+   SelectedTableHeader?:string;
   selectedProduct1?: any;
   selectedProducts: any[]=[];
   selectedProducts1: any[]=[];
@@ -30,6 +30,7 @@ export class DragDropComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.SelectedTableHeader =this.SortedTableHeader;
     this.products = this.tableList;
     this.cols = this.tablecol;
     this.InitLevelComponets =this.products;

@@ -39,7 +39,7 @@
         <p-table [value]="selectedProducts" [columns]="cols"  [(selection)]="selectedProduct1" dataKey="code" [reorderableColumns]="true" responsiveLayout="scroll">
           
             <ng-template pTemplate="caption">
-                         <h3 class="selectedTbleHead">Selected List</h3>   
+                         <h3 class="selectedTbleHead">{{SelectedTableHeader}}</h3>   
             </ng-template>
             <ng-template pTemplate="header" let-columns>
                 <tr>
