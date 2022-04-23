@@ -7,7 +7,7 @@
             <thead >
 
               <tr >
-                  <th *ngFor ="let column of cols" ><h4> {{column.header}}</h4></th>
+                  <th *ngFor ="let column of SrcHeaders" ><h4> {{column.header}}</h4></th>
               </tr>
 
             </thead>      
@@ -15,7 +15,7 @@
                  
                   <ng-container >
                       <tr  *ngFor="let product of SrcArry">   
-                        <td *ngFor="let column of cols">
+                        <td *ngFor="let column of SrcHeaders">
                             <div class="product-item1" (click)="onClickRightCell(product)" pDraggable="items" (onDragStart)="dragStart(product)" (onDragEnd)="dragEnd()">
                                  {{product[column.field]}}
                             </div>
@@ -35,10 +35,10 @@
     </div>
  
       <div  pDroppable="items" (onDrop)="drop()">
-        <p-table [value]="selectedProducts" [columns]="cols"  [(selection)]="selectedProduct1" dataKey="code" [reorderableColumns]="true" responsiveLayout="scroll">
+        <p-table [value]="DesArry" [columns]="SrcHeaders"  [(selection)]="SelectedItem" dataKey="code" [reorderableColumns]="true" responsiveLayout="scroll">
           
             <ng-template pTemplate="caption">
-                         <h3 class="selectedTbleHead">{{SelectedTableHeader}}</h3>   
+                         <h3 class="selectedTbleHead">{{SortTableHeader}}</h3>   
             </ng-template>
             <ng-template pTemplate="header" let-columns>
                 <tr>
