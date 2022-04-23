@@ -17,11 +17,10 @@
                       <tr  *ngFor="let product of products">   
                         <td *ngFor="let column of cols">
                             <div class="product-item1" (click)="onClickRightCell(product)" pDraggable="items" (onDragStart)="dragStart(product)" (onDragEnd)="dragEnd()">
-                                 {{product.id}}
+                                 {{product[column.field]}}
                             </div>
                          </td> 
                       
-
                           </tr>
                       </ng-container>
               </tbody>
