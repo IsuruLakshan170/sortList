@@ -12,12 +12,14 @@ import {OrderListModule} from 'primeng/orderlist';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { DragDropComponent } from './drag-drop/drag-drop.component';
+import { MainWindowComponent } from './main-window/main-window.component';
  @NgModule({
   declarations: [
     AppComponent,
     PickListComponent,
     SelectedTableComponent,
-    DragDropComponent
+    DragDropComponent,
+    MainWindowComponent
   ],
   imports: [
     BrowserModule,

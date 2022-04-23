@@ -1,4 +1,4 @@
-<p>drag-drop works!</p>
+
 
 <div class="flex-container">
 
@@ -15,7 +15,7 @@
                  
                   <ng-container >
                       <tr  *ngFor="let product of products">   
-                        <td *ngFor="let headerItem of headers">
+                        <td *ngFor="let column of cols">
                             <div class="product-item1" (click)="onClickRightCell(product)" pDraggable="items" (onDragStart)="dragStart(product)" (onDragEnd)="dragEnd()">
                                  {{product.name}}
                             </div>
