@@ -8,18 +8,19 @@ import { Component, OnInit,Input } from '@angular/core';
 })
 export class DragDropComponent implements OnInit {
 
-  @Input() tableList: Array<any>=[];
-  @Input() tablecol: Array<any>=[];
+  @Input() SourceArray: Array<any>=[];
+  @Input() SourceHeaders: Array<any>=[];
   @Input() SortedTableHeader?:string;
   cols: any[]=[];
   
   InitLevelComponets: any[]=[];
-   SelectedTableHeader?:string;
+  SelectedTableHeader?:string;
   selectedProduct1?: any;
   selectedProducts: any[]=[];
   selectedProducts1: any[]=[];
   draggedProduct?: any;
-  products: any[]=[];
+  //source array
+  SrcArry: any[]=[];
 
 
 
@@ -31,9 +32,9 @@ export class DragDropComponent implements OnInit {
 
   ngOnInit(): void {
     this.SelectedTableHeader =this.SortedTableHeader;
-    this.products = this.tableList;
-    this.cols = this.tablecol;
-    this.InitLevelComponets =this.products;
+    this.SrcArry = this.SourceArray;
+    this.cols = this.SourceHeaders;
+    this.InitLevelComponets =this.SrcArry;
   }
 
   dragStart(product: any) {
@@ -46,14 +47,14 @@ drop() {
     if (this.draggedProduct) {
         let draggedProductIndex = this.findIndex(this.draggedProduct);
         this.selectedProducts = [...this.selectedProducts, this.draggedProduct];
-        this.products = this.products.filter((val,i) => i!=draggedProductIndex);
+        this.SrcArry = this.SrcArry.filter((val,i) => i!=draggedProductIndex);
         this.draggedProduct = null;
     }
 }
 dropLeft() {
   if (this.draggedProduct) {
       let draggedProductIndex = this.findIndexLeft(this.draggedProduct);
-      this.products = [...this.products, this.draggedProduct];
+      this.SrcArry = [...this.SrcArry, this.draggedProduct];
       this.selectedProducts = this.selectedProducts.filter((val,i) => i!=draggedProductIndex);
       this.draggedProduct = 'null';
   }
@@ -65,8 +66,8 @@ dragEnd() {
 
 findIndex(product: any) {
     let index = -1;
-    for(let i = 0; i < this.products.length; i++) {
-        if (product.id === this.products[i].id) {
+    for(let i = 0; i < this.SrcArry.length; i++) {
+        if (product.id === this.SrcArry[i].id) {
             index = i;
             break;
         }
@@ -95,7 +96,7 @@ RightPushOne(){
 RightPushAll(){
   console.log("RightPushAll");
   this.selectedProducts =this.InitLevelComponets;
-  this.products =[];
+  this.SrcArry =[];
   this.LeftButtonDisable =true;
   this.RightButtonDisable =true;
 }
@@ -110,7 +111,7 @@ LeftPushOne(){
 
 LeftPushAll(){
   console.log("LeftPushAll");
-  this.products =this.InitLevelComponets;
+  this.SrcArry =this.InitLevelComponets;
   this.selectedProducts =[];
   this.LeftButtonDisable =true;
   this.RightButtonDisable =true;

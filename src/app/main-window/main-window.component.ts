@@ -26,11 +26,11 @@ export class MainWindowComponent implements OnInit {
 
 
   public products:Product[] = [
-    {id:2, code: '2', name: '2Floor',category:'2one',quantity:'2new'},
-    {id:3, code: '3', name: '3Floor',category:'3one',quantity:'3new'},
-    {id:1, code: '4', name: '4Floor',category:'4one',quantity:'4new'},
-    {id:2, code: '5', name: '5Floor',category:'5one',quantity:'5new'},
-    {id:3, code: '6', name: '6Floor',category:'6one',quantity:'6new'},
+    {id:1, code: '2', name: '2Floor',category:'2one',quantity:'2new'},
+    {id:2, code: '3', name: '3Floor',category:'3one',quantity:'3new'},
+    {id:3, code: '4', name: '4Floor',category:'4one',quantity:'4new'},
+    {id:4, code: '5', name: '5Floor',category:'5one',quantity:'5new'},
+    {id:5, code: '6', name: '6Floor',category:'6one',quantity:'6new'},
   
   ];
   public colsProduct:any[] = [

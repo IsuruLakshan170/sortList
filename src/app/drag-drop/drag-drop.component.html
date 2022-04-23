@@ -14,7 +14,7 @@
               <tbody>
                  
                   <ng-container >
-                      <tr  *ngFor="let product of products">   
+                      <tr  *ngFor="let product of SrcArry">   
                         <td *ngFor="let column of cols">
                             <div class="product-item1" (click)="onClickRightCell(product)" pDraggable="items" (onDragStart)="dragStart(product)" (onDragEnd)="dragEnd()">
                                  {{product[column.field]}}
