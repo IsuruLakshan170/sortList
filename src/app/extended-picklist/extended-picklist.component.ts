@@ -2,11 +2,11 @@ import { Component, OnInit,Input } from '@angular/core';
 
 
 @Component({
-  selector: 'app-drag-drop',
-  templateUrl: './drag-drop.component.html',
-  styleUrls: ['./drag-drop.component.scss']
+  selector: 'app-extended-picklist',
+  templateUrl: './extended-picklist.component.html',
+  styleUrls: ['./extended-picklist.component.scss']
 })
-export class DragDropComponent implements OnInit {
+export class ExtendedPicklistComponent implements OnInit {
 
   @Input() SourceArray: Array<any>=[];//get source array
   @Input() SourceHeaders: Array<any>=[];//get source table headers

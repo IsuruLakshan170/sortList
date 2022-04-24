@@ -1,22 +1,24 @@
 
 <h4>Products</h4>
 
-<app-drag-drop
+<app-extended-picklist
     [SourceArray]="products" 
     [SourceHeaders]="productSourceHeaders" 
     [DestinationHeaders]="productDestinationHeaders" 
     [DestinationTableHeader]="ProductHeader" 
-    [SourceFilter]="true" 
- ></app-drag-drop>
+    [SourceFilter]="false" 
+    [DestinationFilter]="false" 
+    [DestinationFilterBy]="productFilterByColumns"
+ ></app-extended-picklist>
 
 <h4>Cars</h4>
-<app-drag-drop 
+<app-extended-picklist 
     [SourceArray]="cars" 
     [SourceHeaders]="carSourceHeaders" 
     [DestinationHeaders]="carDestinationHeaders" 
     [DestinationTableHeader]="CarHeader"
     [SourceFilter]="true" 
-></app-drag-drop>
+></app-extended-picklist>
 
 <app-selected-table></app-selected-table>
 

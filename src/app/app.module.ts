@@ -14,6 +14,8 @@ import { FormsModule } from '@angular/forms';
 import { DragDropComponent } from './drag-drop/drag-drop.component';
 import { MainWindowComponent } from './main-window/main-window.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { FilterTableComponent } from './filter-table/filter-table.component';
+import { ExtendedPicklistComponent } from './extended-picklist/extended-picklist.component';
 
  @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     PickListComponent,
     SelectedTableComponent,
     DragDropComponent,
-    MainWindowComponent
+    MainWindowComponent,
+    FilterTableComponent,
+    ExtendedPicklistComponent
   ],
   imports: [
     BrowserModule,

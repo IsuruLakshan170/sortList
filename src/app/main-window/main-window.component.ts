@@ -39,16 +39,17 @@ export class MainWindowComponent implements OnInit {
     { field: 'code', header: 'Code' },
     { field: 'name', header: 'Name' },
     { field: 'category', header: 'Category' },
-];
+  ];
   //product table destination headers
-public productDestinationHeaders:any[] = [
-  { field: 'id', header: 'Id' },
-  { field: 'code', header: 'Code' },
-  { field: 'name', header: 'Name' },
-  { field: 'category', header: 'Category' },
-];
+  public productDestinationHeaders:any[] = [
+    { field: 'id', header: 'Id' },
+    { field: 'code', header: 'Code' },
+    { field: 'name', header: 'Name' },
+    { field: 'category', header: 'Category' },
+  ];
 
-  // car table array
+  productFilterByColumns: any=['name','id','category'];
+
   public cars:Car[] = [
     {id:1,  seet: 'seet',price:'1000',color:'red'},
     {id:2,  seet: 'ceel',price:'5533',color:'blue'},
