@@ -10,14 +10,21 @@ export class DragDropComponent implements OnInit {
 
   @Input() SourceArray: Array<any>=[];//get source array
   @Input() SourceHeaders: Array<any>=[];//get source table headers
-  @Input() SortedTableHeader?:string;//get sort table header
-  
+  @Input() DestinationHeaders: Array<any>=[];//get destination table headers
+  @Input() DestinationTableHeader?:string;//get sort table header
+  @Input() SourceFilter?:boolean;//get sort table header
+
+  isShown: boolean = true; 
+  //search item
+  term: string ="";
   //source array
   SrcArry: any[]=[];
   //destination array
   DesArry: any[]=[];
   //source headers
   SrcHeaders: any[]=[];
+  //source original copy of array
+  DesHeaders: any[]=[];
   //source original copy of array
   SrcArryCpy: any[]=[];
   //sort out table header
@@ -35,10 +42,14 @@ export class DragDropComponent implements OnInit {
 
   //initialization
   ngOnInit(): void {
-    this.SortTableHeader =this.SortedTableHeader;
+    this.SortTableHeader =this.DestinationTableHeader;
     this.SrcArry = this.SourceArray;
     this.SrcHeaders = this.SourceHeaders;
-    this.SrcArryCpy =this.SrcArry;
+    this.DesHeaders = this.DestinationHeaders;
+    this.SrcArryCpy =this.SrcArry; 
+    if(this.SourceFilter == false){
+      this.isShown=false;
+    }
   }
   //start drag
     dragStart(product: any) {

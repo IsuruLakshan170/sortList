@@ -13,6 +13,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { DragDropComponent } from './drag-drop/drag-drop.component';
 import { MainWindowComponent } from './main-window/main-window.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
  @NgModule({
   declarations: [
     AppComponent,
@@ -31,6 +33,7 @@ import { MainWindowComponent } from './main-window/main-window.component';
     OrderListModule,
     NgbModule,
     FormsModule,
+    Ng2SearchPipeModule
    
   ],
   providers: [],

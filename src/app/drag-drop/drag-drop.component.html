@@ -3,6 +3,9 @@
 
 <div class="flex-container">
     <div>
+        <div class="form-group" *ngIf="isShown">
+            <input type="text" class="form-control" placeholder="Search Here" [(ngModel)]="term">
+        </div>
         <table  class="table table-hover table-dark selection-table">
             <thead >
               <tr>
@@ -10,15 +13,13 @@
               </tr>
             </thead>      
               <tbody>
-                  <ng-container >
-                      <tr  *ngFor="let product of SrcArry">   
+                      <tr  *ngFor="let product of SrcArry | filter:term" >   
                         <td *ngFor="let column of SrcHeaders">
                             <div class="product-item1" (click)="onClickRightCell(product)" pDraggable="items" (onDragStart)="dragStart(product)" (onDragEnd)="dragEnd()">
                                  {{product[column.field]}}
                             </div>
                          </td> 
                       </tr>
-                  </ng-container>
               </tbody>
          </table>
     </div>
@@ -29,10 +30,24 @@
         <button type="button" class="btn btn-primary btn-width" (click)="LeftPushAll()" ><<</button>      
     </div>
       <div  pDroppable="items" (onDrop)="dropRight()">
-        <p-table [value]="DesArry" [columns]="SrcHeaders"  [(selection)]="SelectedItem" dataKey="code" [reorderableColumns]="true" responsiveLayout="scroll">
-            <ng-template pTemplate="caption">
-                         <h4 class="des-main-header">{{SortTableHeader}}</h4>   
-            </ng-template>
+     
+     
+        <p-table #dt1  [value]="DesArry" [columns]="DesHeaders"  [(selection)]="SelectedItem" dataKey="code"
+         [reorderableColumns]="true" responsiveLayout="scroll"
+         [globalFilterFields]="['id','name','code','category']" >
+
+         <ng-template pTemplate="caption">
+            <div style="text-align: right searchBox">        
+                <i class="pi pi-search" style="margin:4px 4px 0 0"></i>
+                <input type="text" pInputText size="50" placeholder="Global Filter" (input)="dt1.filterGlobal($event, 'contains')" style="width:auto">
+            </div>
+            <div>
+                <h4 class="des-main-header">{{SortTableHeader}}</h4>   
+            </div>
+        </ng-template>    
+          
+          
+
             <ng-template pTemplate="header" let-columns>
                 <tr>
                     <th style="width:3rem"></th>

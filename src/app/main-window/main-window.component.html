@@ -3,15 +3,19 @@
 
 <app-drag-drop
     [SourceArray]="products" 
-    [SourceHeaders]="colsProduct" 
-    [SortedTableHeader]="ProductHeader" 
+    [SourceHeaders]="productSourceHeaders" 
+    [DestinationHeaders]="productDestinationHeaders" 
+    [DestinationTableHeader]="ProductHeader" 
+    [SourceFilter]="true" 
  ></app-drag-drop>
 
 <h4>Cars</h4>
 <app-drag-drop 
     [SourceArray]="cars" 
-    [SourceHeaders]="colsCar" 
-    [SortedTableHeader]="CarHeader"
+    [SourceHeaders]="carSourceHeaders" 
+    [DestinationHeaders]="carDestinationHeaders" 
+    [DestinationTableHeader]="CarHeader"
+    [SourceFilter]="true" 
 ></app-drag-drop>
 
 <app-selected-table></app-selected-table>
