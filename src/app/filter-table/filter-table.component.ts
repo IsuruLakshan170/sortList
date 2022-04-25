@@ -21,7 +21,7 @@ export class FilterTableComponent implements OnInit {
   
   ];
   
-  loading: boolean = true;
+  loading?: boolean;
   constructor() { }
 
   ngOnInit(): void {

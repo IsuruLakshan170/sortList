@@ -15,7 +15,8 @@ export class ExtendedPicklistComponent implements OnInit {
   @Input() SourceFilter?:boolean;//get sort table header
   @Input() DestinationFilter?:boolean;//get sort table header
   @Input() DestinationFilterBy?:any;//get filer heading list
-
+  
+  loading?: boolean;
   SourceFilterisShown: boolean = true; 
   DestinationFilterisShown: boolean = true; 
   //search item

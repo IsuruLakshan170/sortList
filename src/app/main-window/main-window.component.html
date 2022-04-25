@@ -1,3 +1,71 @@
+<h1>testing
+
+
+</h1>
+<app-test
+    [sourceArray]="products" 
+    [sourceTableColumnHeaders]="producttableItem"
+    [sourceFilter]="true" 
+
+    [destinationTableHeader]="ProductDestinationHeader"
+    [destinationTableColumnHeaders]="productDestinationHeaders" 
+    [destinationFilter]="true" 
+    [destinationFilterBy]="productFilterByColumns"
+    [sourceTableHeader]="sourceheaderTemplate"
+    [sourceTableColumnHeaders1]="sourceColumnHeaderTemplate"
+    [destinationTableHeader]="destinationheaderTemplate"
+
+    [destinationTableAddtionalHeader]="destinationAddtionalColumnHeaderTemplate"
+    [destinationTableAddtionalColumnData]="destinationAddtionalColumnDataTemplate"
+    
+
+>
+
+        <ng-template #sourceheaderTemplate>
+            <h4 class="sourceHeader">Component list</h4>
+        </ng-template>
+
+        <ng-template #sourceColumnHeaderTemplate >
+            <!-- <p class="mb-2 componet-list-items">{{product[col.field]}}</p> -->
+        </ng-template>
+
+        <ng-template #destinationheaderTemplate>
+            <h4 class="sourceHeader">Sorted Products</h4>
+        </ng-template>
+
+        <ng-template #destinationAddtionalColumnHeaderTemplate>
+                <th *ngFor="let col of productDestinationHeaders">
+                    <h5 class="des-header"> {{col.header}}</h5>
+                </th>
+                <th><h5>Check box</h5></th>
+                <th><h5>Edit</h5></th>
+                <th><h5>Delete</h5></th> 
+        </ng-template>
+
+        <ng-template #destinationAddtionalColumnDataTemplate>
+          <td>
+            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">  
+          </td> 
+          <td>
+            <button type="button" class="btn btn-warning">Edit</button>
+          </td> 
+          <td>
+            <button type="button" class="btn btn-danger">Delete</button>
+        </td> 
+    </ng-template>
+
+
+
+
+</app-test>
+
+
+
+
+
+
+<h1>-----------------------------------------</h1>
+
 
 <app-cams-pick-list
 
@@ -11,7 +79,14 @@
     [destinationFilter]="true" 
     [destinationFilterBy]="productFilterByColumns"
 
-></app-cams-pick-list>
+    >
+
+</app-cams-pick-list>
+
+
+
+
+
 
 
 

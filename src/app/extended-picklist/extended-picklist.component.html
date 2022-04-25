@@ -1,3 +1,13 @@
+<ng-container *ngIf="loading == true" ; else secondcode>
+    <h2>first</h2>
+</ng-container>
+
+
+<ng-template #secondcode>
+    <h2>second</h2>
+</ng-template>
+
+
 <div class="flex-container">
     <div  pDroppable="items" (onDrop)="dropRight()">
     <div>

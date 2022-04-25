@@ -1,0 +1,205 @@
+
+.flex-container {
+    display: flex;
+    background-color: rgb(248, 248, 248);
+  }
+  
+  .flex-container > div {
+    background-color: #f1f1f1;
+    margin: 10px;
+    padding: 20px;
+    font-size: 30px;
+  }
+
+:host ::ng-deep .drag-column {
+    padding-right: .5em;
+}
+
+.drop-column {
+    border: 1px solid transparent;
+    transition: border-color .2s;
+
+    &.p-draggable-enter {
+        border-color: var(--primary-color); 
+    }
+}
+
+.product-item {
+	display: flex;
+	align-items: center;
+	padding: 1rem;
+    width: 100%;
+    border-bottom: 1px solid var(--surface-d);
+
+	img {
+		width: 75px;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+        margin-right: 1rem;
+	}
+
+	.product-list-detail {
+		flex: 1 1 0;
+	}
+
+	.product-list-action {
+		display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
+    .product-category-icon {
+        vertical-align: middle;
+        margin-right: .5rem;
+    }
+
+    .product-category {
+        vertical-align: middle;
+        line-height: 1;
+    }
+}
+
+[pDraggable] {
+    cursor: move;
+}
+
+:host ::ng-deep .p-orderlist .p-orderlist-controls{
+    display: none;
+}
+
+.src-header{
+    color: rgb(207, 203, 203);
+    font-size: 20px;
+}
+.card-boder{
+    margin: 5rem;
+    width: 48%;
+    border: 1px solid rgb(4, 4, 5);
+
+}
+.btn-width{
+    width: 3rem;
+    margin-top: 10px;
+}
+.gridview .selected, .gridview tbody .selected {
+    background-color: #6ccbfb;
+    color: #fff;
+}
+
+:host ::ng-deep .p-orderlist .p-orderlist-list{
+    background: transparent;
+}
+.ptableheight{
+    height: 1000px;
+}
+.selectionHeader{
+    text-align: center;
+
+}
+.header{
+    text-align: center;
+}
+:host ::ng-deep .flex-container[_ngcontent-mre-c108]    > div[_ngcontent-mre-c108]{
+        background-color: blue;
+}
+.bg{
+    background: red;
+}
+
+.selection-table{
+ 
+    background-color: #212529;
+}
+td, th {
+   // width:200px !important;
+    height:20px !important;
+  //  max-width:150px !important;
+    max-height:70px !important;
+   // min-width:150px !important;
+    min-height:70px !important;
+  }
+.des-main-header{
+    text-align: center;
+    font-size: 20px;
+    color:rgb(207, 203, 203);
+}
+.des-header{
+    text-align: center;
+    font-size: 20px;
+    color:rgb(207, 203, 203);
+}
+.product-item1{
+    font-size: 16px;
+    padding: 3px;
+}
+.searchBox{
+    width: 10%;
+    height: 100px;
+    background-color: gray;
+    
+}
+.filer-position{
+ 
+    float: right;
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-bottom: 10px;
+    
+    
+}
+.component-list{
+    background-color: #212529;
+}
+.componet-list-header{
+    color: white;
+    padding: 10px;
+    padding-top: 20px;
+    text-align: center;
+}
+.componet-list-items{
+    color: white;
+    font-size: 16px;
+}
+.hr-properties{
+    height: 2px;
+    background-color: white;
+    margin: 5px;
+}
+.arrowbtn{
+
+    flex-direction: column;
+ 
+
+}
+.destination-search-header{
+    display: inline-block;
+        flex-direction: column;
+        justify-content: center;
+}
+.source-search-header{
+    display: inline;
+}
+
+@media screen and (max-width: 876px) {
+    .product-item {
+        flex-wrap: wrap;
+
+        .searchBox{
+            width: 10%;
+            height: 100px;
+        }
+    }
+    .cams-responsive{
+        display: inline;
+        justify-content: space-between;    
+    }
+    .arrowbtn{
+        flex-direction: row;
+    }
+    .btn-width{
+        width: 3rem;
+        margin-right: 10px;
+    }
+    .btn-rotate{
+        transform: rotate(90deg);
+    }
+}

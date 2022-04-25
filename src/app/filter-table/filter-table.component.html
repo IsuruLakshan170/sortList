@@ -1,3 +1,21 @@
+<div class="height">
+
+<ng-container *ngIf="loading == true ; else secondcode">
+	<h2>first</h2>
+</ng-container>
+
+<h2>1 way</h2>
+
+<h2>2 way</h2>
+
+<h2>3 way</h2>
+</div>
+<ng-template #secondcode>
+	<h2>second</h2>
+</ng-template>
+
+
+
 <p-table #dt1 [value]="customers"  [rows]="10" [showCurrentPageReport]="true"
 	[rowsPerPageOptions]="[10,25,50]" styleClass="p-datatable-customers p-datatable-gridlines"
 
@@ -10,6 +28,18 @@
             </span>
 		</div>
 	</ng-template>
+
+
+	<ng-template pTemplate="body" let-customer>
+		<tr>
+			<td>
+				{{customer.name}}
+			</td>
+			<tr>
+	</ng-template>
+
+
+
 	<ng-template pTemplate="header">
 		<tr>
 			<th>
@@ -21,11 +51,5 @@
 	
 		</tr>
 	</ng-template>
-	<ng-template pTemplate="body" let-customer>
-		<tr>
-			<td>
-				{{customer.name}}
-			</td>
-			<tr>
-	</ng-template>
 </p-table>
+

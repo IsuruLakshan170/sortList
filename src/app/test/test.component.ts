@@ -1,25 +1,45 @@
+
+
+
+import { Template } from '@angular/compiler/src/render3/r3_ast';
 import { Component, OnInit,Input } from '@angular/core';
 
 @Component({
-  selector: 'app-cams-pick-list',
-  templateUrl: './cams-pick-list.component.html',
-  styleUrls: ['./cams-pick-list.component.scss']
+  selector: 'app-test',
+  templateUrl: './test.component.html',
+  styleUrls: ['./test.component.scss']
 })
-export class CamsPickListComponent implements OnInit {
+export class TestComponent implements OnInit {
 
   @Input() sourceArray: Array<any>=[];//get source array
   @Input() sourceTableColumnHeaders?:any;//get source item
-  @Input() sourceTableHeader?:string;//get sort table header
   @Input() sourceFilter?:boolean;//get sort table header
 
   @Input() destinationTableColumnHeaders: Array<any>=[];//get destination table headers
-  @Input() destinationTableHeader?:string;//get sort table header
   @Input() destinationFilter?:boolean;//get sort table header
   @Input() destinationFilterBy?:any;//get filer heading list
+  @Input() destinationTableColumnHeaders1?: any;//get destination table headers
 
-  heading?: string='l'; 
+  @Input() sourceTableHeader?:any;//get filer heading list
+  @Input() sourceTableColumnHeaders1?:any;//get filer heading list
+  @Input() destinationTableHeader?:any;//get filer heading list
 
-  header?: string='secondcode'; 
+  @Input() destinationTableAddtionalHeader?:any;//get filer heading list
+  @Input() destinationTableAddtionalColumnData?:any;//get filer heading list
+
+  templateSourceTableHeader?:any;
+  templateSourceTableColumnHeaders?:any;
+
+  templateDestinationTableHeader?:any;
+  templateDestinationTableColumnHeaders?:any;
+  
+  heading?: string=''; 
+
+  header?: string=''; 
+
+
+  templateDestinationTableAddtionalColumnHeaders?:any;
+  templateDestinationTableAddtionalColumnData?:any;
 
   //source filter show or not
   sourceFilterIsShown: boolean = true; 
@@ -37,7 +57,6 @@ export class CamsPickListComponent implements OnInit {
   //source original copy of array
   sourceArrayCopy: any[]=[];
   //sort out table header
-  camsDestinationTableHeader?:string;
 
   //right single arrow button disable true default
    rightButtonDisable =true;
@@ -56,8 +75,12 @@ export class CamsPickListComponent implements OnInit {
 
   //initialization
   ngOnInit(): void {
-    this.camsDestinationTableHeader =this.destinationTableHeader;
-    this.sourceTableHeader =this.sourceTableHeader;
+    this.templateDestinationTableAddtionalColumnData =this.destinationTableAddtionalColumnData;
+    this.templateDestinationTableAddtionalColumnHeaders=this.destinationTableAddtionalHeader;
+    this.templateSourceTableHeader=this.sourceTableHeader;
+    this.templateSourceTableColumnHeaders=this.sourceTableColumnHeaders1;
+    this.templateDestinationTableHeader=this.destinationTableHeader;
+    this.templateDestinationTableColumnHeaders =this.destinationTableColumnHeaders1;
     this.camsSourceArray = this.sourceArray;
     this.camsDestinationHeaders = this.destinationTableColumnHeaders;
     this.sourceArrayCopy =this.camsSourceArray; 
