@@ -17,7 +17,9 @@ export class CamsPickListComponent implements OnInit {
   @Input() destinationFilter?:boolean;//get sort table header
   @Input() destinationFilterBy?:any;//get filer heading list
 
+  //source filter show or not
   sourceFilterIsShown: boolean = true; 
+  //destination filter show or not
   destinationFilterIsShown: boolean = true; 
   //search item
   term: string ="";
@@ -43,7 +45,6 @@ export class CamsPickListComponent implements OnInit {
    selectedItem?: any;
   //destination search bar filter by
    camsDestinationFilterBy?:any;
-
   //source items column
   sourceArrayColumnItem: any[]=[];
 
@@ -66,7 +67,7 @@ export class CamsPickListComponent implements OnInit {
     }
 
   }
-
+  //this is use for primeNg erro for filter area then by using we can remove the error
   getEventValue($event:any) :string {
     return $event.target.value;
   } 
@@ -151,7 +152,6 @@ export class CamsPickListComponent implements OnInit {
     this.camsDestinationArray =[];
     this.leftButtonDisable =true;
     this.rightButtonDisable =true;
-
   }
   //when click right table row single left side arrow button enable
   onClickRightCell(product: any){

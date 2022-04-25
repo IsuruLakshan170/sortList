@@ -11,24 +11,18 @@
                  <h4 class="componet-list-header">{{sourceTableHeader}}</h4>
              </div>
         </div>
-        
          <div>
               <hr class="hr-properties"> 
         </div>
-       
         <div *ngFor="let product of camsSourceArray | filter:term">
             <div class="product-item" pDraggable="products" (click)="onClickRightCell(product)"  (onDragStart)="dragStart(product)" (onDragEnd)="dragEnd()">                 
-               
                 <div class="product-list-detail" *ngFor="let col of sourceArrayColumnItem">
                     <p class="mb-2 componet-list-items">{{product[col.field]}}</p>
                 </div>
-
             </div>
         </div>
     </div>
 </div> 
-
-
 
 <div class="arrowbtn d-flex justify-content-center">
     <button type="button" class="btn btn-primary btn-width" [disabled]="rightButtonDisable" (click)="rightPushOne()" >></button>
@@ -41,20 +35,13 @@
     <p-table #dt1  [value]="camsDestinationArray" [columns]="camsDestinationHeaders"  [(selection)]="selectedItem" dataKey="code"
      [reorderableColumns]="true" responsiveLayout="scroll"
      [globalFilterFields]="camsDestinationFilterBy" >
-
      <ng-template pTemplate="caption">
-         
         <div style="text-align: right searchBox"  class="form-group " *ngIf="destinationFilterIsShown">        
             <i class="pi pi-search" style="margin:4px 4px 0 0"></i>
             <input type="text" pInputText size="50"  (input)="dt1.filterGlobal(getEventValue($event), 'contains')"   style="width:auto" placeholder="Search keyword">
         </div>
-      
             <h4 class="componet-list-header">{{camsDestinationTableHeader}}</h4>   
-       
-    </ng-template>    
-      
-      
-
+    </ng-template>   
         <ng-template pTemplate="header" let-columns>
             <tr>
                 <th style="width:3rem"></th>
@@ -81,4 +68,5 @@
             </ng-template>
         </p-table>
     </div>
-    </div>
+    
+ </div>
