@@ -3,14 +3,14 @@
 
 <app-cams-pick-list
     [sourceArray]="products" 
-    [sourceHeaders]="productSourceHeaders" 
-    [DestinationHeaders]="productDestinationHeaders" 
-    [DestinationTableHeader]="ProductDestinationHeader"
-    [SourceTableHeader]="productSourceHeader" 
-    [SourceFilter]="true" 
-    [DestinationFilter]="true" 
-    [DestinationFilterBy]="productFilterByColumns"
-    [SourceHeaderItem]="producttableItem"
+    [sourceTableHeader]="productSourceHeader" 
+    [sourceTableColumnHeaders]="producttableItem"
+    [sourceFilter]="true" 
+
+    [destinationTableHeader]="ProductDestinationHeader"
+    [destinationTableColumnHeaders]="productDestinationHeaders" 
+    [destinationFilter]="true" 
+    [destinationFilterBy]="productFilterByColumns"
  ></app-cams-pick-list>
 
 

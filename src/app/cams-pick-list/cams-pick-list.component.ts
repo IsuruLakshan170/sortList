@@ -9,44 +9,42 @@ import { Component, OnInit,Input } from '@angular/core';
 export class CamsPickListComponent implements OnInit {
 
   @Input() sourceArray: Array<any>=[];//get source array
-  @Input() sourceHeaders: Array<any>=[];//get source table headers
-  @Input() DestinationHeaders: Array<any>=[];//get destination table headers
-  @Input() DestinationTableHeader?:string;//get sort table header
-  @Input() SourceTableHeader?:string;//get sort table header
-  @Input() SourceFilter?:boolean;//get sort table header
-  @Input() DestinationFilter?:boolean;//get sort table header
-  @Input() DestinationFilterBy?:any;//get filer heading list
-  @Input() SourceHeaderItem?:any;//get source item
+  @Input() sourceTableColumnHeaders?:any;//get source item
+  @Input() sourceTableHeader?:string;//get sort table header
+  @Input() sourceFilter?:boolean;//get sort table header
 
-  SourceFilterisShown: boolean = true; 
-  DestinationFilterisShown: boolean = true; 
+  @Input() destinationTableColumnHeaders: Array<any>=[];//get destination table headers
+  @Input() destinationTableHeader?:string;//get sort table header
+  @Input() destinationFilter?:boolean;//get sort table header
+  @Input() destinationFilterBy?:any;//get filer heading list
+
+  sourceFilterIsShown: boolean = true; 
+  destinationFilterIsShown: boolean = true; 
   //search item
   term: string ="";
   //source array
   camsSourceArray: any[]=[];
   //destination array
-  DesArry: any[]=[];
+  camsDestinationArray: any[]=[];
   //source headers
-  SrcHeaders: any[]=[];
+ 
+  camsDestinationHeaders: any[]=[];
   //source original copy of array
-  DesHeaders: any[]=[];
-  //source original copy of array
-  SrcArryCpy: any[]=[];
+  sourceArrayCopy: any[]=[];
   //sort out table header
-  SortTableHeader?:string;
- //sort out table header
-  sourceTableHeader?:string;
+  camsDestinationTableHeader?:string;
+
   //right single arrow button disable true default
-   RightButtonDisable =true;
+   rightButtonDisable =true;
    //left single arrow button disable true default
-  LeftButtonDisable =true;
+  leftButtonDisable =true;
   //drag item
-  DragItem?: any;
+  dragItem?: any;
    //selected item in drag
-   SelectedItem?: any;
-  
-   FilterList?:any;
-  //leftenable? :boolean;
+   selectedItem?: any;
+  //destination search bar filter by
+   camsDestinationFilterBy?:any;
+
   //source items column
   sourceArrayColumnItem: any[]=[];
 
@@ -54,19 +52,18 @@ export class CamsPickListComponent implements OnInit {
 
   //initialization
   ngOnInit(): void {
-    this.SortTableHeader =this.DestinationTableHeader;
-    this.sourceTableHeader =this.SourceTableHeader;
+    this.camsDestinationTableHeader =this.destinationTableHeader;
+    this.sourceTableHeader =this.sourceTableHeader;
     this.camsSourceArray = this.sourceArray;
-    this.SrcHeaders = this.sourceHeaders;
-    this.DesHeaders = this.DestinationHeaders;
-    this.SrcArryCpy =this.camsSourceArray; 
-    this.FilterList =this.DestinationFilterBy;
-    this.sourceArrayColumnItem=this.SourceHeaderItem;
-    if(this.SourceFilter == false){
-      this.SourceFilterisShown=false;
+    this.camsDestinationHeaders = this.destinationTableColumnHeaders;
+    this.sourceArrayCopy =this.camsSourceArray; 
+    this.camsDestinationFilterBy =this.destinationFilterBy;
+    this.sourceArrayColumnItem=this.sourceTableColumnHeaders;
+    if(this.sourceFilter == false){
+      this.sourceFilterIsShown=false;
     }
-    if(this.DestinationFilter == false){
-      this.DestinationFilterisShown=false;
+    if(this.destinationFilter == false){
+      this.destinationFilterIsShown=false;
     }
 
   }
@@ -78,31 +75,31 @@ export class CamsPickListComponent implements OnInit {
   //start drag
     dragStart(product: any) {
       console.log("drag start");
-      this.DragItem = product;
+      this.dragItem = product;
   }
   // send to right
   dropRight() {
     console.log("drag drop");
-      if (this.DragItem) {
-          let draggedProductIndex = this.findIndexRight(this.DragItem);
-          this.DesArry = [...this.DesArry, this.DragItem];
+      if (this.dragItem) {
+          let draggedProductIndex = this.findIndexRight(this.dragItem);
+          this.camsDestinationArray = [...this.camsDestinationArray, this.dragItem];
           this.camsSourceArray = this.camsSourceArray.filter((val,i) => i!=draggedProductIndex);
-          this.DragItem = null;
+          this.dragItem = null;
       }
   }
   //send to left 
   dropLeft() {
-    if (this.DragItem) {
-        let draggedProductIndex = this.findIndexLeft(this.DragItem);
-        this.camsSourceArray = [...this.camsSourceArray, this.DragItem];
-        this.DesArry = this.DesArry.filter((val,i) => i!=draggedProductIndex);
-        this.DragItem = 'null';
+    if (this.dragItem) {
+        let draggedProductIndex = this.findIndexLeft(this.dragItem);
+        this.camsSourceArray = [...this.camsSourceArray, this.dragItem];
+        this.camsDestinationArray = this.camsDestinationArray.filter((val,i) => i!=draggedProductIndex);
+        this.dragItem = 'null';
     }
   }
   //stop drag
   dragEnd() {
       console.log("drag stop");
-      this.DragItem = null;
+      this.dragItem = null;
   }
   //find right side table selected row index
   findIndexRight(product: any) {
@@ -118,8 +115,8 @@ export class CamsPickListComponent implements OnInit {
   //find left side table selected row index
   findIndexLeft(product: any) {
     let index = -1;
-    for(let i = 0; i < this.DesArry.length; i++) {
-        if (product.id === this.DesArry[i].id) {
+    for(let i = 0; i < this.camsDestinationArray.length; i++) {
+        if (product.id === this.camsDestinationArray[i].id) {
             index = i;
             break;
         }
@@ -127,47 +124,47 @@ export class CamsPickListComponent implements OnInit {
     return index;
   }
   //one item push to right table
-  RightPushOne(){
+  rightPushOne(){
     
-    console.log("RightPushOne");
+    console.log("rightPushOne");
     this.dropRight();
-    this.RightButtonDisable =true;
+    this.rightButtonDisable =true;
 
   }
   //all items push to right table
-  RightPushAll(){
-    console.log("RightPushAll");
-    this.DesArry =this.SrcArryCpy;
+  rightPushAll(){
+    console.log("rightPushAll");
+    this.camsDestinationArray =this.sourceArrayCopy;
     this.camsSourceArray =[];
-    this.LeftButtonDisable =true;
-    this.RightButtonDisable =true;
+    this.leftButtonDisable =true;
+    this.rightButtonDisable =true;
   }
   //one item push to left table
-  LeftPushOne(){
-    console.log("LeftPushOne");
+  leftPushOne(){
+    console.log("leftPushOne");
     this.dropLeft();
-    this.LeftButtonDisable =true;
+    this.leftButtonDisable =true;
   }
   //all items push to right table
-  LeftPushAll(){
-    console.log("LeftPushAll");
-    this.camsSourceArray =this.SrcArryCpy;
-    this.DesArry =[];
-    this.LeftButtonDisable =true;
-    this.RightButtonDisable =true;
+  leftPushAll(){
+    console.log("leftPushAll");
+    this.camsSourceArray =this.sourceArrayCopy;
+    this.camsDestinationArray =[];
+    this.leftButtonDisable =true;
+    this.rightButtonDisable =true;
 
   }
   //when click right table row single left side arrow button enable
   onClickRightCell(product: any){
-    this.RightButtonDisable =false;
-    this.DragItem =product;
+    this.rightButtonDisable =false;
+    this.dragItem =product;
     console.log("Right cell click");
-    //this.LeftButtonDisable =false;
+    //this.leftButtonDisable =false;
   }
   //when click left table row single right side arrow button enable
   onClickLeftCell(product: any){
-    this.LeftButtonDisable =false;
-    this.DragItem =product;
+    this.leftButtonDisable =false;
+    this.dragItem =product;
     console.log("left cell click");
 
   }
