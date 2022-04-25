@@ -65,12 +65,7 @@
 :host ::ng-deep .p-orderlist .p-orderlist-controls{
     display: none;
 }
-.arrowbtn{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
- 
-}
+
 .src-header{
     color: rgb(207, 203, 203);
     font-size: 20px;
@@ -109,14 +104,9 @@
 .bg{
     background: red;
 }
-.selected-table{
-    width: 350px;
-    min-height: 350px;
-}
+
 .selection-table{
-    width: 250px;
-    height: 350px;
-    min-height: 350px;
+ 
     background-color: #212529;
 }
 td, th {
@@ -142,12 +132,12 @@ td, th {
     padding: 3px;
 }
 .searchBox{
-    width: 200px;
+    width: 10%;
     height: 100px;
     background-color: gray;
 }
 .filer-position{
-    width: 200px;
+ 
     float: right;
     margin-top: 10px;
     margin-left: 20px;
@@ -173,18 +163,35 @@ td, th {
     background-color: white;
     margin: 5px;
 }
-@media screen and (max-width: 576px) {
+.arrowbtn{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+@media screen and (max-width: 876px) {
     .product-item {
         flex-wrap: wrap;
 
-        .image-container {
-            width: 100%;
-            text-align: center;
+        .searchBox{
+            width: 10%;
+            height: 100px;
         }
-
-        img {
-            margin: 0 0 1rem 0;
-            width: 100px;
-        }
+    }
+    .cams-responsive{
+        display: inline;
+        justify-content: space-between
+    
+    }
+    .arrowbtn{
+        display: inline-block;
+        flex-direction: column;
+        justify-content: center;
+        
+    }
+    .btn-width{
+        width: 3rem;
+        margin-right: 10px;
     }
 }

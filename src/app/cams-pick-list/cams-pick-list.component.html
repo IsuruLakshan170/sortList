@@ -1,7 +1,7 @@
-<div class="flex-container">
+<div class="flex-container cams-responsive">
     
     <div>
-        <div class="col-12 md:col-6 drag-column component-list" >
+        <div class="drag-column component-list container" >
 
             
             <div class="form-group filer-position" *ngIf="sourceFilterIsShown">
@@ -25,7 +25,8 @@
                 </div>
             </div>
         </div>
-    </div>
+   </div> 
+
     <div class="arrowbtn">
         <button type="button" class="btn btn-primary btn-width" [disabled]="rightButtonDisable" (click)="rightPushOne()" >></button>
         <button type="button" class="btn btn-primary btn-width"  (click)="rightPushAll()" >>></button>
@@ -33,7 +34,7 @@
         <button type="button" class="btn btn-primary btn-width" (click)="leftPushAll()" ><<</button>      
     </div>
 
-      <div  pDroppable="products" (onDrop)="dropRight()">
+      <div  class="drag-column" pDroppable="products" (onDrop)="dropRight()">
         <p-table #dt1  [value]="camsDestinationArray" [columns]="camsDestinationHeaders"  [(selection)]="selectedItem" dataKey="code"
          [reorderableColumns]="true" responsiveLayout="scroll"
          [globalFilterFields]="camsDestinationFilterBy" >
@@ -77,3 +78,4 @@
             </p-table>
         </div>
 </div>
+
