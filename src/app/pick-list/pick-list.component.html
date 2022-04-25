@@ -19,8 +19,8 @@
                 </td>
                 <td *ngFor="let col of columns">
                         <div class="product - item" pDraggable="products" (click)="onClick()" (onDragStart)="dragStart(index)" (onDragEnd)="dragEnd()">
-                        {{rowData[col.field]}}
-                  </div>
+                           {{rowData[col.field]}}
+                        </div>
                 </td>
             </tr>
         </ng-template>

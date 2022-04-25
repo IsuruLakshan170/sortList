@@ -15,6 +15,7 @@ import { MainWindowComponent } from './main-window/main-window.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { FilterTableComponent } from './filter-table/filter-table.component';
 import { ExtendedPicklistComponent } from './extended-picklist/extended-picklist.component';
+import { CamsPickListComponent } from './cams-pick-list/cams-pick-list.component';
 
  @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ExtendedPicklistComponent } from './extended-picklist/extended-picklist
     SelectedTableComponent,
     MainWindowComponent,
     FilterTableComponent,
-    ExtendedPicklistComponent
+    ExtendedPicklistComponent,
+    CamsPickListComponent
   ],
   imports: [
     BrowserModule,

@@ -49,7 +49,7 @@ export class MainWindowComponent implements OnInit {
     { field: 'category', header: 'Category' },
   ];
 
-  productFilterByColumns: any=['name','id','category'];
+  productFilterByColumns: any=['name'];
 
   public cars:Car[] = [
     {id:1,  seet: 'seet',price:'1000',color:'red'},
