@@ -25,10 +25,10 @@
 </div> 
 
 <div class="arrowbtn d-flex justify-content-center">
-    <button type="button" class="btn btn-primary btn-width" [disabled]="rightButtonDisable" (click)="rightPushOne()" >></button>
-    <button type="button" class="btn btn-primary btn-width"  (click)="rightPushAll()" >>></button>
-    <button type="button" class="btn btn-primary btn-width" [disabled]="leftButtonDisable" (click)="leftPushOne()"  ><</button>
-    <button type="button" class="btn btn-primary btn-width" (click)="leftPushAll()" ><<</button>      
+    <button type="button" class="btn btn-primary btn-width btn-rotate" [disabled]="rightButtonDisable" (click)="rightPushOne()" >></button>
+    <button type="button" class="btn btn-primary btn-width btn-rotate"  (click)="rightPushAll()" >>></button>
+    <button type="button" class="btn btn-primary btn-width btn-rotate" [disabled]="leftButtonDisable" (click)="leftPushOne()"  ><</button>
+    <button type="button" class="btn btn-primary btn-width btn-rotate" (click)="leftPushAll()" ><<</button>      
 </div>
 
 <div  class="drag-column" pDroppable="products" (onDrop)="dropRight()">
