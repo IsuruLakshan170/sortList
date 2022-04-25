@@ -5,18 +5,16 @@ import { SelectedTableComponent } from './selected-table/selected-table.componen
 import {MainWindowComponent} from './main-window/main-window.component'
 import {FilterTableComponent} from './filter-table/filter-table.component'
 import {ExtendedPicklistComponent} from './extended-picklist/extended-picklist.component'
-import {CamsPickListComponent} from './cams-pick-list/cams-pick-list.component'
 
 
 
 const routes: Routes = [
-  
+
   { path: '', component: MainWindowComponent },
   { path: '1', component: PickListComponent },
   { path: '2', component: SelectedTableComponent },
   { path: '4', component: FilterTableComponent },
   { path: '5', component: ExtendedPicklistComponent },
-  { path: '6', component: CamsPickListComponent }
 
 ];
 

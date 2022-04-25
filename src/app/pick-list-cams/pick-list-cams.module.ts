@@ -8,10 +8,12 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import {OrderListModule} from 'primeng/orderlist';
 import {TableModule} from 'primeng/table';
+import { CamsPickListComponent } from './cams-pick-list/cams-pick-list.component';
 
 @NgModule({
   declarations: [
-    TestCamsPickListComponent
+    TestCamsPickListComponent,
+    CamsPickListComponent
   ],
   imports: [
     CommonModule,
@@ -24,7 +26,8 @@ import {TableModule} from 'primeng/table';
     TableModule
   ],
   exports:[
-    TestCamsPickListComponent
+    TestCamsPickListComponent,
+    CamsPickListComponent
   ]
 })
 export class PickListCamsModule {
