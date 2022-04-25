@@ -16,7 +16,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { FilterTableComponent } from './filter-table/filter-table.component';
 import { ExtendedPicklistComponent } from './extended-picklist/extended-picklist.component';
 import { CamsPickListComponent } from './cams-pick-list/cams-pick-list.component';
-
+import {PickListCamsModule} from './pick-list-cams/pick-list-cams.module'
  @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +37,8 @@ import { CamsPickListComponent } from './cams-pick-list/cams-pick-list.component
     OrderListModule,
     NgbModule,
     FormsModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    PickListCamsModule
    
   ],
   providers: [],

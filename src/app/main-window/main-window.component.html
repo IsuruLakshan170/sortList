@@ -15,7 +15,18 @@
 
 
 
+<app-test-cams-pick-list
+[sourceArray]="products" 
+    [sourceTableHeader]="productSourceHeader" 
+    [sourceTableColumnHeaders]="producttableItem"
+    [sourceFilter]="true" 
 
+    [destinationTableHeader]="ProductDestinationHeader"
+    [destinationTableColumnHeaders]="productDestinationHeaders" 
+    [destinationFilter]="true" 
+    [destinationFilterBy]="productFilterByColumns"
+
+></app-test-cams-pick-list>
 
 
 
