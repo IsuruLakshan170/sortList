@@ -149,9 +149,30 @@ td, th {
 .filer-position{
     width: 200px;
     float: right;
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-bottom: 10px;
+    
     
 }
-
+.component-list{
+    background-color: #212529;
+}
+.componet-list-header{
+    color: white;
+    padding: 10px;
+    padding-top: 20px;
+    text-align: center;
+}
+.componet-list-items{
+    color: white;
+    font-size: 16px;
+}
+.hr-properties{
+    height: 2px;
+    background-color: white;
+    margin: 5px;
+}
 @media screen and (max-width: 576px) {
     .product-item {
         flex-wrap: wrap;

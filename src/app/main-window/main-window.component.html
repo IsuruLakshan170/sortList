@@ -1,17 +1,16 @@
 <h1>Cams pick list</h1>
 <h4>Products</h4>
 
-
-
-
 <app-cams-pick-list
     [SourceArray]="products" 
     [SourceHeaders]="productSourceHeaders" 
     [DestinationHeaders]="productDestinationHeaders" 
-    [DestinationTableHeader]="ProductHeader" 
-    [SourceFilter]="false" 
+    [DestinationTableHeader]="ProductDestinationHeader"
+    [SourceTableHeader]="productSourceHeader" 
+    [SourceFilter]="true" 
     [DestinationFilter]="true" 
     [DestinationFilterBy]="productFilterByColumns"
+    [SourceHeaderItem]="producttableItem"
  ></app-cams-pick-list>
 
 <h4>Cars</h4>
@@ -21,7 +20,13 @@
     [DestinationHeaders]="carDestinationHeaders" 
     [DestinationTableHeader]="CarHeader"
     [SourceFilter]="true" 
+    [SourceHeaderItem]="producttableItem"
 ></app-cams-pick-list>
+
+
+
+
+
 
 
 
@@ -32,9 +37,9 @@
     [SourceArray]="products" 
     [SourceHeaders]="productSourceHeaders" 
     [DestinationHeaders]="productDestinationHeaders" 
-    [DestinationTableHeader]="ProductHeader" 
+    [DestinationTableHeader]="ProductDestinationHeader" 
     [SourceFilter]="false" 
-    [DestinationFilter]="true" 
+    [DestinationFilter]="false" 
     [DestinationFilterBy]="productFilterByColumns"
  ></app-extended-picklist>
 

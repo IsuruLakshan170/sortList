@@ -1,27 +1,30 @@
 <div class="flex-container">
+    
     <div>
-        <div class="form-group filer-position" *ngIf="SourceFilterisShown">
-            <input type="text" class="form-control" placeholder="Search Here" [(ngModel)]="term">
-        </div>
-       <div class="div">
+        <div class="col-12 md:col-6 drag-column component-list" >
+
             
-        <table  class="table table-hover table-dark selection-table"> 
-            <thead >
-              <tr>
-                  <th *ngFor ="let column of SrcHeaders" ><h4 class="src-header"> {{column.header}}</h4></th>
-              </tr>
-            </thead>      
-              <tbody>
-                      <tr  *ngFor="let product of SrcArry | filter:term" >   
-                        <td *ngFor="let column of SrcHeaders">
-                            <div class="product-item1" (click)="onClickRightCell(product)" pDraggable="items" (onDragStart)="dragStart(product)" (onDragEnd)="dragEnd()">
-                                 {{product[column.field]}}
-                            </div>
-                         </td> 
-                      </tr>
-              </tbody>
-         </table>
-       </div>
+            <div class="form-group filer-position" *ngIf="SourceFilterisShown">
+                <input type="text" class="form-control" placeholder="Search Here" [(ngModel)]="term">
+            </div>
+
+            <h4 class="componet-list-header">{{sourceTableHeader}}</h4>
+
+            
+                <div>
+                    <hr class="hr-properties"> 
+                </div>
+           
+            <div *ngFor="let product of SrcArry | filter:term">
+                <div class="product-item" pDraggable="products" (click)="onClickRightCell(product)"  (onDragStart)="dragStart(product)" (onDragEnd)="dragEnd()">                 
+                   
+                    <div class="product-list-detail" *ngFor="let col of sourceArrayColumnItem">
+                        <p class="mb-2 componet-list-items">{{product[col.field]}}</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
     </div>
     <div class="arrowbtn">
         <button type="button" class="btn btn-primary btn-width" [disabled]="RightButtonDisable" (click)="RightPushOne()" >></button>
@@ -29,9 +32,8 @@
         <button type="button" class="btn btn-primary btn-width" [disabled]="LeftButtonDisable" (click)="LeftPushOne()"  ><</button>
         <button type="button" class="btn btn-primary btn-width" (click)="LeftPushAll()" ><<</button>      
     </div>
-      <div  pDroppable="items" (onDrop)="dropRight()">
-     
-     
+
+      <div  pDroppable="products" (onDrop)="dropRight()">
         <p-table #dt1  [value]="DesArry" [columns]="DesHeaders"  [(selection)]="SelectedItem" dataKey="code"
          [reorderableColumns]="true" responsiveLayout="scroll"
          [globalFilterFields]="FilterList" >
@@ -42,7 +44,7 @@
                 <input type="text" pInputText size="50"  (input)="dt1.filterGlobal(getEventValue($event), 'contains')"   style="width:auto" placeholder="Search keyword">
             </div>
             <div>
-                <h4 class="des-main-header">{{SortTableHeader}}</h4>   
+                <h4 class="componet-list-header">{{SortTableHeader}}</h4>   
             </div>
         </ng-template>    
           

@@ -12,9 +12,11 @@ export class CamsPickListComponent implements OnInit {
   @Input() SourceHeaders: Array<any>=[];//get source table headers
   @Input() DestinationHeaders: Array<any>=[];//get destination table headers
   @Input() DestinationTableHeader?:string;//get sort table header
+  @Input() SourceTableHeader?:string;//get sort table header
   @Input() SourceFilter?:boolean;//get sort table header
   @Input() DestinationFilter?:boolean;//get sort table header
   @Input() DestinationFilterBy?:any;//get filer heading list
+  @Input() SourceHeaderItem?:any;//get source item
 
   SourceFilterisShown: boolean = true; 
   DestinationFilterisShown: boolean = true; 
@@ -32,6 +34,8 @@ export class CamsPickListComponent implements OnInit {
   SrcArryCpy: any[]=[];
   //sort out table header
   SortTableHeader?:string;
+ //sort out table header
+  sourceTableHeader?:string;
   //right single arrow button disable true default
    RightButtonDisable =true;
    //left single arrow button disable true default
@@ -43,16 +47,21 @@ export class CamsPickListComponent implements OnInit {
   
    FilterList?:any;
   //leftenable? :boolean;
+  //source items column
+  sourceArrayColumnItem: any[]=[];
+
   constructor() { }
 
   //initialization
   ngOnInit(): void {
     this.SortTableHeader =this.DestinationTableHeader;
+    this.sourceTableHeader =this.SourceTableHeader;
     this.SrcArry = this.SourceArray;
     this.SrcHeaders = this.SourceHeaders;
     this.DesHeaders = this.DestinationHeaders;
     this.SrcArryCpy =this.SrcArry; 
     this.FilterList =this.DestinationFilterBy;
+    this.sourceArrayColumnItem=this.SourceHeaderItem;
     if(this.SourceFilter == false){
       this.SourceFilterisShown=false;
     }

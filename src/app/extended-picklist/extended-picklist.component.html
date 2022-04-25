@@ -1,4 +1,5 @@
 <div class="flex-container">
+    <div  pDroppable="items" (onDrop)="dropRight()">
     <div>
         <div class="form-group filer-position" *ngIf="SourceFilterisShown">
             <input type="text" class="form-control" placeholder="Search Here" [(ngModel)]="term">
@@ -23,6 +24,7 @@
          </table>
        </div>
     </div>
+</div>
     <div class="arrowbtn">
         <button type="button" class="btn btn-primary btn-width" [disabled]="RightButtonDisable" (click)="RightPushOne()" >></button>
         <button type="button" class="btn btn-primary btn-width"  (click)="RightPushAll()" >>></button>
@@ -30,8 +32,6 @@
         <button type="button" class="btn btn-primary btn-width" (click)="LeftPushAll()" ><<</button>      
     </div>
       <div  pDroppable="items" (onDrop)="dropRight()">
-     
-     
         <p-table #dt1  [value]="DesArry" [columns]="DesHeaders"  [(selection)]="SelectedItem" dataKey="code"
          [reorderableColumns]="true" responsiveLayout="scroll"
          [globalFilterFields]="FilterList" >

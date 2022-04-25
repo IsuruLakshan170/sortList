@@ -21,16 +21,18 @@ export interface Car{
 })
 export class MainWindowComponent implements OnInit {
  
-    ProductHeader?:string="Sorted Products";
-    CarHeader?:string="Sorted Cars";
+    
+   
 
+    productSourceHeader?:string="Component List";
+    ProductDestinationHeader?:string="Sorted Products";
 // product table array
   public products:Product[] = [
-    {id:1, code: '2', name: '2Floor',category:'2one',quantity:'2new'},
-    {id:2, code: '3', name: '3Floor',category:'3one',quantity:'3new'},
-    {id:3, code: '4', name: '4Floor',category:'4one',quantity:'4new'},
-    {id:4, code: '5', name: '5Floor',category:'5one',quantity:'5new'},
-    {id:5, code: '6', name: '6Floor',category:'6one',quantity:'6new'},
+    {id:1, code: '2', name: 'Floor',category:'2one',quantity:'2new'},
+    {id:2, code: '3', name: 'Room',category:'3one',quantity:'3new'},
+    {id:3, code: '4', name: 'Component Group',category:'4one',quantity:'4new'},
+    {id:4, code: '5', name: 'Component Type',category:'5one',quantity:'5new'},
+    {id:5, code: '6', name: 'Component',category:'6one',quantity:'6new'},
   
   ];
   //product table source headers
@@ -41,6 +43,12 @@ export class MainWindowComponent implements OnInit {
     { field: 'category', header: 'Category' },
     { field: 'quantity', header: 'Quantity' },
   ];
+
+  //product table destination headers
+  public producttableItem:any[] = [
+    { field: 'name',},
+  ];
+
   //product table destination headers
   public productDestinationHeaders:any[] = [
     { field: 'id', header: 'Id' },
@@ -51,6 +59,8 @@ export class MainWindowComponent implements OnInit {
 
   productFilterByColumns: any=['name'];
 
+
+  CarHeader?:string="Sorted Cars";
   public cars:Car[] = [
     {id:1,  seet: 'seet',price:'1000',color:'red'},
     {id:2,  seet: 'ceel',price:'5533',color:'blue'},
@@ -72,6 +82,7 @@ export class MainWindowComponent implements OnInit {
     { field: 'price', header: 'Price' },
     { field: 'color', header: 'Color' },
 ];
+
   constructor() { }
 
   ngOnInit(): void {
