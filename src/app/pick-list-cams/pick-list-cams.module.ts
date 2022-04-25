@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TestCamsPickListComponent } from './test-cams-pick-list/test-cams-pick-list.component';
 import { FormsModule } from '@angular/forms';
 import {PickListModule} from 'primeng/picklist';
 import {DragDropModule} from 'primeng/dragdrop';
@@ -12,7 +11,6 @@ import { CamsPickListComponent } from './cams-pick-list/cams-pick-list.component
 
 @NgModule({
   declarations: [
-    TestCamsPickListComponent,
     CamsPickListComponent
   ],
   imports: [
@@ -26,7 +24,6 @@ import { CamsPickListComponent } from './cams-pick-list/cams-pick-list.component
     TableModule
   ],
   exports:[
-    TestCamsPickListComponent,
     CamsPickListComponent
   ]
 })
