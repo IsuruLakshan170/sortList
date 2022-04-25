@@ -135,6 +135,7 @@ td, th {
     width: 10%;
     height: 100px;
     background-color: gray;
+    
 }
 .filer-position{
  
@@ -164,10 +165,18 @@ td, th {
     margin: 5px;
 }
 .arrowbtn{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
 
+    flex-direction: column;
+ 
+
+}
+.destination-search-header{
+    display: inline-block;
+        flex-direction: column;
+        justify-content: center;
+}
+.source-search-header{
+    display: inline;
 }
 
 @media screen and (max-width: 876px) {
@@ -181,14 +190,10 @@ td, th {
     }
     .cams-responsive{
         display: inline;
-        justify-content: space-between
-    
+        justify-content: space-between;    
     }
     .arrowbtn{
-        display: inline-block;
-        flex-direction: column;
-        justify-content: center;
-        
+        flex-direction: row;
     }
     .btn-width{
         width: 3rem;
