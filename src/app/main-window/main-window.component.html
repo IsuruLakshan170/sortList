@@ -2,8 +2,8 @@
 <h4>Products</h4>
 
 <app-cams-pick-list
-    [SourceArray]="products" 
-    [SourceHeaders]="productSourceHeaders" 
+    [sourceArray]="products" 
+    [sourceHeaders]="productSourceHeaders" 
     [DestinationHeaders]="productDestinationHeaders" 
     [DestinationTableHeader]="ProductDestinationHeader"
     [SourceTableHeader]="productSourceHeader" 
@@ -13,15 +13,6 @@
     [SourceHeaderItem]="producttableItem"
  ></app-cams-pick-list>
 
-<h4>Cars</h4>
-<app-cams-pick-list 
-    [SourceArray]="cars" 
-    [SourceHeaders]="carSourceHeaders" 
-    [DestinationHeaders]="carDestinationHeaders" 
-    [DestinationTableHeader]="CarHeader"
-    [SourceFilter]="true" 
-    [SourceHeaderItem]="producttableItem"
-></app-cams-pick-list>
 
 
 
@@ -30,27 +21,7 @@
 
 
 
-<h1>Extended pick list</h1>
-    <h4>Products</h4>
 
-<app-extended-picklist
-    [SourceArray]="products" 
-    [SourceHeaders]="productSourceHeaders" 
-    [DestinationHeaders]="productDestinationHeaders" 
-    [DestinationTableHeader]="ProductDestinationHeader" 
-    [SourceFilter]="false" 
-    [DestinationFilter]="false" 
-    [DestinationFilterBy]="productFilterByColumns"
- ></app-extended-picklist>
-
-<h4>Cars</h4>
-<app-extended-picklist 
-    [SourceArray]="cars" 
-    [SourceHeaders]="carSourceHeaders" 
-    [DestinationHeaders]="carDestinationHeaders" 
-    [DestinationTableHeader]="CarHeader"
-    [SourceFilter]="true" 
-></app-extended-picklist>
 
 <app-selected-table></app-selected-table>
 

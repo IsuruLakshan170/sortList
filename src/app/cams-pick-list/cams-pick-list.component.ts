@@ -8,8 +8,8 @@ import { Component, OnInit,Input } from '@angular/core';
 })
 export class CamsPickListComponent implements OnInit {
 
-  @Input() SourceArray: Array<any>=[];//get source array
-  @Input() SourceHeaders: Array<any>=[];//get source table headers
+  @Input() sourceArray: Array<any>=[];//get source array
+  @Input() sourceHeaders: Array<any>=[];//get source table headers
   @Input() DestinationHeaders: Array<any>=[];//get destination table headers
   @Input() DestinationTableHeader?:string;//get sort table header
   @Input() SourceTableHeader?:string;//get sort table header
@@ -23,7 +23,7 @@ export class CamsPickListComponent implements OnInit {
   //search item
   term: string ="";
   //source array
-  SrcArry: any[]=[];
+  camsSourceArray: any[]=[];
   //destination array
   DesArry: any[]=[];
   //source headers
@@ -56,10 +56,10 @@ export class CamsPickListComponent implements OnInit {
   ngOnInit(): void {
     this.SortTableHeader =this.DestinationTableHeader;
     this.sourceTableHeader =this.SourceTableHeader;
-    this.SrcArry = this.SourceArray;
-    this.SrcHeaders = this.SourceHeaders;
+    this.camsSourceArray = this.sourceArray;
+    this.SrcHeaders = this.sourceHeaders;
     this.DesHeaders = this.DestinationHeaders;
-    this.SrcArryCpy =this.SrcArry; 
+    this.SrcArryCpy =this.camsSourceArray; 
     this.FilterList =this.DestinationFilterBy;
     this.sourceArrayColumnItem=this.SourceHeaderItem;
     if(this.SourceFilter == false){
@@ -86,7 +86,7 @@ export class CamsPickListComponent implements OnInit {
       if (this.DragItem) {
           let draggedProductIndex = this.findIndexRight(this.DragItem);
           this.DesArry = [...this.DesArry, this.DragItem];
-          this.SrcArry = this.SrcArry.filter((val,i) => i!=draggedProductIndex);
+          this.camsSourceArray = this.camsSourceArray.filter((val,i) => i!=draggedProductIndex);
           this.DragItem = null;
       }
   }
@@ -94,7 +94,7 @@ export class CamsPickListComponent implements OnInit {
   dropLeft() {
     if (this.DragItem) {
         let draggedProductIndex = this.findIndexLeft(this.DragItem);
-        this.SrcArry = [...this.SrcArry, this.DragItem];
+        this.camsSourceArray = [...this.camsSourceArray, this.DragItem];
         this.DesArry = this.DesArry.filter((val,i) => i!=draggedProductIndex);
         this.DragItem = 'null';
     }
@@ -107,8 +107,8 @@ export class CamsPickListComponent implements OnInit {
   //find right side table selected row index
   findIndexRight(product: any) {
       let index = -1;
-      for(let i = 0; i < this.SrcArry.length; i++) {
-          if (product.id === this.SrcArry[i].id) {
+      for(let i = 0; i < this.camsSourceArray.length; i++) {
+          if (product.id === this.camsSourceArray[i].id) {
               index = i;
               break;
           }
@@ -138,7 +138,7 @@ export class CamsPickListComponent implements OnInit {
   RightPushAll(){
     console.log("RightPushAll");
     this.DesArry =this.SrcArryCpy;
-    this.SrcArry =[];
+    this.camsSourceArray =[];
     this.LeftButtonDisable =true;
     this.RightButtonDisable =true;
   }
@@ -151,7 +151,7 @@ export class CamsPickListComponent implements OnInit {
   //all items push to right table
   LeftPushAll(){
     console.log("LeftPushAll");
-    this.SrcArry =this.SrcArryCpy;
+    this.camsSourceArray =this.SrcArryCpy;
     this.DesArry =[];
     this.LeftButtonDisable =true;
     this.RightButtonDisable =true;
