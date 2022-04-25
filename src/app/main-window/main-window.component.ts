@@ -39,6 +39,7 @@ export class MainWindowComponent implements OnInit {
     { field: 'code', header: 'Code' },
     { field: 'name', header: 'Name' },
     { field: 'category', header: 'Category' },
+    { field: 'quantity', header: 'Quantity' },
   ];
   //product table destination headers
   public productDestinationHeaders:any[] = [

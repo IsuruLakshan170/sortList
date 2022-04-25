@@ -146,6 +146,12 @@ td, th {
     height: 100px;
     background-color: gray;
 }
+.filer-position{
+    width: 200px;
+    float: right;
+    
+}
+
 @media screen and (max-width: 576px) {
     .product-item {
         flex-wrap: wrap;

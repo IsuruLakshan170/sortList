@@ -11,7 +11,6 @@ import {DragDropModule} from 'primeng/dragdrop';
 import {OrderListModule} from 'primeng/orderlist';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
-import { DragDropComponent } from './drag-drop/drag-drop.component';
 import { MainWindowComponent } from './main-window/main-window.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { FilterTableComponent } from './filter-table/filter-table.component';
@@ -22,7 +21,6 @@ import { ExtendedPicklistComponent } from './extended-picklist/extended-picklist
     AppComponent,
     PickListComponent,
     SelectedTableComponent,
-    DragDropComponent,
     MainWindowComponent,
     FilterTableComponent,
     ExtendedPicklistComponent

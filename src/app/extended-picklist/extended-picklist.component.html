@@ -1,9 +1,11 @@
 <div class="flex-container">
     <div>
-        <div class="form-group" *ngIf="SourceFilterisShown">
+        <div class="form-group filer-position" *ngIf="SourceFilterisShown">
             <input type="text" class="form-control" placeholder="Search Here" [(ngModel)]="term">
         </div>
-        <table  class="table table-hover table-dark selection-table">
+       <div class="div">
+            
+        <table  class="table table-hover table-dark selection-table"> 
             <thead >
               <tr>
                   <th *ngFor ="let column of SrcHeaders" ><h4 class="src-header"> {{column.header}}</h4></th>
@@ -19,6 +21,7 @@
                       </tr>
               </tbody>
          </table>
+       </div>
     </div>
     <div class="arrowbtn">
         <button type="button" class="btn btn-primary btn-width" [disabled]="RightButtonDisable" (click)="RightPushOne()" >></button>
@@ -34,9 +37,9 @@
          [globalFilterFields]="FilterList" >
 
          <ng-template pTemplate="caption">
-            <div style="text-align: right searchBox" *ngIf="DestinationFilterisShown">        
+            <div style="text-align: right searchBox"  *ngIf="DestinationFilterisShown">        
                 <i class="pi pi-search" style="margin:4px 4px 0 0"></i>
-                <input type="text" pInputText size="50" placeholder="Global Filter" (input)="dt1.filterGlobal(getEventValue($event), 'contains')"  style="width:auto">
+                <input type="text" pInputText size="50"  (input)="dt1.filterGlobal(getEventValue($event), 'contains')"   style="width:auto" placeholder="Search keyword">
             </div>
             <div>
                 <h4 class="des-main-header">{{SortTableHeader}}</h4>   
