@@ -1,6 +1,5 @@
 
-import { Template } from '@angular/compiler/src/render3/r3_ast';
-import { Component, OnInit,Input, ViewChild, TemplateRef ,EventEmitter, Output} from '@angular/core';
+import { Component, OnInit,Input,EventEmitter, Output} from '@angular/core';
 
 @Component({
   selector: 'app-test',
@@ -11,13 +10,11 @@ export class TestComponent implements OnInit {
   @Output() destinationArrayList:EventEmitter<any> =new EventEmitter();
 
   @Input() sourceArray: Array<any>=[];//get source array
-  @Input() destinationArray: Array<any>=[];//get source array
-  @Input() sourceTableHeader?:any;//get filer heading list
-  @Input() sourceTableColumnHeaders?:any;//get filer heading list
-  @Input() destinationTableAddtionalHeader?:any;//get filer heading list
-  @Input() destinationTableAddtionalColumnData?:any;//get filer heading list
-
- 
+  @Input() destinationArray: Array<any>=[];//get destination array
+  @Input() sourceTableHeader?:any;//get source table header
+  @Input() sourceTableColumnHeaders?:any;//get source table headers
+  @Input() destinationTableColumnHeader?:any;//get filer heading list
+  @Input() destinationTableColumnData?:any;//get filer heading list
   @Input() sourceFilter?:boolean;//get sort table header
   @Input() destinationFilter?:boolean;//get sort table header
   @Input() destinationFilterBy?:any;//get filer heading list
@@ -48,8 +45,7 @@ export class TestComponent implements OnInit {
 
   //initialization
   ngOnInit(): void {
-  //  this.camsSourceArray = this.sourceArray;
-  //  this.destinationArray =this.destinationArray;
+
     this.sourceArrayCopy =this.sourceArray; 
     if(this.sourceFilter == false){
       this.sourceFilterIsShown=false;
