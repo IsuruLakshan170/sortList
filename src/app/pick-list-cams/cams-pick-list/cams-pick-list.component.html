@@ -37,10 +37,11 @@
      [reorderableColumns]="true" responsiveLayout="scroll"
      [globalFilterFields]="camsDestinationFilterBy" >
      <ng-template pTemplate="caption">
-        <div style="text-align: right searchBox"  class="form-group " *ngIf="destinationFilterIsShown">
+        <div style="text-align: right"  class="form-group " *ngIf="destinationFilterIsShown">
             <i class="pi pi-search" style="margin:4px 4px 0 0"></i>
-            <input type="text" pInputText size="50"  (input)="dt1.filterGlobal(getEventValue($event), 'contains')"  class="destination-searchbar" placeholder="Search keyword">
+            <input type="text" pInputText size="50"  (input)="dt1.filterGlobal(getEventValue($event), 'contains')" style="overflow-x:auto;" class="destination-searchbar"  placeholder="Search keyword">
         </div>
+
             <h4 class="componet-list-header">{{camsDestinationTableHeader}}</h4>
     </ng-template>
         <ng-template pTemplate="header" let-columns>

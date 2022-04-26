@@ -181,6 +181,7 @@ td, th {
 .destination-searchbar{
   width: 50%;
   border-radius: 8px;
+  height: 40px;
 }
 
 
@@ -217,7 +218,7 @@ table th {
 }
 
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1200px) {
     .product-item {
         flex-wrap: wrap;
 
@@ -239,5 +240,9 @@ table th {
     }
     .btn-rotate{
         transform: rotate(90deg);
+    }
+    .component-list{
+        background-color: #212529;
+        width: 50%;
     }
 }
