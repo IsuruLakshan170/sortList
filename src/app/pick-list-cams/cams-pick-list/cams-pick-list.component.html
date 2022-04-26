@@ -2,73 +2,79 @@
 <div class="flex-container cams-responsive">
 
 
-<div>
-    <div class="drag-column component-list " >
-        <div>
-            <div class=" filer-position" *ngIf="sourceFilterIsShown">
-                <input type="text" class="form-control" placeholder="Search Here" [(ngModel)]="term">
-              </div>
+    <div>
+        <div class="drag-column component-list " >
+            <div>
+                <div class=" filer-position" *ngIf="sourceFilterIsShown">
+                    <input type="text" class="form-control" placeholder="Search Here" [(ngModel)]="term">
+                  </div>
+                 <div>  
+                    <ng-container
+                    [ngTemplateOutlet]="sourceTableHeader">
+                </ng-container>
+    
+                 </div>
+            </div>
              <div>
-                 <h4 class="componet-list-header">{{sourceTableHeader}}</h4>
-             </div>
-        </div>
-         <div>
-              <hr class="hr-properties">
-        </div>
-        <div *ngFor="let product of camsSourceArray | filter:term">
-            <div class="product-item" pDraggable="products" (click)="onClickRightCell(product)"  (onDragStart)="dragStart(product)" (onDragEnd)="dragEnd()">
-                <div class="product-list-detail" *ngFor="let col of sourceArrayColumnItem">
-                    <p class="mb-2 componet-list-items">{{product[col.field]}}</p>
+                  <hr class="hr-properties">
+            </div>
+            <div *ngFor="let product of sourceArray | filter:term">
+                <div class="product-item" pDraggable="products" (click)="onClickRightCell(product)"  (onDragStart)="dragStart(product)" (onDragEnd)="dragEnd()">
+           
+                    <ng-container
+                     [ngTemplateOutlet]="sourceTableColumnData"
+                     [ngTemplateOutletContext] ="{product}">
+                    ></ng-container>    
                 </div>
             </div>
         </div>
     </div>
-</div>
-
-<div class="arrowbtn d-flex justify-content-center">
-    <button type="button" class="btn btn-primary btn-width btn-rotate" [disabled]="rightButtonDisable" (click)="rightPushOne()" >></button>
-    <button type="button" class="btn btn-primary btn-width btn-rotate"  (click)="rightPushAll()" >>></button>
-    <button type="button" class="btn btn-primary btn-width btn-rotate" [disabled]="leftButtonDisable" (click)="leftPushOne()"  ><</button>
-    <button type="button" class="btn btn-primary btn-width btn-rotate" (click)="leftPushAll()" ><<</button>
-</div>
-
-<div  class="drag-column" pDroppable="products" (onDrop)="dropRight()">
-    <p-table #dt1  [value]="camsDestinationArray" [columns]="camsDestinationHeaders"  [(selection)]="selectedItem" dataKey="code"
-     [reorderableColumns]="true" responsiveLayout="scroll"
-     [globalFilterFields]="camsDestinationFilterBy" >
-     <ng-template pTemplate="caption">
-        <div style="text-align: right"  class="form-group " *ngIf="destinationFilterIsShown">
-            <i class="pi pi-search" style="margin:4px 4px 0 0"></i>
-            <input type="text" pInputText size="50"  (input)="dt1.filterGlobal(getEventValue($event), 'contains')" style="overflow-x:auto;" class="destination-searchbar"  placeholder="Search keyword">
-        </div>
-
-            <h4 class="componet-list-header">{{camsDestinationTableHeader}}</h4>
-    </ng-template>
-        <ng-template pTemplate="header" let-columns>
-            <tr>
-                <th style="width:3rem"></th>
-                <th>Order</th>
-                <th *ngFor="let col of columns" pReorderableColumn>
-                    <h4 class="des-header"> {{col.header}}</h4>
-                </th>
-            </tr>
+    
+    <div class="arrowbtn d-flex justify-content-center">
+        <button type="button" class="btn btn-primary btn-width btn-rotate" [disabled]="rightButtonDisable" (click)="rightPushOne()" >></button>
+        <button type="button" class="btn btn-primary btn-width btn-rotate"  (click)="rightPushAll()" >>></button>
+        <button type="button" class="btn btn-primary btn-width btn-rotate" [disabled]="leftButtonDisable" (click)="leftPushOne()"  ><</button>
+        <button type="button" class="btn btn-primary btn-width btn-rotate" (click)="leftPushAll()" ><<</button>
+    </div>
+    
+    <div  class="drag-column" pDroppable="products" (onDrop)="dropRight()">
+        <p-table #dt1  [value]="destinationArray"  [(selection)]="selectedItem" dataKey="code"
+         [reorderableColumns]="true" responsiveLayout="scroll"
+         [globalFilterFields]="destinationFilterBy" >
+         <ng-template pTemplate="caption">
+            <div style="text-align: right"  class="form-group " *ngIf="destinationFilterIsShown">
+                <i class="pi pi-search" style="margin:4px 4px 0 0"></i>
+                <input type="text" pInputText size="50"  (input)="dt1.filterGlobal(getEventValue($event), 'contains')" style="overflow-x:auto;" class="destination-searchbar"  placeholder="Search keyword">
+            </div>
+    
+            <ng-container *ngTemplateOutlet="destinationTableHeader"></ng-container>
+    
         </ng-template>
-        <ng-template pTemplate="body" let-rowData let-columns="columns" let-index="rowIndex">
-                <tr  [pReorderableRow]="index"  >
-                    <td>
-                        <div (click)="onClickLeftCell(rowData)">
-                             <span class="pi pi-bars" [pReorderableRowHandle]="index"></span>
-                        </div>
-                   </td>
-                    <td>
-                        {{index+1}}
-                    </td>
-                    <td *ngFor="let col of columns">
-                       <div (click)="onClickRightCell(rowData)"> {{rowData[col.field]}} </div>
-                    </td>
+            <ng-template pTemplate="header">
+                <tr>
+                    <th style="width:3rem"></th>
+                    <th>Order</th>
+                 <ng-container *ngTemplateOutlet="destinationTableColumnHeader"></ng-container>
                 </tr>
             </ng-template>
-        </p-table>
-    </div>
-
- </div>
+            <ng-template pTemplate="body" let-rowData  let-index="rowIndex">
+                    <tr  [pReorderableRow]="index"  >
+                        <td>
+                            <div (click)="onClickLeftCell(rowData)">
+                                 <span class="pi pi-bars" [pReorderableRowHandle]="index"></span>
+                            </div>
+                       </td>
+                        <td>
+                            {{index+1}}
+                        </td>
+                        <ng-container 
+                        [ngTemplateOutlet]="destinationTableColumnData"
+                        [ngTemplateOutletContext] ="{rowData}">
+                        </ng-container>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+    
+     </div>
+    

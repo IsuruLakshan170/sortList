@@ -73,6 +73,7 @@ export class TestComponent implements OnInit {
           let draggedProductIndex = this.findIndexRight(this.dragItem);
           this.destinationArray = [...this.destinationArray, this.dragItem];
           this.sourceArray = this.sourceArray.filter((val,i) => i!=draggedProductIndex);
+          this.destinationArrayList.emit(this.destinationArray);
           this.dragItem = null;
       }
   }
@@ -82,6 +83,7 @@ export class TestComponent implements OnInit {
         let draggedProductIndex = this.findIndexLeft(this.dragItem);
         this.sourceArray = [...this.sourceArray, this.dragItem];
         this.destinationArray = this.destinationArray.filter((val,i) => i!=draggedProductIndex);
+        this.destinationArrayList.emit(this.destinationArray);
         this.dragItem = 'null';
     }
   }
@@ -114,7 +116,6 @@ export class TestComponent implements OnInit {
   }
   //one item push to right table
   rightPushOne(){
-    
     console.log("rightPushOne");
     this.dropRight();
     this.rightButtonDisable =true;
