@@ -17,6 +17,8 @@ import { FilterTableComponent } from './filter-table/filter-table.component';
 import { ExtendedPicklistComponent } from './extended-picklist/extended-picklist.component';
 import {PickListCamsModule} from './pick-list-cams/pick-list-cams.module';
 import { TestComponent } from './test/test.component'
+import {DialogModule} from 'primeng/dialog';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
  @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +41,9 @@ import { TestComponent } from './test/test.component'
     NgbModule,
     FormsModule,
     Ng2SearchPipeModule,
-    PickListCamsModule
+    PickListCamsModule,
+    DialogModule,
+    BrowserAnimationsModule
    
   ],
   providers: [],

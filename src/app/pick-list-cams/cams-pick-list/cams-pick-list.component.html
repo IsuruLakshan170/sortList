@@ -5,14 +5,17 @@
     <div>
         <div class="drag-column component-list " >
             <div>
-                <div class=" filer-position" *ngIf="sourceFilterIsShown">
-                    <input type="text" class="form-control" placeholder="Search Here" [(ngModel)]="term">
-                  </div>
+                <div class="source-filter">
+                    <div class="filer-position" *ngIf="sourceFilterIsShown">
+                        <input type="text" class="form-control" placeholder="Search Here" [(ngModel)]="term">
+                      </div>
+                </div>
+          
                  <div>  
                     <ng-container
-                    [ngTemplateOutlet]="sourceTableHeader">
-                </ng-container>
-    
+                      [ngTemplateOutlet]="sourceTableHeader">
+                   </ng-container>
+        
                  </div>
             </div>
              <div>
@@ -24,7 +27,7 @@
                     <ng-container
                      [ngTemplateOutlet]="sourceTableColumnData"
                      [ngTemplateOutletContext] ="{product}">
-                    ></ng-container>    
+                    </ng-container>    
                 </div>
             </div>
         </div>
@@ -45,10 +48,10 @@
             <div style="text-align: right"  class="form-group " *ngIf="destinationFilterIsShown">
                 <i class="pi pi-search" style="margin:4px 4px 0 0"></i>
                 <input type="text" pInputText size="50"  (input)="dt1.filterGlobal(getEventValue($event), 'contains')" style="overflow-x:auto;" class="destination-searchbar"  placeholder="Search keyword">
-            </div>
+      
     
             <ng-container *ngTemplateOutlet="destinationTableHeader"></ng-container>
-    
+            </div>
         </ng-template>
             <ng-template pTemplate="header">
                 <tr>

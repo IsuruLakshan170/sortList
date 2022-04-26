@@ -20,8 +20,8 @@ export interface Car{
   styleUrls: ['./main-window.component.scss']
 })
 export class MainWindowComponent implements OnInit {
- 
-    
+    displayBasic?: boolean=false;
+   
 
     productSourceHeader?:string="Component List";
     ProductDestinationHeader?:string="Sorted Products";
@@ -92,6 +92,10 @@ export class MainWindowComponent implements OnInit {
  
 
   }
+  showBasicDialog() {
+    this.displayBasic =  true;
+}
+
 
   onDelete(product:any){
     this.sortedProducts = this.sortedProducts.filter(x =>x.id !=product.id);
