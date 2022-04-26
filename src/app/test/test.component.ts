@@ -1,8 +1,6 @@
 
-
-
 import { Template } from '@angular/compiler/src/render3/r3_ast';
-import { Component, OnInit,Input, ViewChild, TemplateRef } from '@angular/core';
+import { Component, OnInit,Input, ViewChild, TemplateRef ,EventEmitter, Output} from '@angular/core';
 
 @Component({
   selector: 'app-test',
@@ -10,6 +8,7 @@ import { Component, OnInit,Input, ViewChild, TemplateRef } from '@angular/core';
   styleUrls: ['./test.component.scss']
 })
 export class TestComponent implements OnInit {
+  @Output() destinationArrayList:EventEmitter<any> =new EventEmitter();
 
   @Input() 
   sourceTableHeader?:any;//get filer heading list
@@ -18,6 +17,7 @@ export class TestComponent implements OnInit {
   @Input() sourceTableColumnHeaders?:any;//get source item
   @Input() sourceFilter?:boolean;//get sort table header
 
+  @Input() destinationArray: Array<any>=[];//get source array
   @Input() destinationTableColumnHeaders: Array<any>=[];//get destination table headers
   @Input() destinationFilter?:boolean;//get sort table header
   @Input() destinationFilterBy?:any;//get filer heading list
@@ -51,7 +51,7 @@ export class TestComponent implements OnInit {
   //source array
   camsSourceArray: any[]=[];
   //destination array
-  camsDestinationArray: any[]=[];
+ 
   //source headers
  
   camsDestinationHeaders: any[]=[];
@@ -82,6 +82,7 @@ export class TestComponent implements OnInit {
     this.templateDestinationTableHeader=this.destinationTableHeader;
     this.templateDestinationTableColumnHeaders =this.destinationTableColumnHeaders1;
     this.camsSourceArray = this.sourceArray;
+    this.destinationArray =this.destinationArray;
     this.camsDestinationHeaders = this.destinationTableColumnHeaders;
     this.sourceArrayCopy =this.camsSourceArray; 
     this.camsDestinationFilterBy =this.destinationFilterBy;
@@ -109,7 +110,7 @@ export class TestComponent implements OnInit {
     console.log("drag drop");
       if (this.dragItem) {
           let draggedProductIndex = this.findIndexRight(this.dragItem);
-          this.camsDestinationArray = [...this.camsDestinationArray, this.dragItem];
+          this.destinationArray = [...this.destinationArray, this.dragItem];
           this.camsSourceArray = this.camsSourceArray.filter((val,i) => i!=draggedProductIndex);
           this.dragItem = null;
       }
@@ -119,7 +120,7 @@ export class TestComponent implements OnInit {
     if (this.dragItem) {
         let draggedProductIndex = this.findIndexLeft(this.dragItem);
         this.camsSourceArray = [...this.camsSourceArray, this.dragItem];
-        this.camsDestinationArray = this.camsDestinationArray.filter((val,i) => i!=draggedProductIndex);
+        this.destinationArray = this.destinationArray.filter((val,i) => i!=draggedProductIndex);
         this.dragItem = 'null';
     }
   }
@@ -142,8 +143,8 @@ export class TestComponent implements OnInit {
   //find left side table selected row index
   findIndexLeft(product: any) {
     let index = -1;
-    for(let i = 0; i < this.camsDestinationArray.length; i++) {
-        if (product.id === this.camsDestinationArray[i].id) {
+    for(let i = 0; i < this.destinationArray.length; i++) {
+        if (product.id === this.destinationArray[i].id) {
             index = i;
             break;
         }
@@ -161,10 +162,11 @@ export class TestComponent implements OnInit {
   //all items push to right table
   rightPushAll(){
     console.log("rightPushAll");
-    this.camsDestinationArray =this.sourceArrayCopy;
+    this.destinationArray =this.sourceArrayCopy;
     this.camsSourceArray =[];
     this.leftButtonDisable =true;
     this.rightButtonDisable =true;
+    this.destinationArrayList.emit(this.sourceArray);
   }
   //one item push to left table
   leftPushOne(){
@@ -176,7 +178,7 @@ export class TestComponent implements OnInit {
   leftPushAll(){
     console.log("leftPushAll");
     this.camsSourceArray =this.sourceArrayCopy;
-    this.camsDestinationArray =[];
+    this.destinationArray =[];
     this.leftButtonDisable =true;
     this.rightButtonDisable =true;
   }

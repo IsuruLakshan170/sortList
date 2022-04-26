@@ -40,7 +40,7 @@
 </div>
 
 <div  class="drag-column" pDroppable="products" (onDrop)="dropRight()">
-    <p-table #dt1  [value]="camsDestinationArray" [columns]="camsDestinationHeaders"  [(selection)]="selectedItem" dataKey="code"
+    <p-table #dt1  [value]="destinationArray" [columns]="camsDestinationHeaders"  [(selection)]="selectedItem" dataKey="code"
      [reorderableColumns]="true" responsiveLayout="scroll"
      [globalFilterFields]="camsDestinationFilterBy" >
      <ng-template pTemplate="caption">

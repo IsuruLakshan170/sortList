@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output,EventEmitter } from '@angular/core';
 
 export interface Product{
   id:number;
@@ -22,10 +22,11 @@ export interface Car{
 export class MainWindowComponent implements OnInit {
  
     
-   
 
     productSourceHeader?:string="Component List";
     ProductDestinationHeader?:string="Sorted Products";
+
+    sortedProducts :Product[]=[];
 // product table array
   public products:Product[] = [
     {id:1, code: '2', name: 'Floor',category:'2one',quantity:'2new'},
@@ -91,5 +92,17 @@ export class MainWindowComponent implements OnInit {
  
 
   }
+
+  onDelete(product:any){
+      console.log( "id " + product.id);
+      this.sortedProducts=this.products;
+    
+  }
+  setDeleteRow(product:any){
+    console.log(product.length);
+    this.sortedProducts=product;
+    console.log(this.sortedProducts.length);
+  }
+
 
 }

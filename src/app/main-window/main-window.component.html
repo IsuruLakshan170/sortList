@@ -4,6 +4,7 @@
 </h1>
 <app-test
     [sourceArray]="products"
+    [destinationArray]="sortedProducts"
     [sourceTableColumnHeaders]="producttableItem"
     [sourceFilter]="true"
 
@@ -19,6 +20,8 @@
     [destinationTableAddtionalColumnData]="destinationAddtionalColumnDataTemplate"
 
     [sourceTableHeader]="sourceheaderTemplate"
+
+    (destinationArrayList)="setDeleteRow($event)"
 
 >
 
@@ -58,10 +61,10 @@
             <input type="checkbox" id="component" name="component" value="normal">
           </td>
           <td>
-            <button type="button" class="btn btn-warning">Edit</button>
+            <button type="button" class="btn btn-warning"  >Edit</button>
           </td>
           <td>
-            <button type="button" class="btn btn-danger">Delete</button>
+            <button type="button" class="btn btn-danger" (click)="onDelete(rowData)">Delete</button>
         </td>
     </ng-template>
 
