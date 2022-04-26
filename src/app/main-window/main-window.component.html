@@ -5,25 +5,25 @@
 <app-test
     [sourceArray]="products"
     [destinationArray]="sortedProducts"
-    [sourceTableHeader]="sourceheaderTemplate"
-    [sourceTableColumnHeaders]="sourceColumnHeaderTemplate"
-    [destinationTableHeader]="destinationheaderTemplate"
-    [destinationTableColumnHeader]="destinationAddtionalColumnHeaderTemplate"
-    [destinationTableColumnData]="destinationAddtionalColumnDataTemplate"
 
-    [destinationFilterBy]="productFilterByColumns"
+    [sourceTableHeader]="sourceHeaderTemplate"
+    [sourceTableColumnData]="sourceColumnDataTemplate"
+    [destinationTableHeader]="destinationHeaderTemplate"
+    [destinationTableColumnHeader]="destinationTableColumnHeaderTemplate"
+    [destinationTableColumnData]="destinationTableColumnDataTemplate"
+
     [sourceFilter]="true"
     [destinationFilter]="true"
-     (destinationArrayList)="setDeleteRow($event)"
+    [destinationFilterBy]="productFilterByColumns"
+    (destinationArrayList)="setDeleteRow($event)"
 
 >
-
     
-        <ng-template #sourceheaderTemplate let-value="value">
+        <ng-template #sourceHeaderTemplate>
             <h4 class="sourceHeader">Component list</h4>
         </ng-template>
 
-        <ng-template #sourceColumnHeaderTemplate let-product="product">
+        <ng-template #sourceColumnDataTemplate let-product="product">
             <div>
                 <h5 style="color: rgb(255, 255, 255);">Name: {{product.name}}</h5>
                 <h6 style="color: rgb(89, 114, 160);">Quantity: {{product.quantity}}</h6>
@@ -31,11 +31,11 @@
                 
         </ng-template>
 
-        <ng-template #destinationheaderTemplate>
+        <ng-template #destinationHeaderTemplate>
             <h4 class="sourceHeader">Sorted Products</h4>
         </ng-template>
 
-        <ng-template #destinationAddtionalColumnHeaderTemplate>
+        <ng-template #destinationTableColumnHeaderTemplate>
             
                 <th *ngFor="let col of productDestinationHeaders">
                      {{col.header}}
@@ -45,7 +45,7 @@
                 <th>Delete</th>
         </ng-template>
 
-        <ng-template #destinationAddtionalColumnDataTemplate let-rowData="rowData">
+        <ng-template #destinationTableColumnDataTemplate let-rowData="rowData">
             <td *ngFor="let col of productDestinationHeaders">
                 <div> {{rowData[col.field]}} </div>
              </td>

@@ -9,10 +9,8 @@
                 <input type="text" class="form-control" placeholder="Search Here" [(ngModel)]="term">
               </div>
              <div>  
-                <ng-template #defaultSourceTableHeader>
-                </ng-template>
                 <ng-container
-                [ngTemplateOutlet]="sourceTableHeader ?sourceTableHeader:defaultSourceTableHeader">
+                [ngTemplateOutlet]="sourceTableHeader">
             </ng-container>
 
              </div>
@@ -24,7 +22,7 @@
             <div class="product-item" pDraggable="products" (click)="onClickRightCell(product)"  (onDragStart)="dragStart(product)" (onDragEnd)="dragEnd()">
        
                 <ng-container
-                 [ngTemplateOutlet]="sourceTableColumnHeaders"
+                 [ngTemplateOutlet]="sourceTableColumnData"
                  [ngTemplateOutletContext] ="{product}">
                 ></ng-container>    
             </div>

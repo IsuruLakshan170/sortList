@@ -11,14 +11,16 @@ export class TestComponent implements OnInit {
 
   @Input() sourceArray: Array<any>=[];//get source array
   @Input() destinationArray: Array<any>=[];//get destination array
+
   @Input() sourceTableHeader?:any;//get source table header
-  @Input() sourceTableColumnHeaders?:any;//get source table headers
-  @Input() destinationTableColumnHeader?:any;//get filer heading list
-  @Input() destinationTableColumnData?:any;//get filer heading list
-  @Input() sourceFilter?:boolean;//get sort table header
-  @Input() destinationFilter?:boolean;//get sort table header
-  @Input() destinationFilterBy?:any;//get filer heading list
-  @Input() destinationTableHeader?:any;//get filer heading list
+  @Input() sourceTableColumnData?:any;//get source table column headers
+  @Input() destinationTableHeader?:any;//get destination table header
+  @Input() destinationTableColumnHeader?:any;//get destination table column headers
+  @Input() destinationTableColumnData?:any;//get destination table column data
+
+  @Input() sourceFilter?:boolean;//get source table filter
+  @Input() destinationFilter?:boolean;//get destination table filter
+  @Input() destinationFilterBy?:any;//get destination filter filter by parameter
 
   //source filter show or not
   sourceFilterIsShown: boolean = true; 
@@ -27,16 +29,15 @@ export class TestComponent implements OnInit {
   //search item
   term: string ="";
 
- 
-  //source original copy of array
+  //source table original data coppy
   sourceArrayCopy: any[]=[];
 
-  //right single arrow button disable true default
+  //right single arrow button dissable
    rightButtonDisable =true;
-   //left single arrow button disable true default
+   //left single arrow button disable 
   leftButtonDisable =true;
   //drag item
-  dragItem?: any;
+   dragItem?: any;
    //selected item in drag
    selectedItem?: any;
  
@@ -45,7 +46,7 @@ export class TestComponent implements OnInit {
 
   //initialization
   ngOnInit(): void {
-
+    //coppy source array 
     this.sourceArrayCopy =this.sourceArray; 
     if(this.sourceFilter == false){
       this.sourceFilterIsShown=false;
