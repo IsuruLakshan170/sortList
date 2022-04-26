@@ -146,9 +146,7 @@ td, th {
 
 
 }
-.component-list{
-    background-color: #212529;
-}
+
 .componet-list-header{
     color: white;
     padding: 10px;
@@ -216,7 +214,9 @@ table th {
   letter-spacing: .1em;
   text-transform: uppercase;
 }
-
+.component-list{
+    background-color: #212529;
+}
 
 @media screen and (max-width: 1200px) {
     .product-item {
@@ -244,5 +244,8 @@ table th {
     .component-list{
         background-color: #212529;
         width: 50%;
+        margin-left: auto;
+        margin-right: auto;
     }
+  
 }
