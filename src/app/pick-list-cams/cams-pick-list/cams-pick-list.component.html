@@ -1,7 +1,7 @@
 
 <div class="flex-container cams-responsive">
 
-   
+
 <div>
     <div class="drag-column component-list " >
         <div>
@@ -13,23 +13,23 @@
              </div>
         </div>
          <div>
-              <hr class="hr-properties"> 
+              <hr class="hr-properties">
         </div>
         <div *ngFor="let product of camsSourceArray | filter:term">
-            <div class="product-item" pDraggable="products" (click)="onClickRightCell(product)"  (onDragStart)="dragStart(product)" (onDragEnd)="dragEnd()">                 
+            <div class="product-item" pDraggable="products" (click)="onClickRightCell(product)"  (onDragStart)="dragStart(product)" (onDragEnd)="dragEnd()">
                 <div class="product-list-detail" *ngFor="let col of sourceArrayColumnItem">
                     <p class="mb-2 componet-list-items">{{product[col.field]}}</p>
                 </div>
             </div>
         </div>
     </div>
-</div> 
+</div>
 
 <div class="arrowbtn d-flex justify-content-center">
     <button type="button" class="btn btn-primary btn-width btn-rotate" [disabled]="rightButtonDisable" (click)="rightPushOne()" >></button>
     <button type="button" class="btn btn-primary btn-width btn-rotate"  (click)="rightPushAll()" >>></button>
     <button type="button" class="btn btn-primary btn-width btn-rotate" [disabled]="leftButtonDisable" (click)="leftPushOne()"  ><</button>
-    <button type="button" class="btn btn-primary btn-width btn-rotate" (click)="leftPushAll()" ><<</button>      
+    <button type="button" class="btn btn-primary btn-width btn-rotate" (click)="leftPushAll()" ><<</button>
 </div>
 
 <div  class="drag-column" pDroppable="products" (onDrop)="dropRight()">
@@ -37,12 +37,12 @@
      [reorderableColumns]="true" responsiveLayout="scroll"
      [globalFilterFields]="camsDestinationFilterBy" >
      <ng-template pTemplate="caption">
-        <div style="text-align: right searchBox"  class="form-group " *ngIf="destinationFilterIsShown">        
+        <div style="text-align: right searchBox"  class="form-group " *ngIf="destinationFilterIsShown">
             <i class="pi pi-search" style="margin:4px 4px 0 0"></i>
-            <input type="text" pInputText size="50"  (input)="dt1.filterGlobal(getEventValue($event), 'contains')"   style="width:auto" placeholder="Search keyword">
+            <input type="text" pInputText size="50"  (input)="dt1.filterGlobal(getEventValue($event), 'contains')"  class="destination-searchbar" placeholder="Search keyword">
         </div>
-            <h4 class="componet-list-header">{{camsDestinationTableHeader}}</h4>   
-    </ng-template>   
+            <h4 class="componet-list-header">{{camsDestinationTableHeader}}</h4>
+    </ng-template>
         <ng-template pTemplate="header" let-columns>
             <tr>
                 <th style="width:3rem"></th>
@@ -55,19 +55,19 @@
         <ng-template pTemplate="body" let-rowData let-columns="columns" let-index="rowIndex">
                 <tr  [pReorderableRow]="index"  >
                     <td>
-                        <div (click)="onClickLeftCell(rowData)">    
+                        <div (click)="onClickLeftCell(rowData)">
                              <span class="pi pi-bars" [pReorderableRowHandle]="index"></span>
-                        </div> 
+                        </div>
                    </td>
                     <td>
                         {{index+1}}
                     </td>
                     <td *ngFor="let col of columns">
-                       <div (click)="onClickRightCell(rowData)"> {{rowData[col.field]}} </div>  
+                       <div (click)="onClickRightCell(rowData)"> {{rowData[col.field]}} </div>
                     </td>
                 </tr>
             </ng-template>
         </p-table>
     </div>
-    
+
  </div>
