@@ -24,7 +24,7 @@
             <div class="product-item" pDraggable="products" (click)="onClickRightCell(product)"  (onDragStart)="dragStart(product)" (onDragEnd)="dragEnd()">
        
                 <ng-container
-                 [ngTemplateOutlet]="templateSourceTableColumnHeaders"
+                 [ngTemplateOutlet]="sourceTableColumnHeaders1"
                  [ngTemplateOutletContext] ="{product}">
                 ></ng-container>    
             </div>
@@ -40,23 +40,23 @@
 </div>
 
 <div  class="drag-column" pDroppable="products" (onDrop)="dropRight()">
-    <p-table #dt1  [value]="destinationArray" [columns]="camsDestinationHeaders"  [(selection)]="selectedItem" dataKey="code"
+    <p-table #dt1  [value]="destinationArray" [columns]="destinationTableColumnHeaders"  [(selection)]="selectedItem" dataKey="code"
      [reorderableColumns]="true" responsiveLayout="scroll"
-     [globalFilterFields]="camsDestinationFilterBy" >
+     [globalFilterFields]="destinationFilterBy" >
      <ng-template pTemplate="caption">
         <div style="text-align: right"  class="form-group " *ngIf="destinationFilterIsShown">
             <i class="pi pi-search" style="margin:4px 4px 0 0"></i>
             <input type="text" pInputText size="50"  (input)="dt1.filterGlobal(getEventValue($event), 'contains')" style="overflow-x:auto;" class="destination-searchbar"  placeholder="Search keyword">
         </div>
 
-        <ng-container *ngTemplateOutlet="templateDestinationTableHeader"></ng-container>
+        <ng-container *ngTemplateOutlet="destinationTableHeader"></ng-container>
 
     </ng-template>
         <ng-template pTemplate="header">
             <tr>
                 <th style="width:3rem"></th>
                 <th>Order</th>
-             <ng-container *ngTemplateOutlet="templateDestinationTableAddtionalColumnHeaders"></ng-container>
+             <ng-container *ngTemplateOutlet="destinationTableAddtionalHeader"></ng-container>
             </tr>
         </ng-template>
         <ng-template pTemplate="body" let-rowData let-columns="columns" let-index="rowIndex">
@@ -70,7 +70,7 @@
                         {{index+1}}
                     </td>
                     <ng-container 
-                    [ngTemplateOutlet]="templateDestinationTableAddtionalColumnData"
+                    [ngTemplateOutlet]="destinationTableAddtionalColumnData"
                     [ngTemplateOutletContext] ="{rowData}">
                     </ng-container>
                 </tr>

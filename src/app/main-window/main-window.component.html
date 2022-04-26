@@ -5,22 +5,14 @@
 <app-test
     [sourceArray]="products"
     [destinationArray]="sortedProducts"
-    [sourceTableColumnHeaders]="producttableItem"
     [sourceFilter]="true"
-
-    [destinationTableHeader]="ProductDestinationHeader"
-    [destinationTableColumnHeaders]="productDestinationHeaders"
     [destinationFilter]="true"
     [destinationFilterBy]="productFilterByColumns"
-   
+    [destinationTableAddtionalColumnData]="destinationAddtionalColumnDataTemplate"
+    [sourceTableHeader]="sourceheaderTemplate"
     [sourceTableColumnHeaders1]="sourceColumnHeaderTemplate"
     [destinationTableHeader]="destinationheaderTemplate"
-
     [destinationTableAddtionalHeader]="destinationAddtionalColumnHeaderTemplate"
-    [destinationTableAddtionalColumnData]="destinationAddtionalColumnDataTemplate"
-
-    [sourceTableHeader]="sourceheaderTemplate"
-
     (destinationArrayList)="setDeleteRow($event)"
 
 >
