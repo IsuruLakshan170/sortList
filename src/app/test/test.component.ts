@@ -2,7 +2,7 @@
 
 
 import { Template } from '@angular/compiler/src/render3/r3_ast';
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit,Input, ViewChild, TemplateRef } from '@angular/core';
 
 @Component({
   selector: 'app-test',
@@ -10,6 +10,9 @@ import { Component, OnInit,Input } from '@angular/core';
   styleUrls: ['./test.component.scss']
 })
 export class TestComponent implements OnInit {
+
+  @Input() 
+  sourceTableHeader?:any;//get filer heading list
 
   @Input() sourceArray: Array<any>=[];//get source array
   @Input() sourceTableColumnHeaders?:any;//get source item
@@ -20,14 +23,12 @@ export class TestComponent implements OnInit {
   @Input() destinationFilterBy?:any;//get filer heading list
   @Input() destinationTableColumnHeaders1?: any;//get destination table headers
 
-  @Input() sourceTableHeader?:any;//get filer heading list
   @Input() sourceTableColumnHeaders1?:any;//get filer heading list
   @Input() destinationTableHeader?:any;//get filer heading list
 
   @Input() destinationTableAddtionalHeader?:any;//get filer heading list
   @Input() destinationTableAddtionalColumnData?:any;//get filer heading list
 
-  templateSourceTableHeader?:any;
   templateSourceTableColumnHeaders?:any;
 
   templateDestinationTableHeader?:any;
@@ -77,7 +78,6 @@ export class TestComponent implements OnInit {
   ngOnInit(): void {
     this.templateDestinationTableAddtionalColumnData =this.destinationTableAddtionalColumnData;
     this.templateDestinationTableAddtionalColumnHeaders=this.destinationTableAddtionalHeader;
-    this.templateSourceTableHeader=this.sourceTableHeader;
     this.templateSourceTableColumnHeaders=this.sourceTableColumnHeaders1;
     this.templateDestinationTableHeader=this.destinationTableHeader;
     this.templateDestinationTableColumnHeaders =this.destinationTableColumnHeaders1;

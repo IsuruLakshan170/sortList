@@ -46,7 +46,9 @@ export class MainWindowComponent implements OnInit {
 
   //product table destination headers
   public producttableItem:any[] = [
+    { field: 'id',},
     { field: 'name',},
+    { field: 'quantity',},
   ];
 
   //product table destination headers

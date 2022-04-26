@@ -32,7 +32,10 @@
 
 <div>
     <div class="drop-column" pDroppable="products"  (onDrop)="drop()">
-        <p-table [value]="selectedProducts" [columns]="cols" [reorderableColumns]="true" responsiveLayout="scroll">
+        <p-table [value]="selectedProducts"
+         [columns]="cols" [reorderableColumns]="true" 
+         responsiveLayout="scroll">
+         
             <ng-template pTemplate="header" let-columns>
                 <tr>
                     <th style="width:3rem"></th>
