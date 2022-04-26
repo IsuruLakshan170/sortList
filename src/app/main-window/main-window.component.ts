@@ -20,8 +20,12 @@ export interface Car{
   styleUrls: ['./main-window.component.scss']
 })
 export class MainWindowComponent implements OnInit {
+
     displayBasic?: boolean=false;
-   
+    displayBasic1?: boolean=true;
+    displayBasic2?: boolean=false;
+    position?: string;
+    displayPosition?: boolean;
 
     productSourceHeader?:string="Component List";
     ProductDestinationHeader?:string="Sorted Products";
@@ -89,18 +93,28 @@ export class MainWindowComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
- 
-
   }
-  showBasicDialog() {
-    this.displayBasic =  true;
-}
-
-
+  
   onDelete(product:any){
     this.sortedProducts = this.sortedProducts.filter(x =>x.id !=product.id);
     }
 
+
+
+  showBasicDialog() {
+    this.displayBasic =  true;
+  }
+  showBasicDialog1() {
+    this.displayBasic1 =  true;
+  }
+  showBasicDialog2() {
+    this.displayBasic2 =  true;
+  }
+
+  showPositionDialog(position: string) {
+    this.position = position;
+    this.displayPosition = true;
+}
 setDeleteRow(product:any){
   this.sortedProducts=product;
 }

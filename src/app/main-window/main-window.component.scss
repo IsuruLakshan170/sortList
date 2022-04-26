@@ -4,6 +4,6 @@
     padding-top: 20px;
     text-align: center;
 }
-.disable-scroll .ui-dialog-content {
+:host ::ng-deep .disable-scroll .ui-dialog-content {
     overflow: hidden !important;
   }

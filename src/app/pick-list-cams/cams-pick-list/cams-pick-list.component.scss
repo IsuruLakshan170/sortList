@@ -151,9 +151,13 @@ td, th {
   width: 50%;
   border-radius: 8px;
   height: 40px;
+  color: rgb(0, 0, 0);
+  --placeHolder-color: #080202;
+ 
 }
-
-
+input::placeholder {
+    color: var(--placeHolder-color);
+  }
 table {
   border: 1px solid #ccc;
   border-collapse: collapse;
@@ -187,7 +191,11 @@ table th {
 }
 .component-list{
     background-color: #212529;
+     min-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
 }
+
 
 @media screen and (max-width: 1200px) {
     .product-item {
@@ -214,7 +222,7 @@ table th {
     }
     .component-list{
         background-color: #212529;
-        width: 50%;
+        width: 2%;
         margin-left: auto;
         margin-right: auto;
     }
