@@ -49,7 +49,7 @@ export class TestComponent implements OnInit {
   //search item
   term: string ="";
   //source array
-  camsSourceArray: any[]=[];
+  //camsSourceArray: any[]=[];
   //destination array
  
   //source headers
@@ -81,10 +81,10 @@ export class TestComponent implements OnInit {
     this.templateSourceTableColumnHeaders=this.sourceTableColumnHeaders1;
     this.templateDestinationTableHeader=this.destinationTableHeader;
     this.templateDestinationTableColumnHeaders =this.destinationTableColumnHeaders1;
-    this.camsSourceArray = this.sourceArray;
-    this.destinationArray =this.destinationArray;
+  //  this.camsSourceArray = this.sourceArray;
+  //  this.destinationArray =this.destinationArray;
     this.camsDestinationHeaders = this.destinationTableColumnHeaders;
-    this.sourceArrayCopy =this.camsSourceArray; 
+    this.sourceArrayCopy =this.sourceArray; 
     this.camsDestinationFilterBy =this.destinationFilterBy;
     this.sourceArrayColumnItem=this.sourceTableColumnHeaders;
     if(this.sourceFilter == false){
@@ -111,7 +111,7 @@ export class TestComponent implements OnInit {
       if (this.dragItem) {
           let draggedProductIndex = this.findIndexRight(this.dragItem);
           this.destinationArray = [...this.destinationArray, this.dragItem];
-          this.camsSourceArray = this.camsSourceArray.filter((val,i) => i!=draggedProductIndex);
+          this.sourceArray = this.sourceArray.filter((val,i) => i!=draggedProductIndex);
           this.dragItem = null;
       }
   }
@@ -119,7 +119,7 @@ export class TestComponent implements OnInit {
   dropLeft() {
     if (this.dragItem) {
         let draggedProductIndex = this.findIndexLeft(this.dragItem);
-        this.camsSourceArray = [...this.camsSourceArray, this.dragItem];
+        this.sourceArray = [...this.sourceArray, this.dragItem];
         this.destinationArray = this.destinationArray.filter((val,i) => i!=draggedProductIndex);
         this.dragItem = 'null';
     }
@@ -132,8 +132,8 @@ export class TestComponent implements OnInit {
   //find right side table selected row index
   findIndexRight(product: any) {
       let index = -1;
-      for(let i = 0; i < this.camsSourceArray.length; i++) {
-          if (product.id === this.camsSourceArray[i].id) {
+      for(let i = 0; i < this.sourceArray.length; i++) {
+          if (product.id === this.sourceArray[i].id) {
               index = i;
               break;
           }
@@ -163,10 +163,10 @@ export class TestComponent implements OnInit {
   rightPushAll(){
     console.log("rightPushAll");
     this.destinationArray =this.sourceArrayCopy;
-    this.camsSourceArray =[];
+    this.sourceArray =[];
     this.leftButtonDisable =true;
     this.rightButtonDisable =true;
-    this.destinationArrayList.emit(this.sourceArray);
+    this.destinationArrayList.emit(this.destinationArray);
   }
   //one item push to left table
   leftPushOne(){
@@ -177,7 +177,7 @@ export class TestComponent implements OnInit {
   //all items push to right table
   leftPushAll(){
     console.log("leftPushAll");
-    this.camsSourceArray =this.sourceArrayCopy;
+    this.sourceArray =this.sourceArrayCopy;
     this.destinationArray =[];
     this.leftButtonDisable =true;
     this.rightButtonDisable =true;

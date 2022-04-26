@@ -20,7 +20,7 @@
          <div>
               <hr class="hr-properties">
         </div>
-        <div *ngFor="let product of camsSourceArray | filter:term">
+        <div *ngFor="let product of sourceArray | filter:term">
             <div class="product-item" pDraggable="products" (click)="onClickRightCell(product)"  (onDragStart)="dragStart(product)" (onDragEnd)="dragEnd()">
        
                 <ng-container

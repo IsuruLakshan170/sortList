@@ -94,15 +94,13 @@ export class MainWindowComponent implements OnInit {
   }
 
   onDelete(product:any){
-      console.log( "id " + product.id);
-      this.sortedProducts=this.products;
-    
-  }
-  setDeleteRow(product:any){
-    console.log(product.length);
-    this.sortedProducts=product;
-    console.log(this.sortedProducts.length);
-  }
+    this.sortedProducts = this.sortedProducts.filter(x =>x.id !=product.id);
+    }
+
+setDeleteRow(product:any){
+  this.sortedProducts=product;
+}
+
 
 
 }
