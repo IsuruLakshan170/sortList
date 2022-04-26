@@ -10,19 +10,18 @@ import { Component, OnInit,Input, ViewChild, TemplateRef ,EventEmitter, Output} 
 export class TestComponent implements OnInit {
   @Output() destinationArrayList:EventEmitter<any> =new EventEmitter();
 
- 
   @Input() sourceArray: Array<any>=[];//get source array
   @Input() destinationArray: Array<any>=[];//get source array
+  @Input() sourceTableHeader?:any;//get filer heading list
+  @Input() sourceTableColumnHeaders?:any;//get filer heading list
+  @Input() destinationTableAddtionalHeader?:any;//get filer heading list
+  @Input() destinationTableAddtionalColumnData?:any;//get filer heading list
+
+ 
   @Input() sourceFilter?:boolean;//get sort table header
   @Input() destinationFilter?:boolean;//get sort table header
   @Input() destinationFilterBy?:any;//get filer heading list
-  @Input() destinationTableAddtionalColumnData?:any;//get filer heading list
-  @Input() sourceTableHeader?:any;//get filer heading list
-  @Input() sourceTableColumnHeaders1?:any;//get filer heading list
   @Input() destinationTableHeader?:any;//get filer heading list
-  @Input() destinationTableAddtionalHeader?:any;//get filer heading list
-
-  @Input() destinationTableColumnHeaders: Array<any>=[];//get destination table headers
 
   //source filter show or not
   sourceFilterIsShown: boolean = true; 
@@ -30,16 +29,10 @@ export class TestComponent implements OnInit {
   destinationFilterIsShown: boolean = true; 
   //search item
   term: string ="";
-  //source array
-  //camsSourceArray: any[]=[];
-  //destination array
+
  
-  //source headers
- 
-  camsDestinationHeaders: any[]=[];
   //source original copy of array
   sourceArrayCopy: any[]=[];
-  //sort out table header
 
   //right single arrow button disable true default
    rightButtonDisable =true;
@@ -49,9 +42,7 @@ export class TestComponent implements OnInit {
   dragItem?: any;
    //selected item in drag
    selectedItem?: any;
-  //destination search bar filter by
-  //source items column
-  sourceArrayColumnItem: any[]=[];
+ 
 
   constructor() { }
 
@@ -130,6 +121,7 @@ export class TestComponent implements OnInit {
     console.log("rightPushOne");
     this.dropRight();
     this.rightButtonDisable =true;
+    this.destinationArrayList.emit(this.destinationArray);
 
   }
   //all items push to right table
@@ -146,6 +138,8 @@ export class TestComponent implements OnInit {
     console.log("leftPushOne");
     this.dropLeft();
     this.leftButtonDisable =true;
+    this.destinationArrayList.emit(this.destinationArray);
+
   }
   //all items push to right table
   leftPushAll(){
@@ -154,6 +148,8 @@ export class TestComponent implements OnInit {
     this.destinationArray =[];
     this.leftButtonDisable =true;
     this.rightButtonDisable =true;
+    this.destinationArrayList.emit(this.destinationArray);
+
   }
   //when click right table row single left side arrow button enable
   onClickRightCell(product: any){
