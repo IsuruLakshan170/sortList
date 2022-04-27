@@ -1,21 +1,22 @@
 
 
 <div class="container cams-responsive">
-	<div class="row">
-    <div class="col-lg-4" >
+  <div class="row">
+      
+    <div class="col-lg-4 source-table">
         <div class="drag-column component-list" >
-            <div>
-                <div class="source-filter">
-                    <div class="filer-position" *ngIf="sourceFilterIsShown">
+          
+                
+                  <div class="filer-position" *ngIf="sourceFilterIsShown">
                         <input type="text" class="form-control" placeholder="Search Here" [(ngModel)]="term">
-                      </div>
-                </div>
+                  </div>
+               
                  <div>  
                     <ng-container
                       [ngTemplateOutlet]="sourceTableHeader">
                    </ng-container>
                  </div>
-            </div>
+          
              <div>
                   <hr class="hr-properties">
             </div>
@@ -30,14 +31,14 @@
         </div>
     </div>
     
-    <div class="col-lg-1 col align-self-center btn-arrows d-flex justify-content-center" >
+<div class="col-lg-1 col align-self-center btn-arrows d-flex justify-content-center" >
         <div class="">
         <button type="button" class="btn btn-primary btn-width btn-rotate" [disabled]="rightButtonDisable" (click)="rightPushOne()" >></button>
         <button type="button" class="btn btn-primary btn-width btn-rotate"  (click)="rightPushAll()" >>></button>
         <button type="button" class="btn btn-primary btn-width btn-rotate" [disabled]="leftButtonDisable" (click)="leftPushOne()"  ><</button>
         <button type="button" class="btn btn-primary btn-width btn-rotate" (click)="leftPushAll()" ><<</button>
     </div>
-        </div>
+  </div>
 
 <div class="col-lg-7"  >
     <div  class="" pDroppable="products" (onDrop)="dropRight()">
@@ -76,6 +77,8 @@
                 </ng-template>
             </p-table>
         </div>
-    </div>   </div>
-     </div>
+    </div>   
+</div>
+   
+</div>
     
