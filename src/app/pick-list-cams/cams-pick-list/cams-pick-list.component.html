@@ -2,7 +2,7 @@
 <div class="flex-container cams-responsive">
 
     <div>
-        <div class="drag-column component-list " >
+        <div class="drag-column component-list" >
             <div>
                 <div class="source-filter">
                     <div class="filer-position" *ngIf="sourceFilterIsShown">
@@ -36,7 +36,7 @@
         <button type="button" class="btn btn-primary btn-width btn-rotate" (click)="leftPushAll()" ><<</button>
     </div>
     
-    <div  class="drag-column" pDroppable="products" (onDrop)="dropRight()">
+    <div  class="drag-column destination-table" pDroppable="products" (onDrop)="dropRight()">
         <p-table #dt1  [value]="destinationArray"  [(selection)]="selectedItem" dataKey="code"
          [reorderableColumns]="true" responsiveLayout="scroll"
          [globalFilterFields]="destinationFilterBy" >

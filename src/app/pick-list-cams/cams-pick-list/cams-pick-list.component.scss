@@ -2,6 +2,7 @@
 .flex-container {
     display: flex;
     background-color: rgb(248, 248, 248);
+    flex-flow: row wrap;
   }
 
   .flex-container > div {
@@ -200,6 +201,7 @@ table th {
 @media screen and (max-width: 1200px) {
     .product-item {
         flex-wrap: wrap;
+        flex-flow: row wrap;
 
         .searchBox{
             width: 5%;
