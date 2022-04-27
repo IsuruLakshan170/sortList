@@ -24,6 +24,8 @@ export class MainWindowComponent implements OnInit {
     displayBasic?: boolean=false;
     displayBasic1?: boolean=false;
     displayBasic2?: boolean=false;
+    displayBasic3?: boolean=false;
+    displayBasic4?: boolean=true;
     position?: string;
     displayPosition?: boolean;
 
@@ -109,6 +111,12 @@ export class MainWindowComponent implements OnInit {
   }
   showBasicDialog2() {
     this.displayBasic2 =  true;
+  }
+  showBasicDialog3() {
+    this.displayBasic3 =  true;
+  }
+  showBasicDialog4() {
+    this.displayBasic4 =  true;
   }
 
   showPositionDialog(position: string) {

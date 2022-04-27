@@ -2,7 +2,7 @@
 
 <div class="container cams-responsive">
 	<div class="row">
-    <div class="col-lg-4" >
+    <div class="col-lg-4" style="padding:10px;">
         <div class="drag-column component-list" >
             <div>
                 <div class="source-filter">
@@ -10,7 +10,7 @@
                         <input type="text" class="form-control" placeholder="Search Here" [(ngModel)]="term">
                       </div>
                 </div>
-                 <div>  
+                 <div >  
                     <ng-container
                       [ngTemplateOutlet]="sourceTableHeader">
                    </ng-container>
@@ -54,7 +54,7 @@
             <ng-template pTemplate="header">
                 <tr>
                     <th style="width:3rem"></th>
-                    <th>Order</th>
+                    <th>    <h5 class="h5" >Order</h5></th>
                  <ng-container *ngTemplateOutlet="destinationTableColumnHeader"></ng-container>
                 </tr>
             </ng-template>
@@ -66,7 +66,8 @@
                             </div>
                        </td>
                         <td>
-                            {{index+1}}
+                            <h5 class="h5" >   {{index+1}} </h5>
+                          
                         </td>
                         <ng-container 
                         [ngTemplateOutlet]="destinationTableColumnData"
