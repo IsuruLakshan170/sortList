@@ -2,7 +2,7 @@
 
 <div class="container cams-responsive">
 	<div class="row">
-      <div class="col-lg-4 col-sm-4 source-table" >
+    <div class="col-lg-4" >
         <div class="drag-column component-list" >
             <div>
                 <div class="source-filter">
@@ -28,9 +28,9 @@
                 </div>
             </div>
         </div>
-      </div>
+    </div>
     
-    <div class="col-lg-1 col-sm-1 col align-self-center btn-arrows d-flex justify-content-center" >
+    <div class="col-lg-1 col align-self-center btn-arrows d-flex justify-content-center" >
         <div class="">
         <button type="button" class="btn btn-primary btn-width btn-rotate" [disabled]="rightButtonDisable" (click)="rightPushOne()" >></button>
         <button type="button" class="btn btn-primary btn-width btn-rotate"  (click)="rightPushAll()" >>></button>
@@ -39,7 +39,7 @@
     </div>
         </div>
 
-<div class="col-lg-7 col-sm-7 sorted-table"  >
+<div class="col-lg-7"  >
     <div  class="" pDroppable="products" (onDrop)="dropRight()">
         <p-table #dt1  [value]="destinationArray"  [(selection)]="selectedItem" dataKey="code"
          [reorderableColumns]="true" responsiveLayout="scroll"
