@@ -227,9 +227,7 @@
     [sourceFilter]="true"
     [destinationFilter]="true"
     [destinationFilterBy]="['id','name']"
-    (destinationArrayList)="setDeleteRow($event)"
-
->
+    (destinationArrayList)="setDeleteRow($event)">
     
         <ng-template #sourceHeaderTemplate>
             <h4 class="sourceHeader">Component list</h4>
@@ -239,8 +237,7 @@
             <div>
                 <h5 style="color: rgb(255, 255, 255);">Name: {{product.name}}</h5>
                 <h6 style="color: rgb(89, 114, 160);">Quantity: {{product.quantity}}</h6>
-            </div>
-                
+            </div>   
         </ng-template>
 
         <ng-template #destinationHeaderTemplate>
@@ -248,7 +245,6 @@
         </ng-template>
 
         <ng-template #destinationTableColumnHeaderTemplate>
-            
                 <th *ngFor="let col of productDestinationHeaders">
                      {{col.header}}
                 </th>
@@ -261,7 +257,6 @@
             <td *ngFor="let col of productDestinationHeaders">
                 <div> {{rowData[col.field]}} </div>
              </td>
-
           <td>
             <input type="checkbox" id="component" name="component" value="normal">
           </td>
@@ -272,9 +267,6 @@
             <button type="button" class="btn btn-danger" (click)="onDelete(rowData)">Delete</button>
         </td>
     </ng-template>
-
-
-
 
 </app-cams-pick-list>
 

@@ -22,7 +22,7 @@ export interface Car{
 export class MainWindowComponent implements OnInit {
 
     displayBasic?: boolean=false;
-    displayBasic1?: boolean=true;
+    displayBasic1?: boolean=false;
     displayBasic2?: boolean=false;
     position?: string;
     displayPosition?: boolean;

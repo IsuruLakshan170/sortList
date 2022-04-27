@@ -1,6 +1,5 @@
 
 import { Component, OnInit,Input,EventEmitter, Output} from '@angular/core';
-
   @Component({
     selector: 'app-cams-pick-list',
     templateUrl: './cams-pick-list.component.html',
@@ -41,7 +40,6 @@ import { Component, OnInit,Input,EventEmitter, Output} from '@angular/core';
      dragItem?: any;
      //selected item in drag
      selectedItem?: any;
-   
   
     constructor() { }
   
