@@ -7,7 +7,7 @@ import { Component, OnInit,Input,EventEmitter, Output} from '@angular/core';
   })
   export class CamsPickListComponent implements OnInit {
   
-    @Output() destinationArrayList:EventEmitter<any> =new EventEmitter();
+    @Output() destinationArrayList:EventEmitter<any> =new EventEmitter();//send destination table data to parent 
   
     @Input() sourceArray: Array<any>=[];//get source array
     @Input() destinationArray: Array<any>=[];//get destination array
