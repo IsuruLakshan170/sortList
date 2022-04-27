@@ -23,7 +23,7 @@ export class MainWindowComponent implements OnInit {
 
     displayBasic?: boolean=false;
     displayBasic1?: boolean=false;
-    displayBasic2?: boolean=false;
+    displayBasic2?: boolean=true;
     position?: string;
     displayPosition?: boolean;
 
