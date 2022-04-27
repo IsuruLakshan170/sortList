@@ -4,6 +4,7 @@
     padding-top: 20px;
     text-align: center;
 }
-:host ::ng-deep .disable-scroll .ui-dialog-content {
-    overflow: hidden !important;
-  }
+
+:host ::ng-deep .p-dialog .p-dialog-content{
+    background-color: white;
+}

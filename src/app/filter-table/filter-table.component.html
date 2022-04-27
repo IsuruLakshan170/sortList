@@ -1,55 +1,10 @@
-<div class="height">
 
-<ng-container *ngIf="loading == true ; else secondcode">
-	<h2>first</h2>
-</ng-container>
+<h1>hello</h1>
 
-<h2>1 way</h2>
-
-<h2>2 way</h2>
-
-<h2>3 way</h2>
+<div class="container">
+	<div class="row">
+	  <div class="col-4" style="background-color: red;">col-sm-4</div>
+	  <div class="col-sm-2" style="background-color: rgb(21, 255, 0);">col-sm-2</div>
+	  <div class="col-sm-6" style="background-color: rgb(165, 185, 52);">col-sm-6</div>
+	</div>
 </div>
-<ng-template #secondcode>
-	<h2>second</h2>
-</ng-template>
-
-
-
-<p-table #dt1 [value]="customers"  [rows]="10" [showCurrentPageReport]="true"
-	[rowsPerPageOptions]="[10,25,50]" styleClass="p-datatable-customers p-datatable-gridlines"
-
-	[globalFilterFields]="['name']">
-	<ng-template pTemplate="caption">
-		<div class="p-d-flex">
-			<span class="p-input-icon-left p-ml-auto">
-                <i class="pi pi-search"></i>
-                <input pInputText #textInput type="text"  (input)="dt1.filterGlobal(getEventValue($event), 'contains')" placeholder="Search keyword" />
-            </span>
-		</div>
-	</ng-template>
-
-
-	<ng-template pTemplate="body" let-customer>
-		<tr>
-			<td>
-				{{customer.name}}
-			</td>
-			<tr>
-	</ng-template>
-
-
-
-	<ng-template pTemplate="header">
-		<tr>
-			<th>
-				<div class="p-d-flex p-jc-between p-ai-center">
-					Name
-					<p-columnFilter type="text" field="name" display="menu"></p-columnFilter>
-				</div>
-			</th>
-	
-		</tr>
-	</ng-template>
-</p-table>
-

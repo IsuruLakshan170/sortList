@@ -12,6 +12,8 @@ export interface Product{
   styleUrls: ['./filter-table.component.scss']
 })
 export class FilterTableComponent implements OnInit {
+
+  displayBasic?: boolean=false;
   public customers:Product[] = [
     {id:1, code: '2', name: '2Floor',category:'2one',quantity:'2new'},
     {id:2, code: '3', name: '3Floor',category:'3one',quantity:'3new'},
@@ -26,7 +28,9 @@ export class FilterTableComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  showBasicDialog() {
+    this.displayBasic =  true;
+  }
 
   getEventValue($event:any) :string {
     return $event.target.value;

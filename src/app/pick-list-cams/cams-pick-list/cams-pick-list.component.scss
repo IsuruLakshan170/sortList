@@ -7,10 +7,10 @@
 
   .flex-container > div {
     background-color: #f1f1f1;
-    margin: 10px;
-    padding: 20px;
+    
   
   }
+ 
 
 :host ::ng-deep .drag-column {
     padding-right: .5em;
@@ -29,7 +29,6 @@
 	display: flex;
 	align-items: center;
 	padding: 1rem;
-    width: 100%;
     border-bottom: 1px solid var(--surface-d);
 
 	.product-list-detail {
@@ -62,7 +61,7 @@
 }
 
 .btn-width{
-    width: 3rem;
+    width: 4rem;
     margin-top: 10px;
 }
 .gridview .selected, .gridview tbody .selected {
@@ -198,7 +197,7 @@ table th {
 }
 
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 992px) {
     .product-item {
         flex-wrap: wrap;
         flex-flow: row wrap;
@@ -212,8 +211,8 @@ table th {
         display: inline;
         justify-content: space-between;
     }
-    .arrowbtn{
-        flex-direction: row;
+    .btn-arrows{
+      margin: 10px;
     }
     .btn-width{
         width: 3rem;
