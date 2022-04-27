@@ -33,11 +33,11 @@ export class MainWindowComponent implements OnInit {
     sortedProducts :Product[]=[];
 // product table array
   public products:Product[] = [
-    {id:1, code: '2', name: 'Floor',category:'2one',quantity:'2new'},
-    {id:2, code: '3', name: 'Room',category:'3one',quantity:'3new'},
-    {id:3, code: '4', name: 'Component Group',category:'4one',quantity:'4new'},
-    {id:4, code: '5', name: 'Component Type',category:'5one',quantity:'5new'},
-    {id:5, code: '6', name: 'Component',category:'6one',quantity:'6new'},
+    {id:1, code: '12', name: 'Floor',category:'seera',quantity:'1000'},
+    {id:2, code: '53', name: 'Room',category:'hetro',quantity:'500'},
+    {id:3, code: '46', name: 'Component Group',category:'auto',quantity:'40'},
+    {id:4, code: '65', name: 'Component Type',category:'mpu',quantity:'866'},
+    {id:5, code: '96', name: 'Component',category:'nic',quantity:'80'},
   
   ];
   //product table source headers
