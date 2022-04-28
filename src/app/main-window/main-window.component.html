@@ -348,67 +348,6 @@
 
 
 
-<!--
-<app-cams-pick-list
-    [sourceArray]="products"
-    [destinationArray]="sortedProducts"
-
-    [sourceTableHeader]="sourceHeaderTemplate"
-    [sourceTableColumnData]="sourceColumnDataTemplate"
-    [destinationTableHeader]="destinationHeaderTemplate"
-    [destinationTableColumnHeader]="destinationTableColumnHeaderTemplate"
-    [destinationTableColumnData]="destinationTableColumnDataTemplate"
-
-    [sourceFilter]="true"
-    [destinationFilter]="true"
-    [destinationFilterBy]="['id','name']"
-    (destinationArrayList)="setDeleteRow($event)">
-
-        <ng-template #sourceHeaderTemplate>
-            <h4 class="sourceHeader h4">Component list</h4>
-        </ng-template>
-
-        <ng-template #sourceColumnDataTemplate let-product>
-            <div>
-                <h5 class="h5" style="color: rgb(255, 255, 255);">Name: {{product.name}}</h5>
-                <h6 class="h6"  style="color: rgb(89, 114, 160);">Quantity: {{product.quantity}}</h6>
-            </div>
-        </ng-template>
-
-        <ng-template #destinationHeaderTemplate>
-            <h4 class="sourceHeader h4">Sorted Products</h4>
-        </ng-template>
-
-        <ng-template #destinationTableColumnHeaderTemplate>
-                <th *ngFor="let col of productDestinationHeaders">
-                     {{col.header}}
-                </th>
-                <th>Check box</th>
-                <th>Edit</th>
-                <th>Delete</th>
-        </ng-template>
-
-        <ng-template #destinationTableColumnDataTemplate let-rowData>
-            <td *ngFor="let col of productDestinationHeaders">
-                <div> {{rowData[col.field]}} </div>
-             </td>
-          <td>
-            <input type="checkbox" id="component" name="component" value="normal">
-          </td>
-          <td>
-            <button type="button" class="btn btn-warning"  >Edit</button>
-          </td>
-          <td>
-            <button type="button" class="btn btn-danger" (click)="onDelete(rowData)">Delete</button>
-        </td>
-    </ng-template>
-
-</app-cams-pick-list>
- -->
-
-
-
-
 
 
 
