@@ -20,7 +20,7 @@
     (destinationArrayList)="setDeleteRow($event)"
 
 >
-    
+
         <ng-template #sourceHeaderTemplate>
             <h4 class="h4 sourceHeader">Component list</h4>
         </ng-template>
@@ -30,7 +30,7 @@
                 <h6 class="h6" style="color: rgb(255, 255, 255);">Name: {{product.name}}</h6>
                 <h6  class="h6"  style="color: rgb(89, 114, 160);">Quantity: {{product.quantity}}</h6>
             </div>
-                
+
         </ng-template>
 
         <ng-template #destinationHeaderTemplate>
@@ -38,9 +38,9 @@
         </ng-template>
 
         <ng-template #destinationTableColumnHeaderTemplate>
-            
+
                 <th *ngFor="let col of productDestinationHeaders">
-                   {{col.header}} 
+                   {{col.header}}
                 </th>
                 <th>Check box</th>
                 <th>Edit</th>
@@ -89,7 +89,7 @@
     (destinationArrayList)="setDeleteRow($event)"
 
 >
-    
+
         <ng-template #sourceHeaderTemplate>
             <h4 class="h4 sourceHeader">Component list</h4>
         </ng-template>
@@ -99,7 +99,7 @@
                 <h6 class="h6" style="color: rgb(255, 255, 255);">Name: {{product.name}}</h6>
                 <h6  class="h6"  style="color: rgb(89, 114, 160);">Quantity: {{product.quantity}}</h6>
             </div>
-                
+
         </ng-template>
 
         <ng-template #destinationHeaderTemplate>
@@ -107,9 +107,9 @@
         </ng-template>
 
         <ng-template #destinationTableColumnHeaderTemplate>
-            
+
                 <th *ngFor="let col of productDestinationHeaders">
-                   {{col.header}} 
+                   {{col.header}}
                 </th>
                 <th>Check box</th>
                 <th>Edit</th>
@@ -157,7 +157,7 @@
     (destinationArrayList)="setDeleteRow($event)"
 
 >
-    
+
         <ng-template #sourceHeaderTemplate>
             <h4 class="h4 sourceHeader">Component list</h4>
         </ng-template>
@@ -167,7 +167,7 @@
                 <h6 class="h6" style="color: rgb(255, 255, 255);">Name: {{product.name}}</h6>
                 <h6  class="h6"  style="color: rgb(89, 114, 160);">Quantity: {{product.quantity}}</h6>
             </div>
-                
+
         </ng-template>
 
         <ng-template #destinationHeaderTemplate>
@@ -175,9 +175,9 @@
         </ng-template>
 
         <ng-template #destinationTableColumnHeaderTemplate>
-            
+
                 <th *ngFor="let col of productDestinationHeaders">
-                   {{col.header}} 
+                   {{col.header}}
                 </th>
                 <th>Check box</th>
                 <th>Edit</th>
@@ -209,7 +209,7 @@
 
 
 <p-button (click)="showBasicDialog3()" icon="pi pi-external-link" label="Show 30"></p-button>
-<p-dialog header="Header" [(visible)]="displayBasic3"  [style]="{width: '30vw'}" [baseZIndex]="10000">
+<p-dialog header="Header" [(visible)]="displayBasic3"  [breakpoints]="{'1300px': '40vw','960px': '50vw', '640px': '100vw'}"  [style]="{width: '30vw'}"  [baseZIndex]="10000">
     <div style="height: 20px;"></div>
     <app-cams-pick-list
     [sourceArray]="products"
@@ -227,7 +227,7 @@
     (destinationArrayList)="setDeleteRow($event)"
 
 >
-    
+
         <ng-template #sourceHeaderTemplate>
             <h4 class="h4 sourceHeader">Component list</h4>
         </ng-template>
@@ -237,7 +237,7 @@
                 <h6 class="h6" style="color: rgb(255, 255, 255);">Name: {{product.name}}</h6>
                 <h6  class="h6"  style="color: rgb(89, 114, 160);">Quantity: {{product.quantity}}</h6>
             </div>
-                
+
         </ng-template>
 
         <ng-template #destinationHeaderTemplate>
@@ -245,9 +245,9 @@
         </ng-template>
 
         <ng-template #destinationTableColumnHeaderTemplate>
-            
+
                 <th *ngFor="let col of productDestinationHeaders">
-                   {{col.header}} 
+                   {{col.header}}
                 </th>
                 <th>Check box</th>
                 <th>Edit</th>
@@ -279,7 +279,7 @@
 
 
 <p-button (click)="showBasicDialog4()" icon="pi pi-external-link" label="Show 30 add"></p-button>
-<p-dialog header="Header" [(visible)]="displayBasic4" [breakpoints]="{'1300px': '40vw','960px': '50vw', '640px': '90vw'}"  [style]="{width: '30vw'}" [baseZIndex]="10000">
+<p-dialog header="Header" [(visible)]="displayBasic4" [breakpoints]="{'1300px': '40vw','960px': '50vw', '640px': '100vw'}"  [style]="{width: '30vw'}" [baseZIndex]="10000">
     <div style="height: 20px;"></div>
     <app-extended-picklist
     [sourceArray]="products"
@@ -297,7 +297,7 @@
     (destinationArrayList)="setDeleteRow($event)"
 
 >
-    
+
         <ng-template #sourceHeaderTemplate>
             <h4 class="h4 sourceHeader">Component list</h4>
         </ng-template>
@@ -307,7 +307,7 @@
                 <h6 class="h6" style="color: rgb(255, 255, 255);">Name: {{product.name}}</h6>
                 <h6  class="h6"  style="color: rgb(89, 114, 160);">Quantity: {{product.quantity}}</h6>
             </div>
-                
+
         </ng-template>
 
         <ng-template #destinationHeaderTemplate>
@@ -315,9 +315,9 @@
         </ng-template>
 
         <ng-template #destinationTableColumnHeaderTemplate>
-            
+
                 <th *ngFor="let col of productDestinationHeaders">
-                   {{col.header}} 
+                   {{col.header}}
                 </th>
                 <th>Check box</th>
                 <th>Edit</th>
@@ -348,7 +348,7 @@
 
 
 
-<!-- 
+<!--
 <app-cams-pick-list
     [sourceArray]="products"
     [destinationArray]="sortedProducts"
@@ -363,7 +363,7 @@
     [destinationFilter]="true"
     [destinationFilterBy]="['id','name']"
     (destinationArrayList)="setDeleteRow($event)">
-    
+
         <ng-template #sourceHeaderTemplate>
             <h4 class="sourceHeader h4">Component list</h4>
         </ng-template>
@@ -372,7 +372,7 @@
             <div>
                 <h5 class="h5" style="color: rgb(255, 255, 255);">Name: {{product.name}}</h5>
                 <h6 class="h6"  style="color: rgb(89, 114, 160);">Quantity: {{product.quantity}}</h6>
-            </div>   
+            </div>
         </ng-template>
 
         <ng-template #destinationHeaderTemplate>
